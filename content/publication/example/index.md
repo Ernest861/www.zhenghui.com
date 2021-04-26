@@ -33,7 +33,6 @@ abstract: 'Internet gaming disorder (IGD) has become a global public health conc
 
 # Summary. An optional shortened abstract.
 summary: 'Our study aimed to discover the similarities among all studies and to explore the uniqueness of the different paradigms. This study further confirmed the critical role of reward circuitry and executive control circuitry in IGD but not under all conditions.'
-
 tags: [Internet gaming disorder] [Executive function] [Reward system] [fMRI] [Meta-analysis]
 
 # Display this page in the Featured widget?
