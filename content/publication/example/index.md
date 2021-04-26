@@ -1,46 +1,49 @@
 ---
-title: "An example conference paper"
+title: "Meta-analyses of the functional neural alterations in subjects with Internet gaming disorder: Similarities and differences across different paradigms"
 
 # Authors
 # If you created a profile for a user (e.g. the default `admin` user), write the username (folder name) here 
 # and it will be replaced with their full name and linked to their profile.
 authors:
 - admin
-- Robert Ford
+
 
 # Author notes (optional)
 author_notes:
-- "Equal contribution"
-- "Equal contribution"
+- "1"
 
-date: "2013-07-01T00:00:00Z"
+
+date: "2017-09-15T15:26:45Z"
 doi: ""
 
 # Schedule page publish date (NOT publication's date).
-publishDate: "2017-01-01T00:00:00Z"
+publishDate: "2017-09-15T15:26:45Z"
 
 # Publication type.
 # Legend: 0 = Uncategorized; 1 = Conference paper; 2 = Journal article;
 # 3 = Preprint / Working Paper; 4 = Report; 5 = Book; 6 = Book section;
 # 7 = Thesis; 8 = Patent
-publication_types: ["1"]
+publication_types: ["2"]
 
 # Publication name and optional abbreviated publication name.
-publication: In *Wowchemy Conference*
-publication_short: In *ICW*
+publication: In *Progress in Neuro-Psychopharmacology and Biological Psychiatry*
+publication_short: In *PNPBP*
 
-abstract: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis posuere tellus ac convallis placerat. Proin tincidunt magna sed ex sollicitudin condimentum. Sed ac faucibus dolor, scelerisque sollicitudin nisi. Cras purus urna, suscipit quis sapien eu, pulvinar tempor diam. Quisque risus orci, mollis id ante sit amet, gravida egestas nisl. Sed ac tempus magna. Proin in dui enim. Donec condimentum, sem id dapibus fringilla, tellus enim condimentum arcu, nec volutpat est felis vel metus. Vestibulum sit amet erat at nulla eleifend gravida.
+abstract: Internet gaming disorder (IGD) has become a global public health concern due to its increasing prevalence and potential negative consequences. Researchers have sought to identify which brain regions are associated with this disorder. However, inconsistent results have been reported among studies due to the heterogeneity of paradigms and subjects.
+The present research aimed to combine the results of individual studies to provide a more coherent and powerful explanation. By selecting 40 studies utilizing a qualified whole-brain analysis, we performed a comprehensive series of meta-analyses that employed seed-based d mapping. We divided the existing experimental paradigms into 3 categories: game-related cue-reactivity, executive control, and risk-reward-related decision-making tasks.
+We divided all studies into three subgroups according to their paradigms. In cue-reactivity tasks, patients with IGD exhibited significant hyperactivation in the bilateral precuneus and bilateral cingulate and significant hypoactivation in the insula, but there were no differences in the striatum. In executive control tasks, patients with IGD displayed significant hyperactivation in the right superior temporal gyrus, bilateral precuneus, bilateral cingulate, and insula and hypoactivation in the left inferior frontal gyrus. In risky decision-making paradigms, IGD patients exhibited significant hyperactivation in the left striatum, right inferior frontal gyrus, and insula and hypoactivation in the left superior frontal gyrus, left inferior frontal gyrus, and right precentral gyrus.
+Our study aimed to discover the similarities among all studies and to explore the uniqueness of the different paradigms. This study further confirmed the critical role of reward circuitry and executive control circuitry in IGD but not under all conditions.
 
 # Summary. An optional shortened abstract.
-summary: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis posuere tellus ac convallis placerat. Proin tincidunt magna sed ex sollicitudin condimentum.
+summary: Our study aimed to discover the similarities among all studies and to explore the uniqueness of the different paradigms. This study further confirmed the critical role of reward circuitry and executive control circuitry in IGD but not under all conditions.
 
-tags: []
+tags: [Internet gaming disorder;Executive function; Reward system; fMRI; Meta-analysis]
 
 # Display this page in the Featured widget?
 featured: true
 
 # Custom links (uncomment lines below)
-# links:
+links: https://linkinghub.elsevier.com/retrieve/pii/S0278584619300259
 # - name: Custom Link
 #   url: http://example.org
 
