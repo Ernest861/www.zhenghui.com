@@ -22,8 +22,9 @@ main:
   - name: Contact
     url: '#contact'
     weight: 60
-
-   '/#z-section'
+  #- name: blankPage
+  #  url:'#z-section'
+  #  weight: 5
 # Link to a PDF of your resume/CV from the menu.
 # To enable, copy your resume/CV to `static/uploads/resume.pdf` and uncomment the lines below.
   - name: CV
