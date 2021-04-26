@@ -49,7 +49,7 @@ contact_links:
   - icon: weixin
     icon_pack: fab
     name: Chat on 微信
-    link: 'zhengguangjun'
+    link: uploads/weixin.jpg
   - icon: comments
     icon_pack: fas
     name: Discuss on Forum
