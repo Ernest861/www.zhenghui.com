@@ -33,7 +33,7 @@ abstract: 'Internet gaming disorder (IGD) has become a global public health conc
 
 # Summary. An optional shortened abstract.
 summary: ''
-tags: 'Internet gaming disorder' ，'Executive function' ，'Reward system' ，'fMRI' ，'Meta-analysis'
+tags: [Internet gaming disorder] ,[Executive function] ,[Reward system] ,[fMRI] ,[Meta-analysis]
 
 # Display this page in the Featured widget?
 featured: true
