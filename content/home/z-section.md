@@ -10,7 +10,7 @@ headless: true
 weight: 1
 
 # Section title
-title: Hello
+title: Keep Running, Keep Thinking
 
 # Section subtitle
 subtitle:
