@@ -20,19 +20,19 @@ twitter: ''
 
 # Contact (edit or remove options as required)
 
-email: test@example.org
-phone: 888 888 88 88
+email: zh.dmtr@gmail.com
+phone: 18267908575
 address:
-  street: 450 Serra Mall
-  city: Stanford
-  region: CA
-  postcode: '94305'
-  country: United States
-  country_code: US
+  street: 600 Wanping S Rd, Wan Ti Guan, Xuhui District
+  city: Shanghai
+  region: Shanghai
+  postcode: '200030'
+  country: China
+  country_code: CH
 coordinates:
-  latitude: '37.4275'
-  longitude: '-122.1697'
-directions: Enter Building 1 and take the stairs to Office 200 on Floor 2
+  latitude: '31.2304'
+  longitude: '121.4737'
+directions: Enter Building 3
 office_hours:
   - 'Monday 10:00 to 13:00'
   - 'Wednesday 09:00 to 10:00'
@@ -41,19 +41,19 @@ contact_links:
   - icon: twitter
     icon_pack: fab
     name: DM Me
-    link: 'https://twitter.com/Twitter'
+    link: 'https://twitter.com/zh_dmtr'
   - icon: skype
     icon_pack: fab
     name: Skype Me
-    link: 'skype:echo123?call'
-  - icon: keybase
+    link: 'skype:zhdivel'
+  - icon: Weixin
     icon_pack: fab
-    name: Chat on Keybase
-    link: 'https://keybase.io/'
+    name: Chat on 微信
+    link: 'zhengguangjun'
   - icon: comments
     icon_pack: fas
     name: Discuss on Forum
-    link: 'https://discourse.gohugo.io'
+    link: ''
 
 # Site header
 
