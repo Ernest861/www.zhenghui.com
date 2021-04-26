@@ -1,6 +1,6 @@
 ---
 # Display name
-title: Hui Zheng (郑辉)
+title: Hui Zheng
 
 # Is this the primary user of the site?
 superuser: true
@@ -71,6 +71,6 @@ highlight_name: false
 ---
 
 I am interested in the mechanisms and treatment of addiction by MRI, EEG, TMS, TES. I am curious about the resilience and cognitive flexibility, especially the maladaptive learning ( e.g., goal-directed [model-based] and habitual control [model-free] behavior ) in addiction patients (substance use & behavior addiction). Now I am trying to explore whether the maladaptive learning tasks and algorithms of reinforcement learning have a cross-diagnostic role in mental illness.
-我对MRI，EEG，TMS，TES上瘾的机制和治疗感兴趣。 我对成瘾患者（物质使用和行为成瘾）的适应力和认知灵活性，特别是适应不良的学习（例如，目标导向的[基于模型的]行为和习惯控制[无模型的]行为）感到好奇。 现在，我正在尝试探索适应不良的学习任务和强化学习算法在精神疾病中是否具有交叉诊断作用。
+
 
 {{< icon name="download" pack="fas" >}} Download my {{< staticref "media/demo_resume.pdf" "newtab" >}}resumé{{< /staticref >}}.
