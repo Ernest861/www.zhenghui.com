@@ -14,7 +14,7 @@ author_notes:
 
 
 date: "2017-09-15T15:26:45Z"
-doi: ""
+doi: "https://doi.org/10.1016/j.pnpbp.2019.109656"
 
 # Schedule page publish date (NOT publication's date).
 publishDate: "2017-09-15T15:26:45Z"
@@ -40,7 +40,7 @@ tags: [Internet gaming disorder;Executive function; Reward system; fMRI; Meta-an
 featured: true
 
 # Custom links (uncomment lines below)
-links: https://linkinghub.elsevier.com/retrieve/pii/S0278584619300259
+# links: 
 # - name: Custom Link
 #   url: http://example.org
 
