@@ -25,8 +25,8 @@ feature:
   icon_pack: fas
   name: Statistics
 - description: semi-professional
-  icon: desktop-alt
-  icon_pack: fas
+  icon: react
+  icon_pack: fab
   name: task-fMRI
 
 # Uncomment to use emoji icons.

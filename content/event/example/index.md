@@ -1,28 +1,28 @@
 ---
-title: Example Talk
+title: Conference Talk
 
-event: Wowchemy Conference
+event: APSAAR Conference
 event_url: https://example.org
 
-location: Wowchemy HQ
+location: Kuala Lumpur 
 address:
   street: 450 Serra Mall
-  city: Stanford
-  region: CA
-  postcode: '94305'
-  country: United States
+  city: Kuala Lumpur 
+  region: Kuala Lumpur 
+  postcode: ''
+  country: Malaysia 
 
-summary: An example talk using Wowchemy's Markdown slides feature.
-abstract: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis posuere tellusac convallis placerat. Proin tincidunt magna sed ex sollicitudin condimentum. Sed ac faucibus dolor, scelerisque sollicitudin nisi. Cras purus urna, suscipit quis sapien eu, pulvinar tempor diam."
+summary: Targeting altered resting neural activity in addiction: a meta-analysis
+abstract: "Addiction triggers neuroplastic changes in the brain, reflected aberrant neural activity and connectivity. Measuring alterations in resting neural activity provides mechanistic insights to understand addiction, as well as therapeutic targets for brain stimulation based treatments. Resting-state fMRI (rs-MRI) has been extensively employed for resting neural activity measurements comparing health control and addiction subjects; yet the available results are inconsistent due to the limited sample size and heterogeneous laboratory settings. Here we performed meta-analyses with ES-SDM method, in order to identify reliable alterations of resting neural activity in addiction population. Regional homogeneity (ReHo), the amplitude of low-frequency fluctuations (ALFF) and fractional ALFF (fALFF) were included for analyses based on 30 identified studies using voxel-wise whole-brain two-sample tests. The results revealed significantly increased ReHo and ALFF in the left supplementary motor area and bilateral medial cingulate, decreased ReHo and ALFF in right middle superior frontal gyrus. We also identified increased ReHo in the left precentral gyrus, left postcentral gyrus, right inferior temporal gyrus, and left middle temporal gyrus; decreased ReHo in the bilateral anterior cingulate (ACC), medial orbitofrontal cortex (OFC), bilateral ventromedial prefrontal cortex, and right dorsal prefrontal cortex. Increased ALFF/fALFF was found in the right putamen, right insula, bilateral thalamus; decreased ALFF/fALFF in left middle occipital gyrus. In conclusion, aberrant resting neural activity (e.g. Increased resting activity in a reward system and decreased resting activity in impulsivity) could serve as prognostic biomarker and functional targets for noninvasive brain stimulation treatments. "
 
 # Talk start and end times.
 #   End time can optionally be hidden by prefixing the line with `#`.
-date: "2030-06-01T13:00:00Z"
-date_end: "2030-06-01T15:00:00Z"
+date: "2019-11-10T13:00:00Z"
+date_end: "2019-11-11T15:00:00Z"
 all_day: false
 
 # Schedule page publish date (NOT talk date).
-publishDate: "2017-01-01T00:00:00Z"
+publishDate: "2019-11-11T00:00:00Z"
 
 authors: []
 tags: []
@@ -38,7 +38,7 @@ links:
 - icon: twitter
   icon_pack: fab
   name: Follow
-  url: https://twitter.com/georgecushen
+  url: https://twitter.com/zh_dmtr
 url_code: ""
 url_pdf: ""
 url_slides: ""

@@ -46,7 +46,7 @@ contact_links:
     icon_pack: fab
     name: Skype Me
     link: 'skype:zhdivel'
-  - icon: Weixin
+  - icon: weixin
     icon_pack: fab
     name: Chat on 微信
     link: 'zhengguangjun'

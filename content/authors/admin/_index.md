@@ -11,7 +11,7 @@ role: Phd Student
 # Organizations/Affiliations to show in About widget
 organizations:
 - name: Yuan Lab
-  url: 
+  url: ''
 
 # Short bio (displayed in user profile at end of posts)
 bio: My research interests include neuron modulation and reinforcement learning in addiction disorder.
@@ -45,16 +45,16 @@ social:
   link: '/#contact'
 - icon: twitter
   icon_pack: fab
-  link: https://twitter.com/GeorgeCushen
+  link: https://twitter.com/zh_dmtr
 - icon: graduation-cap  # Alternatively, use `google-scholar` icon from `ai` icon pack
   icon_pack: fas
-  link: https://scholar.google.co.uk/citations?user=sIwtMXoAAAAJ
+  link: https://scholar.google.com.hk/citations?user=-uOAJ_YAAAAJ&hl
 - icon: github
   icon_pack: fab
-  link: https://github.com/gcushen
+  link: https://github.com/Ernest861
 - icon: linkedin
   icon_pack: fab
-  link: https://www.linkedin.com/
+  link: https://www.linkedin.com/in/hui-zheng-36320b180/
 
 # Link to a PDF of your resume/CV.
 # To use: copy your resume to `static/uploads/CV_ZhengHui_1010.pdf`, enable `ai` icons in `params.toml`, 
