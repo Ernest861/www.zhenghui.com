@@ -6,11 +6,11 @@ title: Hui Zheng
 superuser: true
 
 # Role/position/tagline
-role: Visiting Post Follow
+position: Visiting Post Follow
 
 # Organizations/Affiliations to show in About widget
 organizations:
-- name: NIDA
+- name: NIH
   url: 'https://irp.nida.nih.gov/staff-members/hui-zheng-ph-d/'
 
 # Short bio (displayed in user profile at end of posts)
@@ -18,9 +18,11 @@ bio: My research interests include neuron modulation and reinforcement learning 
 
 # Interests to show in About widget
 interests:
-- Task fMRI
+- Translational Medicine
 - Computational Psychiatry
 - Cognitive Flexibility
+- Multidimensional data fusion
+- Localization of experimental materials
 
 # Education to show in About widget
 education:
@@ -30,7 +32,7 @@ education:
     year: 2019-2024
   - course: MSC in Basic Psychology
     institution: Zhejiang Normal University
-    year: 2015-2019
+    year: 2016-2019
   - course: BSc in Apply Psychology
     institution: Zhejiang Normal University
     year: 2011-2015
