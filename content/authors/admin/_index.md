@@ -14,7 +14,7 @@ organizations:
   url: 'https://irp.nida.nih.gov/staff-members/hui-zheng-ph-d/'
 
 # Short bio (displayed in user profile at end of posts)
-bio: My research interests include neuron modulation and reinforcement learning in addiction disorder.
+bio: My research interests include neuron modulation and reinforcement learning in addiction realted disorder.
 
 # Interests to show in About widget
 interests:
@@ -27,7 +27,7 @@ education:
   courses:
   - course: PhD student in Psychology
     institution: Shanghai Jiao Tong University, Shanghai Mental Health Center
-    year: 2019-Now
+    year: 2019-2024
   - course: MSC in Basic Psychology
     institution: Zhejiang Normal University
     year: 2015-2019
@@ -45,7 +45,7 @@ social:
   link: '/#contact'
 - icon: twitter
   icon_pack: fab
-  link: https://twitter.com/zh_dmtr
+  link: 
 - icon: graduation-cap  # Alternatively, use `google-scholar` icon from `ai` icon pack
   icon_pack: fas
   link: https://scholar.google.com.hk/citations?user=-uOAJ_YAAAAJ&hl
@@ -67,7 +67,7 @@ social:
 email: "zh.dmtr@gmail.com"
 
 # Highlight the author in author lists? (true/false)
-highlight_name: false
+highlight_name: true
 ---
 
 I am interested in the mechanisms and treatment of addiction by MRI, EEG, TMS, TES. I am curious about the resilience and cognitive flexibility, especially the maladaptive learning ( e.g., goal-directed [model-based] and habitual control [model-free] behavior ) in addiction patients (substance use & behavior addiction). Now I am trying to explore whether the maladaptive learning tasks and algorithms of reinforcement learning have a cross-diagnostic role in mental illness.
