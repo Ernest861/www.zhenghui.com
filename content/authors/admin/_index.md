@@ -59,11 +59,11 @@ social:
   link: https://www.linkedin.com/in/hui-zheng-36320b180/
 
 # Link to a PDF of your resume/CV.
-# To use: copy your resume to `static/uploads/CV_ZhengHui_1010.pdf`, enable `ai` icons in `params.toml`, 
+# To use: copy your resume to `static/uploads/CV_ZhengHui_20250619_1page.pdf`, enable `ai` icons in `params.toml`, 
 # and uncomment the lines below.
 # - icon: cv
 #   icon_pack: ai
-#   link: static/uploads/CV_ZhengHui_1010.pdf
+#   link: static/uploads/CV_ZhengHui_20250619_1page.pdf
 
 # Enter email to display Gravatar (if Gravatar enabled in Config)
 email: "zh.dmtr@gmail.com"
@@ -75,4 +75,4 @@ highlight_name: true
 I am interested in the mechanisms and treatment of addiction by MRI, EEG, TMS, TES. I am curious about the resilience and cognitive flexibility, especially the maladaptive learning ( e.g., goal-directed [model-based] and habitual control [model-free] behavior ) in addiction patients (substance use & behavior addiction). Now I am trying to explore whether the maladaptive learning tasks and algorithms of reinforcement learning have a cross-diagnostic role in mental illness.
 
 
-{{< icon name="download" pack="fas" >}} Download my {{< staticref "media/CV_ZhengHui_20250619_1page.pdf" "newtab" >}}resumé{{< /staticref >}}.
+{{< icon name="download" pack="fas" >}} Download my {{< staticref "static/uploads/CV_ZhengHui_20250619_1page.pdf" "newtab" >}}resumé{{< /staticref >}}.
