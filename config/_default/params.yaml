@@ -41,11 +41,11 @@ contact_links:
   - icon: twitter
     icon_pack: fab
     name: DM Me
-    link: 'https://twitter.com/zh_dmtr'
+    link: ''
   - icon: skype
     icon_pack: fab
     name: Skype Me
-    link: 'skype:zhdivel'
+    link: ''
   - icon: weixin
     icon_pack: fab
     name: Chat on 微信
