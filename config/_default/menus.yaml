@@ -16,6 +16,9 @@ main:
   - name: 团队基础
     url: '#team-foundation'
     weight: 40
+  - name: 发表文章
+    url: '#publications'
+    weight: 45
   - name: 传播矩阵
     url: '#outreach-matrix'
     weight: 50

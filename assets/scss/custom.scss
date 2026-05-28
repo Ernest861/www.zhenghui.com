@@ -209,6 +209,79 @@ a:hover {
   padding: 1.25rem;
 }
 
+.nrlab-institution-grid,
+.nrlab-publication-list {
+  display: grid;
+  gap: 1rem;
+  margin-top: 1.4rem;
+}
+
+.nrlab-institution-grid {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.nrlab-publication-list {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.nrlab-institution,
+.nrlab-publication-item {
+  border: 1px solid rgba(19, 41, 75, 0.12);
+  border-radius: 8px;
+  background: #fff;
+}
+
+.nrlab-institution {
+  min-height: 10rem;
+  padding: 1rem;
+}
+
+.nrlab-institution span,
+.nrlab-publication-year {
+  display: inline-flex;
+  color: var(--nrlab-purple);
+  font-size: 0.78rem;
+  font-weight: 750;
+  letter-spacing: 0;
+}
+
+.nrlab-institution strong {
+  display: block;
+  margin: 0.4rem 0 0.5rem;
+  color: var(--nrlab-deep-green);
+  font-size: 1.02rem;
+  line-height: 1.35;
+}
+
+.nrlab-institution p {
+  margin-bottom: 0;
+}
+
+.nrlab-publication-item {
+  min-height: 8.5rem;
+  padding: 1rem 1.05rem;
+  border-left: 4px solid var(--nrlab-green);
+}
+
+.nrlab-publication-item:nth-child(even) {
+  border-left-color: var(--nrlab-purple);
+}
+
+.nrlab-publication-item a {
+  display: block;
+  margin-top: 0.45rem;
+  color: var(--nrlab-deep-green);
+  font-weight: 750;
+  line-height: 1.4;
+}
+
+.nrlab-publication-item p {
+  margin: 0.45rem 0 0;
+  color: var(--nrlab-muted);
+  font-size: 0.92rem;
+  line-height: 1.5;
+}
+
 .nrlab-chain,
 .nrlab-card-grid {
   display: grid;
@@ -308,7 +381,9 @@ a:hover {
 
   .nrlab-chain,
   .nrlab-card-grid,
-  .nrlab-card-grid-three {
+  .nrlab-card-grid-three,
+  .nrlab-institution-grid,
+  .nrlab-publication-list {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
@@ -321,7 +396,9 @@ a:hover {
   .nrlab-hero-stats,
   .nrlab-chain,
   .nrlab-card-grid,
-  .nrlab-card-grid-three {
+  .nrlab-card-grid-three,
+  .nrlab-institution-grid,
+  .nrlab-publication-list {
     grid-template-columns: 1fr;
   }
 
@@ -419,6 +496,8 @@ a:hover {
 .nrlab-note,
 .nrlab-link-list,
 .nrlab-recruitment-panel,
+.nrlab-institution,
+.nrlab-publication-item,
 .nrlab-chain div,
 .nrlab-card {
   border-color: var(--nrlab-line);
@@ -486,6 +565,24 @@ a:hover {
   border-bottom-color: rgba(107, 78, 255, 0.14);
 }
 
+.nrlab-institution,
+.nrlab-publication-item {
+  border-color: var(--nrlab-line);
+}
+
+.nrlab-institution {
+  border-top: 4px solid var(--nrlab-green);
+}
+
+.nrlab-institution:nth-child(even) {
+  border-top-color: var(--nrlab-purple);
+}
+
+.nrlab-publication-item a:hover {
+  color: var(--nrlab-purple);
+  text-decoration: none;
+}
+
 .nrlab-pill-grid span {
   border-color: rgba(107, 78, 255, 0.24);
   background: var(--nrlab-purple-soft);
@@ -529,6 +626,8 @@ body.dark {
 .dark .nrlab-note,
 .dark .nrlab-link-list,
 .dark .nrlab-recruitment-panel,
+.dark .nrlab-institution,
+.dark .nrlab-publication-item,
 .dark .nrlab-chain div,
 .dark .nrlab-card {
   background: #18342e;
@@ -538,10 +637,16 @@ body.dark {
 
 .dark .nrlab-chain strong,
 .dark .nrlab-card h3,
+.dark .nrlab-institution strong,
+.dark .nrlab-publication-item a,
 .dark .nrlab-section-intro h2,
 .dark .nrlab-two-col h2,
 .dark .section-heading h1 {
   color: #ffffff;
+}
+
+.dark .nrlab-publication-item p {
+  color: rgba(238, 251, 247, 0.76);
 }
 
 .dark .nrlab-pill-grid span {

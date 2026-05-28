@@ -17,7 +17,7 @@ design:
 
 <div class="nrlab-two-col">
   <div>
-    <img class="nrlab-wide-image" src="/uploads/nrlab/recruitment-banner.png" alt="神经调控实验室招募横幅">
+    <img class="nrlab-wide-image" src="/uploads/nrlab/research-overview.png" alt="NRLab 研究传播总览">
   </div>
   <div>
     <p>公众传播按内容源、渠道和成品三条轴管理。当前激活公众号长图和小红书卡片两条线，所有内容共用同一套语用规则：先判断，再给证据，再落到操作。</p>
