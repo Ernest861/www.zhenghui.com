@@ -31,22 +31,22 @@ design:
 <div class="nrlab-institution-grid">
   <div class="nrlab-institution">
     <span>Clinical Platform</span>
-    <strong>安定医院芜湖医院</strong>
-    <p>依托国家精神疾病医学中心临床体系，连接精神障碍评估、干预和长期随访。</p>
+    <strong>安定医院芜湖医院（芜湖市第四人民医院）</strong>
+    <p>国家精神区域医疗中心，主研究单位。依托全省域覆盖性资源，实施精神障碍评估，干预和长期随访。</p>
   </div>
   <div class="nrlab-institution">
     <span>Medical Center</span>
     <strong>首都医科大学附属北京安定医院</strong>
-    <p>聚焦精神医学、神经调控、临床试验和多模态评估的合作网络。</p>
+    <p>国家精神医学中心，为主依托单位的建设输出单位。聚焦精神医学，神经调控，临床试验和多模态评估的合作网络。</p>
   </div>
   <div class="nrlab-institution">
     <span>Hospital Network</span>
-    <strong>上海交通大学医学院附属精神卫生中心<br>上海交通大学医学院附属第六人民医院</strong>
-    <p>支撑精神健康、神经影像、临床评估和跨中心研究协作。</p>
+    <strong>上海交通大学医学院附属精神卫生中心（国家精神医学研究中心）<br>上海交通大学医学院附属第六人民医院</strong>
+    <p>为联合单位，支撑精神健康，神经影像，临床评估和跨中心研究协作。</p>
   </div>
   <div class="nrlab-institution">
     <span>University Network</span>
-    <strong>江苏大学<br>宁波大学</strong>
-    <p>连接心理学、青少年心理健康、行为数据和计算建模训练。</p>
+    <strong>江苏大学<br>宁波大学<br>安徽医科大学<br>蚌埠医科大学<br>皖南医科大学<br>华北理工大学<br>齐齐哈尔医学院</strong>
+    <p>为硕士研究生招生单位，招收精神病与精神卫生学、心理学研究生。</p>
   </div>
 </div>
