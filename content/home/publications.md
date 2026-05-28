@@ -20,7 +20,7 @@ design:
   <div class="nrlab-publication-item">
     <span class="nrlab-publication-year">2026</span>
     <a href="https://doi.org/10.1016/j.biopsych.2026.05.004" target="_blank" rel="noopener">Continuous Theta-Burst Stimulation Improves Long-Term Outcomes in Alcohol Use Disorder by Modulating a Craving-Related Dynamic Network</a>
-    <p>Biological Psychiatry · 导师署名：Ningning Zeng（署名作者）；Hui Zheng、Min Wang（通讯作者，Min Wang 为末位作者）</p>
+    <p>Biological Psychiatry · 导师署名：Ningning Zeng（署名作者）；Hui Zheng（共同通讯）；Min Wang（末位作者）</p>
   </div>
   <div class="nrlab-publication-item">
     <span class="nrlab-publication-year">2026</span>
