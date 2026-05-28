@@ -4,29 +4,27 @@
 #   The weight parameter defines the order that the links will appear in.
 
 main:
-  - name: Home
-    url: '#about'
+  - name: 首页
+    url: '#z-section'
     weight: 10
-  - name: Posts
-    url: '#posts'
+  - name: 定位
+    url: '#nrlab-overview'
     weight: 20
-  - name: Projects
-    url: '#projects'
+  - name: 研究方向
+    url: '#research-directions'
     weight: 30
-  - name: Talks
-    url: '#talks'
+  - name: 团队基础
+    url: '#team-foundation'
     weight: 40
-  - name: Publications
-    url: '#featured'
+  - name: 传播矩阵
+    url: '#outreach-matrix'
     weight: 50
-  - name: Contact
-    url: '#contact'
+  - name: 训练招募
+    url: '#training-recruitment'
     weight: 60
-#  - name: blankPage
-#    url: '#z-section'
-#    weight: 5
-# Link to a PDF of your resume/CV from the menu.
-# To enable, copy your resume/CV to `static/uploads/resume.pdf` and uncomment the lines below.
-  - name: CV
-    url: uploads/CV_ZhengHui_20250619_1page.pdf
+  - name: 联系
+    url: '#contact'
     weight: 70
+  - name: 申请
+    url: 'https://hlab2023.wjx.cn/vm/rnTipUj.aspx'
+    weight: 80

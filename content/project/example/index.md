@@ -1,5 +1,6 @@
 ---
 title: Example Project
+draft: true
 summary: An example of using the network analysis in R.
 tags:
 - Network Analysis

@@ -1,0 +1,268 @@
+.nrlab-hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(320px, 0.95fr);
+  gap: 2rem;
+  align-items: center;
+  min-height: 56vh;
+  padding: 2rem 0 1rem;
+}
+
+.nrlab-kicker,
+.nrlab-eyebrow {
+  margin: 0 0 0.6rem;
+  color: #d66f47;
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0;
+  text-transform: uppercase;
+}
+
+.nrlab-hero h1 {
+  margin: 0;
+  font-size: 3.1rem;
+  line-height: 1.08;
+}
+
+.nrlab-lead {
+  max-width: 48rem;
+  margin: 1rem 0 1.35rem;
+  font-size: 1.12rem;
+  line-height: 1.75;
+}
+
+.nrlab-actions,
+.nrlab-pill-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.nrlab-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 2.75rem;
+  padding: 0.65rem 1rem;
+  border: 1px solid rgba(255, 255, 255, 0.55);
+  border-radius: 6px;
+  color: #fff;
+  font-weight: 700;
+}
+
+.nrlab-button i {
+  margin-right: 0.45rem;
+}
+
+.nrlab-button:hover {
+  color: #fff;
+  border-color: #fff;
+  text-decoration: none;
+}
+
+.nrlab-button-primary {
+  border-color: #d66f47;
+  background: #d66f47;
+  color: #fff;
+}
+
+.nrlab-hero-panel,
+.nrlab-note,
+.nrlab-link-list,
+.nrlab-recruitment-panel {
+  border: 1px solid rgba(19, 41, 75, 0.12);
+  border-radius: 8px;
+  background: #fff;
+  box-shadow: 0 12px 30px rgba(15, 36, 51, 0.08);
+}
+
+.nrlab-hero-panel {
+  overflow: hidden;
+  color: #17202a;
+}
+
+.nrlab-hero-panel img,
+.nrlab-wide-image {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.nrlab-hero-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0;
+  border-top: 1px solid rgba(19, 41, 75, 0.12);
+}
+
+.nrlab-hero-stats span {
+  min-height: 4.75rem;
+  padding: 0.85rem;
+  border-right: 1px solid rgba(19, 41, 75, 0.12);
+  font-size: 0.88rem;
+  line-height: 1.35;
+}
+
+.nrlab-hero-stats span:last-child {
+  border-right: 0;
+}
+
+.nrlab-hero-stats strong {
+  display: block;
+  color: #2f8f83;
+  font-size: 1.45rem;
+}
+
+.nrlab-section-intro {
+  max-width: 840px;
+  margin-bottom: 1.5rem;
+}
+
+.nrlab-section-intro h2,
+.nrlab-two-col h2 {
+  margin: 0;
+  font-size: 1.6rem;
+  line-height: 1.35;
+}
+
+.nrlab-two-col {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(280px, 0.8fr);
+  gap: 1.5rem;
+  align-items: start;
+}
+
+.nrlab-two-col-tight {
+  grid-template-columns: minmax(0, 1fr) minmax(260px, 0.55fr);
+}
+
+.nrlab-note,
+.nrlab-link-list,
+.nrlab-recruitment-panel {
+  padding: 1.25rem;
+}
+
+.nrlab-chain,
+.nrlab-card-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1rem;
+  margin-top: 1.4rem;
+}
+
+.nrlab-card-grid-three {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.nrlab-chain div,
+.nrlab-card {
+  min-height: 11rem;
+  padding: 1.15rem;
+  border: 1px solid rgba(19, 41, 75, 0.12);
+  border-radius: 8px;
+  background: #fff;
+}
+
+.nrlab-chain span {
+  display: block;
+  color: #d66f47;
+  font-weight: 700;
+}
+
+.nrlab-chain strong,
+.nrlab-card h3 {
+  display: block;
+  margin: 0.35rem 0 0.55rem;
+  color: #13294b;
+  font-size: 1.05rem;
+}
+
+.nrlab-card i {
+  color: #2f8f83;
+  font-size: 1.6rem;
+}
+
+.nrlab-card p,
+.nrlab-chain p {
+  margin-bottom: 0;
+}
+
+.nrlab-link-list a {
+  display: block;
+  padding: 0.65rem 0;
+  border-bottom: 1px solid rgba(19, 41, 75, 0.1);
+}
+
+.nrlab-link-list a:last-child {
+  border-bottom: 0;
+}
+
+.nrlab-pill-grid span {
+  display: inline-flex;
+  align-items: center;
+  min-height: 2.4rem;
+  padding: 0.45rem 0.75rem;
+  border: 1px solid rgba(47, 143, 131, 0.35);
+  border-radius: 999px;
+  background: rgba(47, 143, 131, 0.08);
+  color: #174a45;
+  font-weight: 700;
+}
+
+.nrlab-recruitment-panel {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 220px;
+  gap: 1.25rem;
+  align-items: center;
+  margin-top: 1.25rem;
+}
+
+.nrlab-recruitment-panel img {
+  width: 100%;
+  max-width: 220px;
+  border-radius: 6px;
+}
+
+@media (max-width: 991.98px) {
+  .nrlab-hero,
+  .nrlab-two-col,
+  .nrlab-two-col-tight,
+  .nrlab-recruitment-panel {
+    grid-template-columns: 1fr;
+  }
+
+  .nrlab-hero {
+    min-height: auto;
+  }
+
+  .nrlab-hero h1 {
+    font-size: 2.35rem;
+  }
+
+  .nrlab-chain,
+  .nrlab-card-grid,
+  .nrlab-card-grid-three {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 575.98px) {
+  .nrlab-hero h1 {
+    font-size: 2rem;
+  }
+
+  .nrlab-hero-stats,
+  .nrlab-chain,
+  .nrlab-card-grid,
+  .nrlab-card-grid-three {
+    grid-template-columns: 1fr;
+  }
+
+  .nrlab-hero-stats span {
+    border-right: 0;
+    border-bottom: 1px solid rgba(19, 41, 75, 0.12);
+  }
+
+  .nrlab-hero-stats span:last-child {
+    border-bottom: 0;
+  }
+}

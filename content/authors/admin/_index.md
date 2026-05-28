@@ -1,78 +1,38 @@
 ---
-# Display name
-title: Hui Zheng
-
-# Is this the primary user of the site?
+title: NRLab 神经调控实验室
 superuser: true
 
-# Role/position/tagline
-position: Visiting Post Follow
+position: Neuromodulation Research Lab
 
-# Organizations/Affiliations to show in About widget
 organizations:
-- name: NIH
-  url: 'https://irp.nida.nih.gov/staff-members/hui-zheng-ph-d/'
+- name: 安定医院芜湖医院（国家精神疾病医学中心）
+  url: ''
 
-# Short bio (displayed in user profile at end of posts)
-bio: My research interests include neuron modulation and reinforcement learning in addiction realted disorder.
+bio: NRLab 关注成瘾、数字行为、精神健康、脑网络、计算模型与神经调控干预。
 
-# Interests to show in About widget
 interests:
-- Translational Medicine
-- Computational Psychiatry
-- Cognitive Flexibility
-- Multidimensional data fusion
-- Localization of experimental materials
+- 成瘾与数字行为
+- 脑影像与神经调控
+- 计算精神病学
+- 社会交互与心理健康
+- 数字生物标志物
 
-# Education to show in About widget
 education:
-  courses:
-  - course: PhD student in Psychology
-    institution: Shanghai Jiao Tong University, Shanghai Mental Health Center
-    year: 2019-2024
-  - course: MSC in Basic Psychology
-    institution: Zhejiang Normal University
-    year: 2016-2019
-  - course: BSc in Apply Psychology
-    institution: Zhejiang Normal University
-    year: 2011-2015
+  courses: []
 
-# Social/Academic Networking
-# For available icons, see: https://sourcethemes.com/academic/docs/page-builder/#icons
-#   For an email link, use "fas" icon pack, "envelope" icon, and a link in the
-#   form "mailto:your-email@example.com" or "/#contact" for contact widget.
 social:
 - icon: envelope
   icon_pack: fas
   link: '/#contact'
-- icon: twitter
-  icon_pack: fab
-  link: 
-- icon: graduation-cap  # Alternatively, use `google-scholar` icon from `ai` icon pack
+- icon: clipboard-list
   icon_pack: fas
-  link: https://scholar.google.com.hk/citations?user=-uOAJ_YAAAAJ&hl
-- icon: github
-  icon_pack: fab
-  link: https://github.com/Ernest861
-- icon: linkedin
-  icon_pack: fab
-  link: https://www.linkedin.com/in/hui-zheng-36320b180/
+  link: 'https://hlab2023.wjx.cn/vm/rnTipUj.aspx'
+- icon: graduation-cap
+  icon_pack: fas
+  link: 'https://scholar.google.com.hk/citations?user=-uOAJ_YAAAAJ'
 
-# Link to a PDF of your resume/CV.
-# To use: copy your resume to `static/uploads/CV_ZhengHui_20250619_1page.pdf`, enable `ai` icons in `params.toml`, 
-# and uncomment the lines below.
-# - icon: cv
-#   icon_pack: ai
-#   link: static/uploads/CV_ZhengHui_20250619_1page.pdf
-
-# Enter email to display Gravatar (if Gravatar enabled in Config)
 email: "zh.dmtr@gmail.com"
-
-# Highlight the author in author lists? (true/false)
 highlight_name: true
 ---
 
-I am interested in the mechanisms and treatment of addiction by MRI, EEG, TMS, TES. I am curious about the resilience and cognitive flexibility, especially the maladaptive learning ( e.g., goal-directed [model-based] and habitual control [model-free] behavior ) in addiction patients (substance use & behavior addiction). Now I am trying to explore whether the maladaptive learning tasks and algorithms of reinforcement learning have a cross-diagnostic role in mental illness.
-
-
-{{< icon name="download" pack="fas" >}} Download my {{< staticref "static/uploads/CV_ZhengHui_20250619_1page.pdf" "newtab" >}}resumé{{< /staticref >}}.
+NRLab 从真实行为困境出发，把渴求、冲动、数字行为、社会关系、脑网络和神经调控干预放在同一条证据链里研究。实验室强调可测量、可建模、可干预和可复查的科研训练。

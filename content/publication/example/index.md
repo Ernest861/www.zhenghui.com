@@ -1,5 +1,6 @@
 ---
 title: "Meta-analyses of the functional neural alterations in subjects with Internet gaming disorder: Similarities and differences across different paradigms"
+draft: true
 
 # Authors
 # If you created a profile for a user (e.g. the default `admin` user), write the username (folder name) here 

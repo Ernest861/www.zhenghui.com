@@ -12,10 +12,10 @@ font_size: L
 
 # SEO
 
-site_type: Person
+site_type: Organization
 local_business_type: ''
-org_name: ''
-description: ''
+org_name: 'NRLab 神经调控实验室'
+description: 'NRLab 神经调控实验室从真实行为困境出发，研究成瘾、数字行为、精神健康、脑网络、计算模型与神经调控干预。'
 twitter: ''
 
 # Contact (edit or remove options as required)
@@ -23,53 +23,43 @@ twitter: ''
 email: zh.dmtr@gmail.com
 phone: 
 address:
-  street: 600 Wanping S Rd, Wan Ti Guan, Xuhui District
-  city: Shanghai
-  region: Shanghai
-  postcode: '200030'
+  street: 安定医院芜湖医院，神经调控实验室
+  city: Wuhu
+  region: Anhui
+  postcode: ''
   country: China
-  country_code: CH
+  country_code: CN
 coordinates:
-  latitude: '31.2304'
-  longitude: '121.4737'
-directions: Enter Building 3
-office_hours:
-  - 'Monday 10:00 to 13:00'
-  - 'Wednesday 09:00 to 10:00'
-appointment_url: 'https://calendly.com'
+  latitude: ''
+  longitude: ''
+directions:
+office_hours: []
+appointment_url: ''
 contact_links:
-  - icon: twitter
-    icon_pack: fab
-    name: DM Me
-    link: ''
-  - icon: skype
-    icon_pack: fab
-    name: Skype Me
-    link: ''
+  - icon: clipboard-list
+    icon_pack: fas
+    name: 研究助理申请表
+    link: 'https://hlab2023.wjx.cn/vm/rnTipUj.aspx'
   - icon: weixin
     icon_pack: fab
-    name: Chat on 微信
-    link: uploads/weixin.jpg
-  - icon: comments
-    icon_pack: fas
-    name: Discuss on Forum
-    link: ''
+    name: 公众号与申请二维码
+    link: uploads/nrlab/qr-codes.jpg
 
 # Site header
 
 main_menu:
   enable: true
   align: l
-  show_logo: true
+  show_logo: false
   show_language: false
   show_day_night: true
-  show_search: true
+  show_search: false
   highlight_active_link: true
 
 # Localization
 
-date_format: 'Jan 2, 2006'
-time_format: '3:04 PM'
+date_format: '2006-01-02'
+time_format: '15:04'
 address_format: en-us
 
 # Site features
