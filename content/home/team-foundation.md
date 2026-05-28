@@ -21,6 +21,7 @@ design:
     <h3>导师团队公开主页</h3>
     <a href="https://www.researchgate.net/profile/Wang-Ziliang" target="_blank" rel="noopener">Ziliang Wang · ResearchGate</a>
     <a href="https://www.researchgate.net/profile/Xiong-Jiao" target="_blank" rel="noopener">Jiao Xiong · ResearchGate</a>
+    <a href="https://orcid.org/0000-0001-8623-8420" target="_blank" rel="noopener">Qiang Hu · ORCID</a>
     <a href="https://scholar.google.com.hk/citations?user=-uOAJ_YAAAAJ" target="_blank" rel="noopener">Hui Zheng · Google Scholar</a>
     <a href="https://scholar.google.com.hk/citations?user=YANctygAAAAJ" target="_blank" rel="noopener">Min Wang · Google Scholar</a>
     <a href="https://scholar.google.com.hk/citations?user=NyKbD4QAAAAJ" target="_blank" rel="noopener">Ningning Zeng · Google Scholar</a>
@@ -40,12 +41,12 @@ design:
   </div>
   <div class="nrlab-institution">
     <span>Hospital Network</span>
-    <strong>上海交通大学医学院附属精神卫生中心</strong>
-    <p>支撑成瘾、精神健康和神经影像方向的跨中心研究协作。</p>
+    <strong>上海交通大学医学院附属精神卫生中心<br>上海交通大学医学院附属第六人民医院</strong>
+    <p>支撑精神健康、神经影像、临床评估和跨中心研究协作。</p>
   </div>
   <div class="nrlab-institution">
     <span>University Network</span>
-    <strong>浙江师范大学</strong>
+    <strong>江苏大学<br>宁波大学</strong>
     <p>连接心理学、青少年心理健康、行为数据和计算建模训练。</p>
   </div>
 </div>
