@@ -37,7 +37,7 @@ design:
   <div class="nrlab-institution">
     <span>Medical Center</span>
     <strong>首都医科大学附属北京安定医院</strong>
-    <p>国家精神医学中心，为主依托单位的建设输出单位。聚焦精神医学，神经调控，临床试验和多模态评估的合作网络。</p>
+    <p>国家精神医学中心，为主研究单位的建设输出单位。聚焦精神医学，神经调控，临床试验和多模态评估的合作网络。</p>
   </div>
   <div class="nrlab-institution">
     <span>Hospital Network</span>
