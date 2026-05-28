@@ -41,7 +41,7 @@ design:
   </div>
   <div class="nrlab-institution">
     <span>Hospital Network</span>
-    <strong>上海交通大学医学院附属精神卫生中心（国家精神医学研究中心）<br>上海交通大学医学院附属第六人民医院</strong>
+    <strong>上海交通大学医学院附属上海市精神卫生中心（国家精神医学研究中心）<br>上海交通大学医学院附属上海市第六人民医院</strong>
     <p>为联合单位，支撑精神健康，神经影像，临床评估和跨中心研究协作。</p>
   </div>
   <div class="nrlab-institution">
