@@ -1,0 +1,22 @@
+# Theme metadata
+name = "NRLab"
+
+# Is theme light or dark?
+light = true
+
+# Primary
+primary = "#2F8F83"
+
+# Menu
+menu_primary = "#FFFFFF"
+menu_text = "#253B36"
+menu_text_active = "#6B4EFF"
+menu_title = "#174A45"
+
+# Home sections
+home_section_odd = "rgb(255, 255, 255)"
+home_section_even = "rgb(246, 250, 248)"
+
+[dark]
+  link = "#A8FFF1"
+  link_hover = "#D7CCFF"

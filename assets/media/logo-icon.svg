@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512" role="img" aria-labelledby="title desc">
+  <title id="title">NRLab icon</title>
+  <desc id="desc">Square NRLab icon in green, white, and purple</desc>
+  <rect width="512" height="512" rx="112" fill="#FFFFFF"/>
+  <rect x="42" y="42" width="428" height="428" rx="96" fill="#F6FAF8" stroke="#2F8F83" stroke-width="24"/>
+  <path d="M132 330V178h45l108 152V178h52v152h-45L184 178v152z" fill="#174A45"/>
+  <path d="M378 142v230" stroke="#6B4EFF" stroke-width="28" stroke-linecap="round"/>
+  <path d="M330 256c23-45 72-45 96 0" fill="none" stroke="#2F8F83" stroke-width="24" stroke-linecap="round"/>
+</svg>

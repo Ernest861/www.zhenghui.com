@@ -7,10 +7,78 @@
   padding: 2rem 0 1rem;
 }
 
+/* NRLab visual system: white base, green structure, purple emphasis. */
+:root {
+  --nrlab-green: #2f8f83;
+  --nrlab-deep-green: #174a45;
+  --nrlab-green-soft: #e7f5f1;
+  --nrlab-purple: #6b4eff;
+  --nrlab-deep-purple: #35246b;
+  --nrlab-purple-soft: #eeeafd;
+  --nrlab-ink: #1d2e2a;
+  --nrlab-muted: #60736d;
+  --nrlab-mist: #f6faf8;
+  --nrlab-line: rgba(47, 143, 131, 0.16);
+}
+
+body {
+  color: var(--nrlab-ink);
+  background: #fff;
+}
+
+a {
+  color: var(--nrlab-deep-purple);
+}
+
+a:hover {
+  color: var(--nrlab-purple);
+}
+
+.navbar {
+  border-bottom: 1px solid var(--nrlab-line);
+  box-shadow: 0 8px 24px rgba(23, 74, 69, 0.06);
+}
+
+.navbar-brand img {
+  max-height: 46px;
+}
+
+#navbar-main .main-menu-item ul li .nav-link {
+  color: var(--nrlab-deep-green);
+  font-weight: 650;
+}
+
+#navbar-main .main-menu-item ul li .nav-link:hover,
+#navbar-main .main-menu-item ul li .nav-link.active {
+  color: var(--nrlab-purple);
+}
+
+.home-section {
+  padding: 96px 0;
+}
+
+.home-section:nth-of-type(even) {
+  background: var(--nrlab-mist);
+}
+
+.section-heading h1 {
+  color: var(--nrlab-deep-green);
+  font-weight: 800;
+}
+
+#z-section {
+  overflow: hidden;
+}
+
+#z-section .home-section-bg {
+  background-color: #1f6f65 !important;
+}
+
+
 .nrlab-kicker,
 .nrlab-eyebrow {
   margin: 0 0 0.6rem;
-  color: #d66f47;
+  color: var(--nrlab-purple);
   font-size: 0.82rem;
   font-weight: 700;
   letter-spacing: 0;
@@ -60,8 +128,8 @@
 }
 
 .nrlab-button-primary {
-  border-color: #d66f47;
-  background: #d66f47;
+  border-color: var(--nrlab-green);
+  background: var(--nrlab-green);
   color: #fff;
 }
 
@@ -164,7 +232,7 @@
 
 .nrlab-chain span {
   display: block;
-  color: #d66f47;
+  color: var(--nrlab-purple);
   font-weight: 700;
 }
 
@@ -172,7 +240,7 @@
 .nrlab-card h3 {
   display: block;
   margin: 0.35rem 0 0.55rem;
-  color: #13294b;
+  color: var(--nrlab-deep-green);
   font-size: 1.05rem;
 }
 
@@ -265,4 +333,218 @@
   .nrlab-hero-stats span:last-child {
     border-bottom: 0;
   }
+}
+
+.nrlab-hero {
+  min-height: 60vh;
+  padding: 2.5rem 0 1.5rem;
+}
+
+.nrlab-kicker {
+  display: inline-flex;
+  align-items: center;
+  min-height: 2rem;
+  padding: 0.35rem 0.7rem;
+  border: 1px solid rgba(255, 255, 255, 0.36);
+  border-radius: 999px;
+  color: #d9fff5;
+  background: rgba(255, 255, 255, 0.08);
+  text-transform: none;
+}
+
+.nrlab-eyebrow {
+  color: var(--nrlab-purple);
+  text-transform: none;
+}
+
+.nrlab-hero h1 {
+  font-weight: 850;
+  letter-spacing: 0;
+}
+
+.nrlab-lead {
+  color: rgba(255, 255, 255, 0.92);
+}
+
+.nrlab-button {
+  border-color: rgba(47, 143, 131, 0.28);
+  background: #fff;
+  color: var(--nrlab-deep-green);
+  box-shadow: 0 8px 18px rgba(23, 74, 69, 0.08);
+}
+
+.nrlab-button:hover {
+  border-color: var(--nrlab-purple);
+  color: var(--nrlab-deep-purple);
+  box-shadow: 0 10px 22px rgba(53, 36, 107, 0.12);
+}
+
+.nrlab-button-primary {
+  border-color: var(--nrlab-green);
+  background: var(--nrlab-green);
+  color: #fff;
+}
+
+.nrlab-button-primary:hover {
+  border-color: var(--nrlab-deep-green);
+  background: var(--nrlab-deep-green);
+  color: #fff;
+}
+
+.home-section.dark a.nrlab-button {
+  border-color: rgba(255, 255, 255, 0.38);
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff !important;
+  box-shadow: none;
+  text-decoration: none !important;
+}
+
+.home-section.dark a.nrlab-button:hover {
+  border-color: #fff;
+  background: rgba(255, 255, 255, 0.18);
+  color: #fff !important;
+}
+
+.home-section.dark a.nrlab-button-primary {
+  border-color: #fff;
+  background: #fff;
+  color: var(--nrlab-deep-green) !important;
+}
+
+.home-section.dark a.nrlab-button-primary:hover {
+  color: var(--nrlab-deep-purple) !important;
+}
+
+.nrlab-hero-panel,
+.nrlab-note,
+.nrlab-link-list,
+.nrlab-recruitment-panel,
+.nrlab-chain div,
+.nrlab-card {
+  border-color: var(--nrlab-line);
+  border-radius: 8px;
+  box-shadow: 0 14px 34px rgba(23, 74, 69, 0.08);
+}
+
+.nrlab-hero-panel {
+  border: 1px solid rgba(255, 255, 255, 0.38);
+}
+
+.nrlab-hero-stats strong {
+  color: var(--nrlab-purple);
+}
+
+.nrlab-section-intro h2,
+.nrlab-two-col h2 {
+  color: var(--nrlab-deep-green);
+  font-weight: 800;
+}
+
+.nrlab-note {
+  background: var(--nrlab-mist);
+  border-left: 4px solid var(--nrlab-purple);
+}
+
+.nrlab-chain div,
+.nrlab-card {
+  background: #fff;
+  border-top: 4px solid var(--nrlab-green);
+}
+
+.nrlab-chain div:nth-child(even),
+.nrlab-card:nth-child(even) {
+  border-top-color: var(--nrlab-purple);
+}
+
+.nrlab-chain span {
+  color: var(--nrlab-purple);
+}
+
+.nrlab-chain strong,
+.nrlab-card h3 {
+  color: var(--nrlab-deep-green);
+}
+
+.nrlab-card i {
+  color: var(--nrlab-green);
+}
+
+.nrlab-card:nth-child(even) i {
+  color: var(--nrlab-purple);
+}
+
+.nrlab-link-list {
+  border-top: 4px solid var(--nrlab-green);
+}
+
+.nrlab-link-list h3 {
+  color: var(--nrlab-deep-green);
+}
+
+.nrlab-link-list a {
+  color: var(--nrlab-deep-purple);
+  border-bottom-color: rgba(107, 78, 255, 0.14);
+}
+
+.nrlab-pill-grid span {
+  border-color: rgba(107, 78, 255, 0.24);
+  background: var(--nrlab-purple-soft);
+  color: var(--nrlab-deep-purple);
+}
+
+.nrlab-pill-grid span:nth-child(odd) {
+  border-color: rgba(47, 143, 131, 0.26);
+  background: var(--nrlab-green-soft);
+  color: var(--nrlab-deep-green);
+}
+
+.nrlab-recruitment-panel {
+  background: #fff;
+  border-top: 4px solid var(--nrlab-purple);
+}
+
+.nrlab-recruitment-panel h3 {
+  color: var(--nrlab-deep-green);
+}
+
+.wg-contact .fa-li {
+  color: var(--nrlab-purple);
+}
+
+.dark body,
+body.dark {
+  background: #10231f;
+}
+
+.dark .navbar,
+.dark .home-section {
+  background: #10231f;
+}
+
+.dark .home-section:nth-of-type(even) {
+  background: #152c27;
+}
+
+.dark .nrlab-hero-panel,
+.dark .nrlab-note,
+.dark .nrlab-link-list,
+.dark .nrlab-recruitment-panel,
+.dark .nrlab-chain div,
+.dark .nrlab-card {
+  background: #18342e;
+  border-color: rgba(168, 255, 241, 0.18);
+  color: #eefbf7;
+}
+
+.dark .nrlab-chain strong,
+.dark .nrlab-card h3,
+.dark .nrlab-section-intro h2,
+.dark .nrlab-two-col h2,
+.dark .section-heading h1 {
+  color: #ffffff;
+}
+
+.dark .nrlab-pill-grid span {
+  background: rgba(107, 78, 255, 0.18);
+  color: #d7ccff;
 }

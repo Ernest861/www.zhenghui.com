@@ -5,9 +5,9 @@
 
 # Appearance
 
-theme: Ocean
+theme: nrlab
 day_night: true
-font: ''
+font: native
 font_size: L
 
 # SEO
@@ -50,7 +50,7 @@ contact_links:
 main_menu:
   enable: true
   align: l
-  show_logo: false
+  show_logo: true
   show_language: false
   show_day_night: true
   show_search: false
