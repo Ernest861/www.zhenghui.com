@@ -22,6 +22,9 @@ main:
   - name: Outreach
     url: '#outreach-matrix'
     weight: 50
+  - name: Visitors
+    url: '#visitor-countries'
+    weight: 55
   - name: Join
     url: '#training-recruitment'
     weight: 60
