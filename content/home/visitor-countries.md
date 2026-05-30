@@ -2,7 +2,7 @@
 widget: blank
 active: true
 headless: true
-weight: 65
+weight: 45
 title: Visitor Countries
 subtitle:
 
