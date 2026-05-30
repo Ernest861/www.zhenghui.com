@@ -25,9 +25,6 @@ main:
   - name: Join
     url: '#training-recruitment'
     weight: 60
-  - name: Visit
-    url: '#visit-map'
-    weight: 65
   - name: Contact
     url: '#contact'
     weight: 70
