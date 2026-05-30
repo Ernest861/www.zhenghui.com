@@ -1,21 +1,21 @@
 ---
-title: NRLab 神经调控实验室
+title: NRLab Neuromodulation Research Lab
 superuser: true
 
 position: Neuromodulation Research Lab
 
 organizations:
-- name: 安定医院芜湖医院（国家精神疾病医学中心）
+- name: An Ding Hospital of Wuhu
   url: ''
 
-bio: NRLab 关注成瘾、数字行为、精神健康、脑网络、计算模型与神经调控干预。
+bio: NRLab studies addiction, digital behavior, mental health, brain networks, computational models, and neuromodulation interventions.
 
 interests:
-- 成瘾与数字行为
-- 脑影像与神经调控
-- 计算精神病学
-- 社会交互与心理健康
-- 数字生物标志物
+- Addiction and digital behavior
+- Neuroimaging and neuromodulation
+- Computational psychiatry
+- Social interaction and mental health
+- Digital biomarkers
 
 education:
   courses: []
@@ -35,4 +35,4 @@ email: "zh.dmtr@gmail.com"
 highlight_name: true
 ---
 
-NRLab 从真实行为困境出发，把渴求、冲动、数字行为、社会关系、脑网络和神经调控干预放在同一条证据链里研究。实验室强调可测量、可建模、可干预和可复查的科研训练。
+NRLab starts from real behavioral difficulties and studies craving, impulsivity, digital behavior, social relationships, brain networks, and neuromodulation interventions within one evidence chain. The lab emphasizes research training that is measurable, modelable, intervention-ready, and reproducible.

@@ -3,7 +3,7 @@ widget: blank
 active: true
 headless: true
 weight: 40
-title: 公众传播矩阵
+title: Public Outreach Matrix
 subtitle:
 
 design:
@@ -12,25 +12,25 @@ design:
 
 <div class="nrlab-section-intro">
   <p class="nrlab-eyebrow">Public Outreach</p>
-  <h2>公众号不是论文目录，也不是招生广告。它要让学生看见一个问题怎样被研究。</h2>
+  <h2>The public channel is not a paper catalog or a recruitment ad. It helps students see how a question becomes research.</h2>
 </div>
 
 <div class="nrlab-two-col">
   <div>
-    <img class="nrlab-wide-image" src="/uploads/nrlab/research-overview.png" alt="NRLab 研究传播总览">
+    <img class="nrlab-wide-image" src="/uploads/nrlab/research-overview.png" alt="NRLab research communication overview">
   </div>
   <div>
-    <p>公众传播按内容源、渠道和成品三条轴管理。当前激活公众号长图和小红书卡片两条线，所有内容共用同一套语用规则：先判断，再给证据，再落到操作。</p>
-    <p>内容不追求宣传口号，而是把实验室研究、最新强文、学术写作、科研工具和投稿流程拆成学生可以继续阅读、继续核对、继续实践的材料。</p>
+    <p>Outreach is organized along three axes: content source, channel, and final product. The current workflow activates WeChat long-form graphics and Xiaohongshu card sets. All materials share one communication rule: make the judgment first, provide evidence, then translate it into action.</p>
+    <p>The content avoids slogans. It turns lab research, strong recent papers, academic writing, research tools, and submission workflows into materials that students can keep reading, checking, and practicing.</p>
   </div>
 </div>
 
 <div class="nrlab-pill-grid">
-  <span>实验室论文系列</span>
-  <span>最新强文解读</span>
-  <span>学术写作自查手册</span>
-  <span>科研工具使用手册</span>
-  <span>投稿全流程手册</span>
-  <span>公众号长图</span>
-  <span>小红书卡片组</span>
+  <span>Lab Paper Series</span>
+  <span>Recent Strong Papers</span>
+  <span>Academic Writing Checklists</span>
+  <span>Research Tool Guides</span>
+  <span>Submission Workflow Guides</span>
+  <span>WeChat Long Graphics</span>
+  <span>Xiaohongshu Card Sets</span>
 </div>

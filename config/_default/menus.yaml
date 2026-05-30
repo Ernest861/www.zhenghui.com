@@ -4,30 +4,33 @@
 #   The weight parameter defines the order that the links will appear in.
 
 main:
-  - name: 首页
+  - name: Home
     url: '#z-section'
     weight: 10
-  - name: 定位
+  - name: Focus
     url: '#nrlab-overview'
     weight: 20
-  - name: 研究方向
+  - name: Research
     url: '#research-directions'
     weight: 30
-  - name: 团队基础
+  - name: Team
     url: '#team-foundation'
     weight: 40
-  - name: 发表文章
+  - name: Publications
     url: '#publications'
     weight: 45
-  - name: 传播矩阵
+  - name: Outreach
     url: '#outreach-matrix'
     weight: 50
-  - name: 训练招募
+  - name: Join
     url: '#training-recruitment'
     weight: 60
-  - name: 联系
+  - name: Visit
+    url: '#visit-map'
+    weight: 65
+  - name: Contact
     url: '#contact'
     weight: 70
-  - name: 申请
+  - name: Apply
     url: 'https://hlab2023.wjx.cn/vm/rnTipUj.aspx'
     weight: 80

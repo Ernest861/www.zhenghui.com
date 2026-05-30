@@ -34,7 +34,7 @@ authors:
 
 tags:
 - Academic
-- 开源
+- Open source
 
 categories:
 - Demo
@@ -86,7 +86,7 @@ As a token of appreciation for sponsoring, you can **unlock [these](https://wowc
 - **Industry-Leading SEO** - Help get your website found on search engines and social media
 - **Media Galleries** - Display your images and videos with captions in a customizable gallery
 - **Mobile Friendly** - Look amazing on every screen with a mobile friendly version of your site
-- **Multi-language** - 34+ language packs including English, 中文, and Português
+- **Multi-language** - 34+ language packs including English, Chinese, and Portuguese
 - **Multi-user** - Each author gets their own profile page
 - **Privacy Pack** - Assists with GDPR
 - **Stand Out** - Bring your site to life with animation, parallax backgrounds, and scroll effects

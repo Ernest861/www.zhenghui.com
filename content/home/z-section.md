@@ -28,20 +28,20 @@ design:
 <div class="nrlab-hero">
   <div class="nrlab-hero-copy">
     <div class="nrlab-kicker">NRLab | Neuromodulation Research Lab</div>
-    <h1>神经调控实验室</h1>
-    <p class="nrlab-lead">从真实的行为困境出发，把“停不下来”“想要但不快乐”“治疗为什么有效或无效”拆成可以测量、建模和干预的科学问题。</p>
+    <h1>Neuromodulation Research Lab</h1>
+    <p class="nrlab-lead">We start from real behavioral difficulties and turn “I cannot stop,” “I want it but I do not enjoy it,” and “why treatment works or fails” into measurable, modelable, and intervention-ready scientific questions.</p>
     <div class="nrlab-actions">
-      <a class="nrlab-button nrlab-button-primary" href="#research-directions"><i class="fas fa-brain"></i>研究方向</a>
-      <a class="nrlab-button" href="#training-recruitment"><i class="fas fa-user-graduate"></i>加入团队</a>
-      <a class="nrlab-button" href="#outreach-matrix"><i class="fas fa-images"></i>公众传播</a>
+      <a class="nrlab-button nrlab-button-primary" href="#research-directions"><i class="fas fa-brain"></i>Research</a>
+      <a class="nrlab-button" href="#training-recruitment"><i class="fas fa-user-graduate"></i>Join the Lab</a>
+      <a class="nrlab-button" href="#outreach-matrix"><i class="fas fa-images"></i>Outreach</a>
     </div>
   </div>
   <div class="nrlab-hero-panel">
     <img src="/uploads/nrlab/research-overview.png" alt="NRLab research overview">
     <div class="nrlab-hero-stats">
-      <span><strong>4</strong> 个研究方向</span>
-      <span><strong>5</strong> 条内容线</span>
-      <span><strong>6-12</strong> 个月 RA 周期</span>
+      <span><strong>4</strong> research programs</span>
+      <span><strong>5</strong> outreach lines</span>
+      <span><strong>6-12</strong> month RA cycle</span>
     </div>
   </div>
 </div>

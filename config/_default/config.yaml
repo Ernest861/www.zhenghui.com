@@ -3,16 +3,16 @@
 # Hugo Documentation: https://gohugo.io/getting-started/configuration/#all-configuration-settings
 # This file is formatted using YAML syntax - learn more at https://learnxinyminutes.com/docs/yaml/
 
-title: NRLab | 神经调控实验室 # Website name
+title: NRLab | Neuromodulation Research Lab # Website name
 baseurl: '' # Website URL
-copyright: '© {year} NRLab 神经调控实验室' # Footer text, e.g. '© {year} Me'
+copyright: '© {year} NRLab Neuromodulation Research Lab' # Footer text, e.g. '© {year} Me'
 
 ############################
 ## LANGUAGE
 ############################
 
-defaultContentLanguage: zh
-hasCJKLanguage: true
+defaultContentLanguage: en
+hasCJKLanguage: false
 defaultContentLanguageInSubdir: false
 removePathAccents: true
 

@@ -14,8 +14,8 @@ font_size: L
 
 site_type: Organization
 local_business_type: ''
-org_name: 'NRLab 神经调控实验室'
-description: 'NRLab 神经调控实验室从真实行为困境出发，研究成瘾、数字行为、精神健康、脑网络、计算模型与神经调控干预。'
+org_name: 'NRLab Neuromodulation Research Lab'
+description: 'NRLab studies addiction, digital behavior, mental health, brain networks, computational models, and neuromodulation interventions from real-world behavioral difficulties.'
 twitter: ''
 
 # Contact (edit or remove options as required)
@@ -23,7 +23,7 @@ twitter: ''
 email: zh.dmtr@gmail.com
 phone: 
 address:
-  street: 安定医院芜湖医院，神经调控实验室
+  street: An Ding Hospital of Wuhu, Neuromodulation Research Lab
   city: Wuhu
   region: Anhui
   postcode: ''
@@ -38,11 +38,11 @@ appointment_url: ''
 contact_links:
   - icon: clipboard-list
     icon_pack: fas
-    name: 研究助理申请表
+    name: Research Assistant Application
     link: 'https://hlab2023.wjx.cn/vm/rnTipUj.aspx'
   - icon: weixin
     icon_pack: fab
-    name: 公众号与申请二维码
+    name: WeChat and Application QR Codes
     link: uploads/nrlab/qr-codes.jpg
 
 # Site header

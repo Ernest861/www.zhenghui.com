@@ -3,7 +3,7 @@ widget: blank
 active: true
 headless: true
 weight: 30
-title: 团队基础
+title: Team Foundation
 subtitle:
 
 design:
@@ -13,12 +13,12 @@ design:
 <div class="nrlab-two-col nrlab-two-col-tight">
   <div>
     <p class="nrlab-eyebrow">Team & Platform</p>
-    <h2>团队由精神医学、心理学、生物医学工程、神经影像、临床研究和计算建模背景的研究者共同组成。</h2>
-    <p>平台已经积累多中心精神健康问卷数据、神经影像数据、临床试验数据和行为实验数据。研究链条覆盖问题提出、数据清理、变量字典、预注册、统计模型、结果图表、论文初稿、返修和投稿。</p>
-    <p>近 5 年，团队成员以第一作者或通讯作者在 Med、Cell Reports Medicine、Molecular Psychiatry、Biological Psychiatry、Computers in Human Behavior、Journal of Affective Disorders 等期刊发表多篇论文。</p>
+    <h2>The team brings together researchers trained in psychiatry, psychology, biomedical engineering, neuroimaging, clinical research, and computational modeling.</h2>
+    <p>The platform has accumulated multi-center mental health questionnaire data, neuroimaging data, clinical trial data, and behavioral experiment data. The research workflow covers question formulation, data cleaning, variable dictionaries, preregistration, statistical modeling, figures, manuscript drafting, revision, and submission.</p>
+    <p>Over the past five years, team members have published first-author or corresponding-author papers in journals such as Med, Cell Reports Medicine, Molecular Psychiatry, Biological Psychiatry, Computers in Human Behavior, and Journal of Affective Disorders.</p>
   </div>
   <div class="nrlab-link-list">
-    <h3>导师团队公开主页</h3>
+    <h3>Faculty Profiles</h3>
     <a href="https://www.researchgate.net/profile/Wang-Ziliang" target="_blank" rel="noopener">Ziliang Wang · ResearchGate</a>
     <a href="https://www.researchgate.net/profile/Xiong-Jiao" target="_blank" rel="noopener">Jiao Xiong · ResearchGate</a>
     <a href="https://orcid.org/0000-0001-8623-8420" target="_blank" rel="noopener">Qiang Hu · ORCID</a>
@@ -31,22 +31,22 @@ design:
 <div class="nrlab-institution-grid">
   <div class="nrlab-institution">
     <span>Clinical Platform</span>
-    <strong>安定医院芜湖医院（芜湖市第四人民医院）</strong>
-    <p>国家精神区域医疗中心，主研究单位。依托全省域覆盖性资源，实施精神障碍评估，干预和长期随访。</p>
+    <strong>An Ding Hospital of Wuhu (Wuhu Fourth People's Hospital)</strong>
+    <p>National Regional Medical Center for Mental Health; the primary research site. It uses province-wide clinical resources to support psychiatric assessment, intervention, and long-term follow-up.</p>
   </div>
   <div class="nrlab-institution">
     <span>Medical Center</span>
-    <strong>首都医科大学附属北京安定医院</strong>
-    <p>国家精神医学中心，为主研究单位的建设输出单位。聚焦精神医学，神经调控，临床试验和多模态评估的合作网络。</p>
+    <strong>Beijing Anding Hospital, Capital Medical University</strong>
+    <p>National Center for Mental Health; the institution providing development support for the primary research site. It supports collaboration in psychiatry, neuromodulation, clinical trials, and multimodal assessment.</p>
   </div>
   <div class="nrlab-institution">
     <span>Hospital Network</span>
-    <strong>上海交通大学医学院附属上海市精神卫生中心（国家精神医学研究中心）<br>上海交通大学医学院附属上海市第六人民医院</strong>
-    <p>为联合单位，支撑精神健康，神经影像，临床评估和跨中心研究协作。</p>
+    <strong>Shanghai Mental Health Center, Shanghai Jiao Tong University School of Medicine (National Center for Mental Health Research)<br>Shanghai Sixth People's Hospital, Shanghai Jiao Tong University School of Medicine</strong>
+    <p>Joint institutions supporting mental health research, neuroimaging, clinical assessment, and cross-center collaboration.</p>
   </div>
   <div class="nrlab-institution">
     <span>University Network</span>
-    <strong>江苏大学<br>宁波大学<br>安徽医科大学<br>蚌埠医科大学<br>皖南医科大学<br>华北理工大学<br>齐齐哈尔医学院</strong>
-    <p>为硕士研究生招生单位，招收精神病与精神卫生学、心理学研究生。</p>
+    <strong>Jiangsu University<br>Ningbo University<br>Anhui Medical University<br>Bengbu Medical University<br>Wannan Medical University<br>North China University of Science and Technology<br>Qiqihar Medical University</strong>
+    <p>Graduate enrollment institutions recruiting master's students in Psychiatry and Mental Health, and Psychology.</p>
   </div>
 </div>

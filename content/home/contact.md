@@ -8,9 +8,9 @@ active: true
 headless: true
 
 # Order that this section appears on the page.
-weight: 60
+weight: 70
 
-title: 联系与申请
+title: Contact & Application
 subtitle:
 
 content:
@@ -30,4 +30,4 @@ design:
   columns: '2'
 ---
 
-研究助理、合作和公众传播材料可以通过邮件或申请表联系。申请材料建议重点写清：最想进入的研究方向、可投入时间、已经做过的数据/实验/写作任务，以及可以展示的代码、报告、论文或项目材料。
+For research assistant applications, collaboration, or outreach materials, contact us by email or through the application form. Application materials should clearly state the research direction you want to join, your available time commitment, previous data, experiment, or writing tasks, and any code, reports, manuscripts, or project materials you can share.
