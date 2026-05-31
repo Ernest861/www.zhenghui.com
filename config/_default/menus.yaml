@@ -33,4 +33,4 @@ main:
     weight: 80
   - name: Visitors
     url: '#visitor-countries'
-    weight: 90
+    weight: 999
