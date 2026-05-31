@@ -19,6 +19,11 @@ design:
 <div class="nrlab-publication-list">
   <div class="nrlab-publication-item">
     <span class="nrlab-publication-year">2026</span>
+    <a href="https://doi.org/10.1038/s41467-026-72917-4" target="_blank" rel="noopener">OFC-induced network modularity improves positive symptoms and attentional alertness in schizophrenia: a combined rTMS-fMRI study</a>
+    <p>Nature Communications · Faculty authorship: Ningning Zeng, Min Wang, and Hui Zheng (co-first authors); Xiong Jiao and Ziliang Wang (listed authors); Qiang Hu (corresponding and last author)</p>
+  </div>
+  <div class="nrlab-publication-item">
+    <span class="nrlab-publication-year">2026</span>
     <a href="https://doi.org/10.1016/j.biopsych.2026.05.004" target="_blank" rel="noopener">Continuous Theta-Burst Stimulation Improves Long-Term Outcomes in Alcohol Use Disorder by Modulating a Craving-Related Dynamic Network</a>
     <p>Biological Psychiatry · Faculty authorship: Ningning Zeng (listed author); Hui Zheng (co-corresponding author); Min Wang (last author)</p>
   </div>
