@@ -21,7 +21,8 @@ design:
     <h3>Faculty Profiles</h3>
     <a href="https://www.researchgate.net/profile/Wang-Ziliang" target="_blank" rel="noopener">Ziliang Wang · ResearchGate</a>
     <a href="https://www.researchgate.net/profile/Xiong-Jiao" target="_blank" rel="noopener">Jiao Xiong · ResearchGate</a>
-    <a href="https://orcid.org/0000-0001-8623-8420" target="_blank" rel="noopener">Qiang Hu · ORCID</a>
+    <a href="https://www.haodf.com/doctor/1537385115.html" target="_blank" rel="noopener">Qiang Hu · Doctor Profile</a>
+    <a href="https://orcid.org/0009-0003-7292-7788" target="_blank" rel="noopener">Qiang Hu · ORCID</a>
     <a href="https://scholar.google.com.hk/citations?user=-uOAJ_YAAAAJ" target="_blank" rel="noopener">Hui Zheng · Google Scholar</a>
     <a href="https://scholar.google.com.hk/citations?user=YANctygAAAAJ" target="_blank" rel="noopener">Min Wang · Google Scholar</a>
     <a href="https://scholar.google.com.hk/citations?user=NyKbD4QAAAAJ" target="_blank" rel="noopener">Ningning Zeng · Google Scholar</a>
