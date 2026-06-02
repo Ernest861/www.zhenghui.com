@@ -282,8 +282,7 @@ a:hover {
   line-height: 1.5;
 }
 
-.nrlab-ra-summary,
-.nrlab-ra-grid {
+.nrlab-ra-summary {
   display: grid;
   gap: 1rem;
 }
@@ -293,8 +292,7 @@ a:hover {
   margin: 1.35rem 0;
 }
 
-.nrlab-ra-summary span,
-.nrlab-ra-card {
+.nrlab-ra-summary span {
   border: 1px solid rgba(19, 41, 75, 0.12);
   border-radius: 8px;
   background: #fff;
@@ -314,62 +312,65 @@ a:hover {
   line-height: 1.05;
 }
 
-.nrlab-ra-block {
+.nrlab-ra-list-block {
   margin-top: 1.65rem;
 }
 
-.nrlab-ra-block h3 {
+.nrlab-ra-list-block h3 {
   margin-bottom: 0.9rem;
   color: var(--nrlab-deep-green);
   font-size: 1.2rem;
   font-weight: 800;
 }
 
-.nrlab-ra-grid {
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-}
-
-.nrlab-ra-grid-three {
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-}
-
-.nrlab-ra-card {
-  min-height: 11rem;
-  padding: 1rem;
-  border-top: 4px solid var(--nrlab-green);
+.nrlab-ra-list {
+  overflow: hidden;
+  border: 1px solid var(--nrlab-line);
+  border-radius: 8px;
+  background: #fff;
   box-shadow: 0 14px 34px rgba(23, 74, 69, 0.08);
 }
 
-.nrlab-ra-card:nth-child(even) {
-  border-top-color: var(--nrlab-purple);
+.nrlab-ra-row {
+  display: grid;
+  grid-template-columns: minmax(120px, 0.85fr) minmax(110px, 0.7fr) minmax(220px, 1.45fr) minmax(210px, 1.2fr);
+  gap: 1rem;
+  align-items: start;
+  padding: 0.8rem 1rem;
+  border-bottom: 1px solid var(--nrlab-line);
 }
 
-.nrlab-ra-card span {
-  display: inline-flex;
-  color: var(--nrlab-purple);
+.nrlab-ra-row:last-child {
+  border-bottom: 0;
+}
+
+.nrlab-ra-row:nth-child(even) {
+  background: var(--nrlab-mist);
+}
+
+.nrlab-ra-head {
+  background: var(--nrlab-deep-green);
+  color: #fff;
   font-size: 0.78rem;
-  font-weight: 750;
-}
-
-.nrlab-ra-card h4 {
-  margin: 0.45rem 0 0.55rem;
-  color: var(--nrlab-deep-green);
-  font-size: 1.05rem;
   font-weight: 800;
+  text-transform: uppercase;
 }
 
-.nrlab-ra-card p {
-  margin: 0 0 0.55rem;
+.nrlab-ra-head:nth-child(even) {
+  background: var(--nrlab-deep-green);
+}
+
+.nrlab-ra-row strong {
+  color: var(--nrlab-deep-green);
+}
+
+.nrlab-ra-row span {
   color: var(--nrlab-muted);
-  font-size: 0.92rem;
   line-height: 1.45;
 }
 
-.nrlab-ra-card strong {
-  display: block;
-  color: var(--nrlab-ink);
-  font-size: 0.92rem;
-  line-height: 1.4;
+.nrlab-ra-head span {
+  color: #fff;
 }
 
 .nrlab-visitor-map {
@@ -563,9 +564,7 @@ a:hover {
   .nrlab-card-grid-three,
   .nrlab-institution-grid,
   .nrlab-publication-list,
-  .nrlab-ra-summary,
-  .nrlab-ra-grid,
-  .nrlab-ra-grid-three {
+  .nrlab-ra-summary {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
@@ -581,10 +580,22 @@ a:hover {
   .nrlab-card-grid-three,
   .nrlab-institution-grid,
   .nrlab-publication-list,
-  .nrlab-ra-summary,
-  .nrlab-ra-grid,
-  .nrlab-ra-grid-three {
+  .nrlab-ra-summary {
     grid-template-columns: 1fr;
+  }
+
+  .nrlab-ra-head {
+    display: none;
+  }
+
+  .nrlab-ra-row {
+    grid-template-columns: 1fr;
+    gap: 0.35rem;
+    padding: 0.9rem 1rem;
+  }
+
+  .nrlab-ra-row strong {
+    font-size: 1.02rem;
   }
 
   .nrlab-hero-stats span {
@@ -684,7 +695,7 @@ a:hover {
 .nrlab-institution,
 .nrlab-publication-item,
 .nrlab-ra-summary span,
-.nrlab-ra-card,
+.nrlab-ra-list,
 .nrlab-visitor-map-frame,
 .nrlab-visitor-panel,
 .nrlab-chain div,
@@ -757,7 +768,7 @@ a:hover {
 .nrlab-institution,
 .nrlab-publication-item,
 .nrlab-ra-summary span,
-.nrlab-ra-card,
+.nrlab-ra-list,
 .nrlab-visitor-map-frame,
 .nrlab-visitor-panel {
   border-color: var(--nrlab-line);
@@ -822,7 +833,7 @@ body.dark {
 .dark .nrlab-institution,
 .dark .nrlab-publication-item,
 .dark .nrlab-ra-summary span,
-.dark .nrlab-ra-card,
+.dark .nrlab-ra-list,
 .dark .nrlab-visitor-map-frame,
 .dark .nrlab-visitor-panel,
 .dark .nrlab-chain div,
@@ -834,9 +845,8 @@ body.dark {
 
 .dark .nrlab-chain strong,
 .dark .nrlab-card h3,
-.dark .nrlab-ra-block h3,
-.dark .nrlab-ra-card h4,
-.dark .nrlab-ra-card strong,
+.dark .nrlab-ra-list-block h3,
+.dark .nrlab-ra-row strong,
 .dark .nrlab-institution strong,
 .dark .nrlab-publication-item a,
 .dark .nrlab-visitor-stats strong,
@@ -848,11 +858,28 @@ body.dark {
 
 .dark .nrlab-publication-item p,
 .dark .nrlab-ra-summary span,
-.dark .nrlab-ra-card p,
+.dark .nrlab-ra-row span,
 .dark .nrlab-visitor-updated,
 .dark .nrlab-visitor-status,
 .dark .nrlab-visitor-list li {
   color: rgba(238, 251, 247, 0.76);
+}
+
+.dark .nrlab-ra-row {
+  border-bottom-color: rgba(168, 255, 241, 0.18);
+}
+
+.dark .nrlab-ra-row:nth-child(even) {
+  background: rgba(168, 255, 241, 0.06);
+}
+
+.dark .nrlab-ra-head,
+.dark .nrlab-ra-head:nth-child(even) {
+  background: #234840;
+}
+
+.dark .nrlab-ra-head span {
+  color: #eefbf7;
 }
 
 .dark .nrlab-pill-grid span {

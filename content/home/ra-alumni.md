@@ -22,132 +22,89 @@ design:
   <span><strong>6</strong>Current RA cohort</span>
 </div>
 
-<div class="nrlab-ra-block">
+<div class="nrlab-ra-list-block">
   <h3>Undergraduate RA Alumni</h3>
-  <div class="nrlab-ra-grid">
-    <article class="nrlab-ra-card">
-      <span>Class of 2018</span>
-      <h4>Yujia Zhai</h4>
-      <p>Zhejiang Normal University master's program.</p>
-      <strong>1 published paper</strong>
-    </article>
-    <article class="nrlab-ra-card">
-      <span>Class of 2018</span>
-      <h4>Qinhan Zhang</h4>
-      <p>Zhejiang Normal University master's program.</p>
-      <strong>1 published paper</strong>
-    </article>
-    <article class="nrlab-ra-card">
-      <span>Class of 2019</span>
-      <h4>Zeyuan Xie</h4>
-      <p>Capital Normal University master's program; university student counselor role.</p>
-    </article>
-    <article class="nrlab-ra-card">
-      <span>Class of 2019</span>
-      <h4>Yuxin Xie</h4>
-      <p>Southwest University master's program.</p>
-    </article>
-    <article class="nrlab-ra-card">
-      <span>Class of 2019</span>
-      <h4>Peinai Li</h4>
-      <p>Southwest University master's program.</p>
-      <strong>1 manuscript under submission</strong>
-    </article>
-    <article class="nrlab-ra-card">
-      <span>Class of 2020</span>
-      <h4>Xuge Qi</h4>
-      <p>Psychology teacher role.</p>
-      <strong>1 discontinued manuscript</strong>
-    </article>
-    <article class="nrlab-ra-card">
-      <span>Class of 2020</span>
-      <h4>Kejia Wu</h4>
-      <p>Direct PhD track at East China Normal University.</p>
-      <strong>2 manuscripts under submission</strong>
-    </article>
-    <article class="nrlab-ra-card">
-      <span>Class of 2021</span>
-      <h4>Xueyuan Wang</h4>
-      <p>Jilin University master's program.</p>
-      <strong>1 co-first-author paper</strong>
-    </article>
-    <article class="nrlab-ra-card">
-      <span>Class of 2021</span>
-      <h4>Zifeng Xia</h4>
-      <p>Psychology teacher role.</p>
-      <strong>1 co-first-author paper</strong>
-    </article>
-    <article class="nrlab-ra-card">
-      <span>Class of 2022</span>
-      <h4>Yekai Chen</h4>
-      <p>Zhejiang Normal University.</p>
-      <strong>1 co-first-author paper; 1 first-author manuscript under review</strong>
-    </article>
-    <article class="nrlab-ra-card">
-      <span>Class of 2022</span>
-      <h4>Zeyu Luo</h4>
-      <p>Beijing Normal University master's program.</p>
-      <strong>1 first-author paper</strong>
-    </article>
+  <div class="nrlab-ra-list" role="table" aria-label="Undergraduate RA alumni">
+    <div class="nrlab-ra-row nrlab-ra-head" role="row">
+      <span>Name</span><span>Cohort</span><span>Destination</span><span>Research output</span>
+    </div>
+    <div class="nrlab-ra-row" role="row">
+      <strong>Yujia Zhai</strong><span>Class of 2018</span><span>Zhejiang Normal University master's program</span><span>1 published paper</span>
+    </div>
+    <div class="nrlab-ra-row" role="row">
+      <strong>Qinhan Zhang</strong><span>Class of 2018</span><span>Zhejiang Normal University master's program</span><span>1 published paper</span>
+    </div>
+    <div class="nrlab-ra-row" role="row">
+      <strong>Zeyuan Xie</strong><span>Class of 2019</span><span>Capital Normal University master's program; university student counselor role</span><span>-</span>
+    </div>
+    <div class="nrlab-ra-row" role="row">
+      <strong>Yuxin Xie</strong><span>Class of 2019</span><span>Southwest University master's program</span><span>-</span>
+    </div>
+    <div class="nrlab-ra-row" role="row">
+      <strong>Peinai Li</strong><span>Class of 2019</span><span>Southwest University master's program</span><span>1 manuscript under submission</span>
+    </div>
+    <div class="nrlab-ra-row" role="row">
+      <strong>Xuge Qi</strong><span>Class of 2020</span><span>Psychology teacher role</span><span>1 discontinued manuscript</span>
+    </div>
+    <div class="nrlab-ra-row" role="row">
+      <strong>Kejia Wu</strong><span>Class of 2020</span><span>Direct PhD track at East China Normal University</span><span>2 manuscripts under submission</span>
+    </div>
+    <div class="nrlab-ra-row" role="row">
+      <strong>Xueyuan Wang</strong><span>Class of 2021</span><span>Jilin University master's program</span><span>1 co-first-author paper</span>
+    </div>
+    <div class="nrlab-ra-row" role="row">
+      <strong>Zifeng Xia</strong><span>Class of 2021</span><span>Psychology teacher role</span><span>1 co-first-author paper</span>
+    </div>
+    <div class="nrlab-ra-row" role="row">
+      <strong>Yekai Chen</strong><span>Class of 2022</span><span>Zhejiang Normal University</span><span>1 co-first-author paper; 1 first-author manuscript under review</span>
+    </div>
+    <div class="nrlab-ra-row" role="row">
+      <strong>Zeyu Luo</strong><span>Class of 2022</span><span>Beijing Normal University master's program</span><span>1 first-author paper</span>
+    </div>
   </div>
 </div>
 
-<div class="nrlab-ra-block">
+<div class="nrlab-ra-list-block">
   <h3>Master's RA Alumni</h3>
-  <div class="nrlab-ra-grid nrlab-ra-grid-three">
-    <article class="nrlab-ra-card">
-      <span>Class of 2022</span>
-      <h4>Tu Hong</h4>
-      <p>Nanjing Normal University; Heidelberg University.</p>
-      <strong>1 published paper</strong>
-    </article>
-    <article class="nrlab-ra-card">
-      <span>Class of 2022</span>
-      <h4>Junjie Xie</h4>
-      <p>Nanjing Normal University; psychology teacher role.</p>
-      <strong>1 published paper</strong>
-    </article>
-    <article class="nrlab-ra-card">
-      <span>Class of 2023</span>
-      <h4>Bohui Luo</h4>
-      <p>Guangzhou Sport University; college lecturer role.</p>
-      <strong>2 published papers</strong>
-    </article>
+  <div class="nrlab-ra-list" role="table" aria-label="Master's RA alumni">
+    <div class="nrlab-ra-row nrlab-ra-head" role="row">
+      <span>Name</span><span>Cohort</span><span>Destination</span><span>Research output</span>
+    </div>
+    <div class="nrlab-ra-row" role="row">
+      <strong>Tu Hong</strong><span>Class of 2022</span><span>Nanjing Normal University; Heidelberg University</span><span>1 published paper</span>
+    </div>
+    <div class="nrlab-ra-row" role="row">
+      <strong>Junjie Xie</strong><span>Class of 2022</span><span>Nanjing Normal University; psychology teacher role</span><span>1 published paper</span>
+    </div>
+    <div class="nrlab-ra-row" role="row">
+      <strong>Bohui Luo</strong><span>Class of 2023</span><span>Guangzhou Sport University; college lecturer role</span><span>2 published papers</span>
+    </div>
   </div>
 </div>
 
-<div class="nrlab-ra-block">
+<div class="nrlab-ra-list-block">
   <h3>Current 2025 RA Cohort</h3>
-  <div class="nrlab-ra-grid nrlab-ra-grid-three">
-    <article class="nrlab-ra-card">
-      <span>Undergraduate RA</span>
-      <h4>Yuchang Hua</h4>
-      <strong>1 first-author manuscript in preparation</strong>
-    </article>
-    <article class="nrlab-ra-card">
-      <span>Undergraduate RA</span>
-      <h4>Xinran Liang</h4>
-      <strong>1 first-author manuscript in revision</strong>
-    </article>
-    <article class="nrlab-ra-card">
-      <span>Research Assistant</span>
-      <h4>Shumao Yu</h4>
-      <strong>1 manuscript in preparation</strong>
-    </article>
-    <article class="nrlab-ra-card">
-      <span>Master's RA</span>
-      <h4>Zhuojun Yu</h4>
-      <strong>1 first-author manuscript in preparation</strong>
-    </article>
-    <article class="nrlab-ra-card">
-      <span>Undergraduate RA</span>
-      <h4>Zining Zhu</h4>
-      <strong>1 co-first-author manuscript submitted</strong>
-    </article>
-    <article class="nrlab-ra-card">
-      <span>Research Assistant</span>
-      <h4>Zhaoqi Wang</h4>
-      <strong>1 co-first-author manuscript; 1 manuscript in preparation</strong>
-    </article>
+  <div class="nrlab-ra-list" role="table" aria-label="Current 2025 RA cohort">
+    <div class="nrlab-ra-row nrlab-ra-head" role="row">
+      <span>Name</span><span>Role</span><span>Destination</span><span>Research output</span>
+    </div>
+    <div class="nrlab-ra-row" role="row">
+      <strong>Yuchang Hua</strong><span>Undergraduate RA</span><span>Current cohort</span><span>1 first-author manuscript in preparation</span>
+    </div>
+    <div class="nrlab-ra-row" role="row">
+      <strong>Xinran Liang</strong><span>Undergraduate RA</span><span>Current cohort</span><span>1 first-author manuscript in revision</span>
+    </div>
+    <div class="nrlab-ra-row" role="row">
+      <strong>Shumao Yu</strong><span>Research Assistant</span><span>Current cohort</span><span>1 manuscript in preparation</span>
+    </div>
+    <div class="nrlab-ra-row" role="row">
+      <strong>Zhuojun Yu</strong><span>Master's RA</span><span>Current cohort</span><span>1 first-author manuscript in preparation</span>
+    </div>
+    <div class="nrlab-ra-row" role="row">
+      <strong>Zining Zhu</strong><span>Undergraduate RA</span><span>Current cohort</span><span>1 co-first-author manuscript submitted</span>
+    </div>
+    <div class="nrlab-ra-row" role="row">
+      <strong>Zhaoqi Wang</strong><span>Research Assistant</span><span>Current cohort</span><span>1 co-first-author manuscript; 1 manuscript in preparation</span>
+    </div>
   </div>
 </div>
