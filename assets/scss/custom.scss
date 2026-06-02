@@ -282,6 +282,96 @@ a:hover {
   line-height: 1.5;
 }
 
+.nrlab-ra-summary,
+.nrlab-ra-grid {
+  display: grid;
+  gap: 1rem;
+}
+
+.nrlab-ra-summary {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  margin: 1.35rem 0;
+}
+
+.nrlab-ra-summary span,
+.nrlab-ra-card {
+  border: 1px solid rgba(19, 41, 75, 0.12);
+  border-radius: 8px;
+  background: #fff;
+}
+
+.nrlab-ra-summary span {
+  min-height: 5.5rem;
+  padding: 1rem;
+  color: var(--nrlab-muted);
+  font-size: 0.9rem;
+}
+
+.nrlab-ra-summary strong {
+  display: block;
+  color: var(--nrlab-purple);
+  font-size: 1.8rem;
+  line-height: 1.05;
+}
+
+.nrlab-ra-block {
+  margin-top: 1.65rem;
+}
+
+.nrlab-ra-block h3 {
+  margin-bottom: 0.9rem;
+  color: var(--nrlab-deep-green);
+  font-size: 1.2rem;
+  font-weight: 800;
+}
+
+.nrlab-ra-grid {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.nrlab-ra-grid-three {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.nrlab-ra-card {
+  min-height: 11rem;
+  padding: 1rem;
+  border-top: 4px solid var(--nrlab-green);
+  box-shadow: 0 14px 34px rgba(23, 74, 69, 0.08);
+}
+
+.nrlab-ra-card:nth-child(even) {
+  border-top-color: var(--nrlab-purple);
+}
+
+.nrlab-ra-card span {
+  display: inline-flex;
+  color: var(--nrlab-purple);
+  font-size: 0.78rem;
+  font-weight: 750;
+}
+
+.nrlab-ra-card h4 {
+  margin: 0.45rem 0 0.55rem;
+  color: var(--nrlab-deep-green);
+  font-size: 1.05rem;
+  font-weight: 800;
+}
+
+.nrlab-ra-card p {
+  margin: 0 0 0.55rem;
+  color: var(--nrlab-muted);
+  font-size: 0.92rem;
+  line-height: 1.45;
+}
+
+.nrlab-ra-card strong {
+  display: block;
+  color: var(--nrlab-ink);
+  font-size: 0.92rem;
+  line-height: 1.4;
+}
+
 .nrlab-visitor-map {
   display: grid;
   grid-template-columns: minmax(0, 1.35fr) minmax(280px, 0.65fr);
@@ -472,7 +562,10 @@ a:hover {
   .nrlab-card-grid,
   .nrlab-card-grid-three,
   .nrlab-institution-grid,
-  .nrlab-publication-list {
+  .nrlab-publication-list,
+  .nrlab-ra-summary,
+  .nrlab-ra-grid,
+  .nrlab-ra-grid-three {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
@@ -487,7 +580,10 @@ a:hover {
   .nrlab-card-grid,
   .nrlab-card-grid-three,
   .nrlab-institution-grid,
-  .nrlab-publication-list {
+  .nrlab-publication-list,
+  .nrlab-ra-summary,
+  .nrlab-ra-grid,
+  .nrlab-ra-grid-three {
     grid-template-columns: 1fr;
   }
 
@@ -587,6 +683,8 @@ a:hover {
 .nrlab-recruitment-panel,
 .nrlab-institution,
 .nrlab-publication-item,
+.nrlab-ra-summary span,
+.nrlab-ra-card,
 .nrlab-visitor-map-frame,
 .nrlab-visitor-panel,
 .nrlab-chain div,
@@ -658,6 +756,8 @@ a:hover {
 
 .nrlab-institution,
 .nrlab-publication-item,
+.nrlab-ra-summary span,
+.nrlab-ra-card,
 .nrlab-visitor-map-frame,
 .nrlab-visitor-panel {
   border-color: var(--nrlab-line);
@@ -721,6 +821,8 @@ body.dark {
 .dark .nrlab-recruitment-panel,
 .dark .nrlab-institution,
 .dark .nrlab-publication-item,
+.dark .nrlab-ra-summary span,
+.dark .nrlab-ra-card,
 .dark .nrlab-visitor-map-frame,
 .dark .nrlab-visitor-panel,
 .dark .nrlab-chain div,
@@ -732,6 +834,9 @@ body.dark {
 
 .dark .nrlab-chain strong,
 .dark .nrlab-card h3,
+.dark .nrlab-ra-block h3,
+.dark .nrlab-ra-card h4,
+.dark .nrlab-ra-card strong,
 .dark .nrlab-institution strong,
 .dark .nrlab-publication-item a,
 .dark .nrlab-visitor-stats strong,
@@ -742,6 +847,8 @@ body.dark {
 }
 
 .dark .nrlab-publication-item p,
+.dark .nrlab-ra-summary span,
+.dark .nrlab-ra-card p,
 .dark .nrlab-visitor-updated,
 .dark .nrlab-visitor-status,
 .dark .nrlab-visitor-list li {

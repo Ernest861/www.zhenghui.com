@@ -25,6 +25,9 @@ main:
   - name: Join
     url: '#training-recruitment'
     weight: 60
+  - name: Alumni
+    url: '#ra-alumni'
+    weight: 65
   - name: Contact
     url: '#contact'
     weight: 70
