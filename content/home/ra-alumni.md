@@ -35,7 +35,7 @@ design:
       <strong>Qinhan Zhang</strong><span>Class of 2018</span><span>Zhejiang Normal University master's program</span><span><a class="nrlab-ra-output-link" href="https://www.jmir.org/2022/11/e38984" target="_blank" rel="noopener" title="Addiction Symptom Network of Young Internet Users: Network Analysis">1 published paper</a></span>
     </div>
     <div class="nrlab-ra-row" role="row">
-      <strong>Zeyuan Xie</strong><span>Class of 2019</span><span>Capital Normal University master's program; university student counselor role</span><span>-</span>
+      <strong>Zeyuan Xie</strong><span>Class of 2019</span><span>Capital Normal University master's program; university student counselor role</span><span><a class="nrlab-ra-output-link" href="https://link.springer.com/article/10.1007/s12144-026-09289-x" target="_blank" rel="noopener" title="Internet addiction from a computational model: the predictive value of reinforcement learning parameters and behavioral inhibition systems">1 co-first-author paper</a></span>
     </div>
     <div class="nrlab-ra-row" role="row">
       <strong>Yuxin Xie</strong><span>Class of 2019</span><span>Southwest University master's program</span><span>-</span>
@@ -50,7 +50,7 @@ design:
       <strong>Kejia Wu</strong><span>Class of 2020</span><span>Direct PhD track at East China Normal University</span><span>2 manuscripts under submission</span>
     </div>
     <div class="nrlab-ra-row" role="row">
-      <strong>Xueyuan Wang</strong><span>Class of 2021</span><span>Jilin University master's program</span><span>1 co-first-author paper</span>
+      <strong>Xueyuan Wang</strong><span>Class of 2021</span><span>Jilin University master's program</span><span>-</span>
     </div>
     <div class="nrlab-ra-row" role="row">
       <strong>Zifeng Xia</strong><span>Class of 2021</span><span>Psychology teacher role</span><span>1 co-first-author paper</span>
@@ -104,7 +104,7 @@ design:
       <strong>Zining Zhu</strong><span>Undergraduate RA</span><span>Current cohort</span><span>1 co-first-author manuscript submitted</span>
     </div>
     <div class="nrlab-ra-row" role="row">
-      <strong>Zhaoqi Wang</strong><span>Research Assistant</span><span>Current cohort</span><span>1 co-first-author manuscript; 1 manuscript in preparation</span>
+      <strong>Zhaoqi Wang</strong><span>Research Assistant</span><span>Current cohort</span><span><a class="nrlab-ra-output-link" href="https://doi.org/10.1016/j.jad.2026.121460" target="_blank" rel="noopener" title="Symptom and Bayesian network analyses of positive and negative symptoms in psychotic-like experiences">1 co-first-author paper</a>; 1 manuscript in preparation</span>
     </div>
   </div>
 </div>
