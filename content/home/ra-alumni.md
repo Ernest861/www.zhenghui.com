@@ -56,10 +56,10 @@ design:
       <strong>Zifeng Xia</strong><span>Class of 2021</span><span>Psychology teacher role</span><span>1 co-first-author paper</span>
     </div>
     <div class="nrlab-ra-row" role="row">
-      <strong>Yekai Chen</strong><span>Class of 2022</span><span>Zhejiang Normal University</span><span>1 co-first-author paper; 1 first-author manuscript under review</span>
+      <strong>Yekai Chen</strong><span>Class of 2022</span><span>Zhejiang Normal University</span><span><a class="nrlab-ra-output-link" href="https://doi.org/10.3389/fneur.2025.1728433" target="_blank" rel="noopener" title="Sex-specific infarct volume associations and early prediction of language impairment progression following stroke surgery">1 co-first-author paper</a>; 1 first-author manuscript under review</span>
     </div>
     <div class="nrlab-ra-row" role="row">
-      <strong>Zeyu Luo</strong><span>Class of 2022</span><span>Beijing Normal University master's program</span><span>1 first-author paper</span>
+      <strong>Zeyu Luo</strong><span>Class of 2022</span><span>Beijing Normal University master's program</span><span><a class="nrlab-ra-output-link" href="https://doi.org/10.1186/s40359-026-04429-1" target="_blank" rel="noopener" title="Paternal emotional warmth buffers maternal rejection in adolescent NSSI: a network and Bayesian analysis">1 first-author paper</a></span>
     </div>
   </div>
 </div>
@@ -77,7 +77,7 @@ design:
       <strong>Junjie Xie</strong><span>Class of 2022</span><span>Nanjing Normal University; psychology teacher role</span><span><a class="nrlab-ra-output-link" href="https://pmc.ncbi.nlm.nih.gov/articles/PMC8613424/" target="_blank" rel="noopener" title="Psychometric investigation of the Chinese version of the Habit, Reward and Fear Scale (HRFS)">1 published paper</a></span>
     </div>
     <div class="nrlab-ra-row" role="row">
-      <strong>Bohui Luo</strong><span>Class of 2023</span><span>Guangzhou Sport University; college lecturer role</span><span>2 published papers</span>
+      <strong>Bohui Luo</strong><span>Class of 2023</span><span>Guangzhou Sport University; college lecturer role</span><span><a class="nrlab-ra-output-link" href="https://doi.org/10.1016/j.jad.2025.119945" target="_blank" rel="noopener" title="Beyond impulsivity, predicting non-suicidal self-injurious behavior in adolescents">1 JAD paper</a>; <a class="nrlab-ra-output-link" href="https://doi.org/10.1016/j.jsams.2025.06.001" target="_blank" rel="noopener" title="Effects of 4-week moderate-intensity aerobic training on stress reactivity, decision-making, and prefrontal brain activity under acute stress">1 JSMS paper</a></span>
     </div>
   </div>
 </div>
@@ -101,7 +101,7 @@ design:
       <strong>Zhuojun Yu</strong><span>Master's RA</span><span>Current cohort</span><span>1 first-author manuscript in preparation</span>
     </div>
     <div class="nrlab-ra-row" role="row">
-      <strong>Zining Zhu</strong><span>Undergraduate RA</span><span>Current cohort</span><span>1 co-first-author manuscript submitted</span>
+      <strong>Zining Zhu</strong><span>Undergraduate RA</span><span>Current cohort</span><span><a class="nrlab-ra-output-link" href="https://doi.org/10.3389/fneur.2025.1728433" target="_blank" rel="noopener" title="Sex-specific infarct volume associations and early prediction of language impairment progression following stroke surgery">1 co-first-author paper</a></span>
     </div>
     <div class="nrlab-ra-row" role="row">
       <strong>Zhaoqi Wang</strong><span>Research Assistant</span><span>Current cohort</span><span><a class="nrlab-ra-output-link" href="https://doi.org/10.1016/j.jad.2026.121460" target="_blank" rel="noopener" title="Symptom and Bayesian network analyses of positive and negative symptoms in psychotic-like experiences">1 co-first-author paper</a>; 1 manuscript in preparation</span>
