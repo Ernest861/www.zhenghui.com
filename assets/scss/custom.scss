@@ -369,6 +369,19 @@ a:hover {
   line-height: 1.45;
 }
 
+.nrlab-ra-output-link {
+  color: var(--nrlab-deep-green);
+  font-weight: 800;
+  text-decoration: none;
+  border-bottom: 1px solid rgba(28, 132, 108, 0.26);
+}
+
+.nrlab-ra-output-link:hover {
+  color: var(--nrlab-purple);
+  border-bottom-color: rgba(107, 78, 255, 0.34);
+  text-decoration: none;
+}
+
 .nrlab-ra-head span {
   color: #fff;
 }
@@ -880,6 +893,16 @@ body.dark {
 
 .dark .nrlab-ra-head span {
   color: #eefbf7;
+}
+
+.dark .nrlab-ra-output-link {
+  color: #b9fff1;
+  border-bottom-color: rgba(185, 255, 241, 0.34);
+}
+
+.dark .nrlab-ra-output-link:hover {
+  color: #d7ccff;
+  border-bottom-color: rgba(215, 204, 255, 0.45);
 }
 
 .dark .nrlab-pill-grid span {

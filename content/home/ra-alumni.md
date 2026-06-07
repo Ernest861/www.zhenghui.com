@@ -29,10 +29,10 @@ design:
       <span>Name</span><span>Cohort</span><span>Destination</span><span>Research output</span>
     </div>
     <div class="nrlab-ra-row" role="row">
-      <strong>Yujia Zhai</strong><span>Class of 2018</span><span>Zhejiang Normal University master's program</span><span>1 published paper</span>
+      <strong>Yujia Zhai</strong><span>Class of 2018</span><span>Zhejiang Normal University master's program</span><span><a class="nrlab-ra-output-link" href="#publications">1 published paper</a></span>
     </div>
     <div class="nrlab-ra-row" role="row">
-      <strong>Qinhan Zhang</strong><span>Class of 2018</span><span>Zhejiang Normal University master's program</span><span>1 published paper</span>
+      <strong>Qinhan Zhang</strong><span>Class of 2018</span><span>Zhejiang Normal University master's program</span><span><a class="nrlab-ra-output-link" href="#publications">1 published paper</a></span>
     </div>
     <div class="nrlab-ra-row" role="row">
       <strong>Zeyuan Xie</strong><span>Class of 2019</span><span>Capital Normal University master's program; university student counselor role</span><span>-</span>
@@ -50,16 +50,16 @@ design:
       <strong>Kejia Wu</strong><span>Class of 2020</span><span>Direct PhD track at East China Normal University</span><span>2 manuscripts under submission</span>
     </div>
     <div class="nrlab-ra-row" role="row">
-      <strong>Xueyuan Wang</strong><span>Class of 2021</span><span>Jilin University master's program</span><span>1 co-first-author paper</span>
+      <strong>Xueyuan Wang</strong><span>Class of 2021</span><span>Jilin University master's program</span><span><a class="nrlab-ra-output-link" href="#publications">1 co-first-author paper</a></span>
     </div>
     <div class="nrlab-ra-row" role="row">
-      <strong>Zifeng Xia</strong><span>Class of 2021</span><span>Psychology teacher role</span><span>1 co-first-author paper</span>
+      <strong>Zifeng Xia</strong><span>Class of 2021</span><span>Psychology teacher role</span><span><a class="nrlab-ra-output-link" href="#publications">1 co-first-author paper</a></span>
     </div>
     <div class="nrlab-ra-row" role="row">
-      <strong>Yekai Chen</strong><span>Class of 2022</span><span>Zhejiang Normal University</span><span>1 co-first-author paper; 1 first-author manuscript under review</span>
+      <strong>Yekai Chen</strong><span>Class of 2022</span><span>Zhejiang Normal University</span><span><a class="nrlab-ra-output-link" href="#publications">1 co-first-author paper</a>; 1 first-author manuscript under review</span>
     </div>
     <div class="nrlab-ra-row" role="row">
-      <strong>Zeyu Luo</strong><span>Class of 2022</span><span>Beijing Normal University master's program</span><span>1 first-author paper</span>
+      <strong>Zeyu Luo</strong><span>Class of 2022</span><span>Beijing Normal University master's program</span><span><a class="nrlab-ra-output-link" href="#publications">1 first-author paper</a></span>
     </div>
   </div>
 </div>
@@ -71,13 +71,13 @@ design:
       <span>Name</span><span>Cohort</span><span>Destination</span><span>Research output</span>
     </div>
     <div class="nrlab-ra-row" role="row">
-      <strong>Tu Hong</strong><span>Class of 2022</span><span>Nanjing Normal University; Heidelberg University</span><span>1 published paper</span>
+      <strong>Tu Hong</strong><span>Class of 2022</span><span>Nanjing Normal University; Heidelberg University</span><span><a class="nrlab-ra-output-link" href="#publications">1 published paper</a></span>
     </div>
     <div class="nrlab-ra-row" role="row">
-      <strong>Junjie Xie</strong><span>Class of 2022</span><span>Nanjing Normal University; psychology teacher role</span><span>1 published paper</span>
+      <strong>Junjie Xie</strong><span>Class of 2022</span><span>Nanjing Normal University; psychology teacher role</span><span><a class="nrlab-ra-output-link" href="#publications">1 published paper</a></span>
     </div>
     <div class="nrlab-ra-row" role="row">
-      <strong>Bohui Luo</strong><span>Class of 2023</span><span>Guangzhou Sport University; college lecturer role</span><span>2 published papers</span>
+      <strong>Bohui Luo</strong><span>Class of 2023</span><span>Guangzhou Sport University; college lecturer role</span><span><a class="nrlab-ra-output-link" href="#publications">2 published papers</a></span>
     </div>
   </div>
 </div>
