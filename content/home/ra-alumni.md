@@ -29,10 +29,10 @@ design:
       <span>Name</span><span>Cohort</span><span>Destination</span><span>Research output</span>
     </div>
     <div class="nrlab-ra-row" role="row">
-      <strong>Yujia Zhai</strong><span>Class of 2018</span><span>Zhejiang Normal University master's program</span><span><a class="nrlab-ra-output-link" href="https://doi.org/10.2196/38984" target="_blank" rel="noopener" title="Addiction Symptom Network of Young Internet Users: Network Analysis">1 published paper</a></span>
+      <strong>Yujia Zhai</strong><span>Class of 2018</span><span>Zhejiang Normal University master's program</span><span><a class="nrlab-ra-output-link" href="https://www.jmir.org/2022/11/e38984" target="_blank" rel="noopener" title="Addiction Symptom Network of Young Internet Users: Network Analysis">1 published paper</a></span>
     </div>
     <div class="nrlab-ra-row" role="row">
-      <strong>Qinhan Zhang</strong><span>Class of 2018</span><span>Zhejiang Normal University master's program</span><span><a class="nrlab-ra-output-link" href="https://doi.org/10.2196/38984" target="_blank" rel="noopener" title="Addiction Symptom Network of Young Internet Users: Network Analysis">1 published paper</a></span>
+      <strong>Qinhan Zhang</strong><span>Class of 2018</span><span>Zhejiang Normal University master's program</span><span><a class="nrlab-ra-output-link" href="https://www.jmir.org/2022/11/e38984" target="_blank" rel="noopener" title="Addiction Symptom Network of Young Internet Users: Network Analysis">1 published paper</a></span>
     </div>
     <div class="nrlab-ra-row" role="row">
       <strong>Zeyuan Xie</strong><span>Class of 2019</span><span>Capital Normal University master's program; university student counselor role</span><span>-</span>
@@ -71,10 +71,10 @@ design:
       <span>Name</span><span>Cohort</span><span>Destination</span><span>Research output</span>
     </div>
     <div class="nrlab-ra-row" role="row">
-      <strong>Tu Hong</strong><span>Class of 2022</span><span>Nanjing Normal University; Heidelberg University</span><span><a class="nrlab-ra-output-link" href="https://doi.org/10.1002/brb3.2364" target="_blank" rel="noopener" title="Psychometric investigation of the Chinese version of the Habit, Reward and Fear Scale (HRFS)">1 published paper</a></span>
+      <strong>Tu Hong</strong><span>Class of 2022</span><span>Nanjing Normal University; Heidelberg University</span><span><a class="nrlab-ra-output-link" href="https://pmc.ncbi.nlm.nih.gov/articles/PMC8613424/" target="_blank" rel="noopener" title="Psychometric investigation of the Chinese version of the Habit, Reward and Fear Scale (HRFS)">1 published paper</a></span>
     </div>
     <div class="nrlab-ra-row" role="row">
-      <strong>Junjie Xie</strong><span>Class of 2022</span><span>Nanjing Normal University; psychology teacher role</span><span><a class="nrlab-ra-output-link" href="https://doi.org/10.1002/brb3.2364" target="_blank" rel="noopener" title="Psychometric investigation of the Chinese version of the Habit, Reward and Fear Scale (HRFS)">1 published paper</a></span>
+      <strong>Junjie Xie</strong><span>Class of 2022</span><span>Nanjing Normal University; psychology teacher role</span><span><a class="nrlab-ra-output-link" href="https://pmc.ncbi.nlm.nih.gov/articles/PMC8613424/" target="_blank" rel="noopener" title="Psychometric investigation of the Chinese version of the Habit, Reward and Fear Scale (HRFS)">1 published paper</a></span>
     </div>
     <div class="nrlab-ra-row" role="row">
       <strong>Bohui Luo</strong><span>Class of 2023</span><span>Guangzhou Sport University; college lecturer role</span><span>2 published papers</span>
