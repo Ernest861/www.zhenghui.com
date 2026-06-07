@@ -47,7 +47,7 @@ design:
       <strong>Xuge Qi</strong><span>Class of 2020</span><span>Psychology teacher role</span><span>1 discontinued manuscript</span>
     </div>
     <div class="nrlab-ra-row" role="row">
-      <strong>Kejia Wu</strong><span>Class of 2020</span><span>Direct PhD track at East China Normal University</span><span>2 manuscripts under submission</span>
+      <strong>Kejia Wu</strong><span>Class of 2020</span><span>Direct PhD track at East China Normal University</span><span><a class="nrlab-ra-output-link" href="https://doi.org/10.1186/s12893-026-03526-7" target="_blank" rel="noopener" title="Patterns of change in impulsivity after bariatric surgery: evidence from 24 months of follow-up">1 first-author paper</a>; 1 manuscript under submission</span>
     </div>
     <div class="nrlab-ra-row" role="row">
       <strong>Xueyuan Wang</strong><span>Class of 2021</span><span>Jilin University master's program</span><span>-</span>
