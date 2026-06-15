@@ -17,9 +17,9 @@ design:
 </div>
 
 <div class="nrlab-ra-summary">
-  <span><strong>11</strong>Undergraduate RA alumni</span>
-  <span><strong>3</strong>Master's RA alumni</span>
-  <span><strong>6</strong>Current RA cohort</span>
+  <span><strong>12</strong>Undergraduate RA alumni</span>
+  <span><strong>4</strong>Master's RA alumni</span>
+  <span><strong>4</strong>Current RA cohort</span>
 </div>
 
 <div class="nrlab-ra-list-block">
@@ -61,6 +61,9 @@ design:
     <div class="nrlab-ra-row" role="row">
       <strong>Zeyu Luo</strong><span>Class of 2022</span><span>Beijing Normal University master's program</span><span><a class="nrlab-ra-output-link" href="https://doi.org/10.1186/s40359-026-04429-1" target="_blank" rel="noopener" title="Paternal emotional warmth buffers maternal rejection in adolescent NSSI: a network and Bayesian analysis">1 first-author paper</a></span>
     </div>
+    <div class="nrlab-ra-row" role="row">
+      <strong>Zining Zhu</strong><span>2025 RA cohort</span><span>Completed undergraduate RA appointment</span><span><a class="nrlab-ra-output-link" href="https://doi.org/10.3389/fneur.2025.1728433" target="_blank" rel="noopener" title="Sex-specific infarct volume associations and early prediction of language impairment progression following stroke surgery">1 co-first-author paper</a>; 1 additional co-first-author paper</span>
+    </div>
   </div>
 </div>
 
@@ -79,6 +82,9 @@ design:
     <div class="nrlab-ra-row" role="row">
       <strong>Bohui Luo</strong><span>Class of 2023</span><span>Guangzhou Sport University; college lecturer role</span><span><a class="nrlab-ra-output-link" href="https://doi.org/10.1016/j.jad.2025.119945" target="_blank" rel="noopener" title="Beyond impulsivity, predicting non-suicidal self-injurious behavior in adolescents">1 JAD paper</a>; <a class="nrlab-ra-output-link" href="https://doi.org/10.1016/j.jsams.2025.06.001" target="_blank" rel="noopener" title="Effects of 4-week moderate-intensity aerobic training on stress reactivity, decision-making, and prefrontal brain activity under acute stress">1 JSMS paper</a></span>
     </div>
+    <div class="nrlab-ra-row" role="row">
+      <strong>Zhuojun Yu</strong><span>2025 RA cohort</span><span>Zhongshan School of Medicine, Sun Yat-sen University</span><span>1 manuscript in preparation</span>
+    </div>
   </div>
 </div>
 
@@ -96,12 +102,6 @@ design:
     </div>
     <div class="nrlab-ra-row" role="row">
       <strong>Shumao Yu</strong><span>Research Assistant</span><span>Current cohort</span><span>1 manuscript in preparation</span>
-    </div>
-    <div class="nrlab-ra-row" role="row">
-      <strong>Zhuojun Yu</strong><span>Master's RA</span><span>Current cohort</span><span>1 first-author manuscript in preparation</span>
-    </div>
-    <div class="nrlab-ra-row" role="row">
-      <strong>Zining Zhu</strong><span>Undergraduate RA</span><span>Current cohort</span><span><a class="nrlab-ra-output-link" href="https://doi.org/10.3389/fneur.2025.1728433" target="_blank" rel="noopener" title="Sex-specific infarct volume associations and early prediction of language impairment progression following stroke surgery">1 co-first-author paper</a></span>
     </div>
     <div class="nrlab-ra-row" role="row">
       <strong>Zhaoqi Wang</strong><span>Research Assistant</span><span>Current cohort</span><span><a class="nrlab-ra-output-link" href="https://doi.org/10.1016/j.jad.2026.121460" target="_blank" rel="noopener" title="Symptom and Bayesian network analyses of positive and negative symptoms in psychotic-like experiences">1 co-first-author paper</a>; 1 manuscript in preparation</span>
