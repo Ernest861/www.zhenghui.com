@@ -568,10 +568,20 @@ function buildPageEpisodesV7(){
     const grp = groups[key];
     const events = grp.events.slice().sort(function(a,b){return a.t-b.t;});
     const n = events.length;
+    // v9.2(own"1串"折叠,跟build_v6.R同步):同一个page连续打好几次own-1、
+    // 中间一次own-2都没有(真实案例:WiFi万能钥匙的WifiNoConnectActivity在
+    // 106ms内连开8次才等到1次真实的2),不应该把前面几次各自当成独立的
+    // "被取代"episode——更合理的解释是同一次真实打开,底层onResume连续触发
+    // 了好几次。curRunStart记录"当前这串1"里第一个1的时间戳,只有串的最后
+    // 一个1(下一条不是1)才真正往下走配对逻辑,起点用curRunStart而不是
+    // 自己的时间戳;串内更早的1直接跳过,不生成独立episode
+    let curRunStart = null;
     for (let i=0;i<n;i++){
       if (events[i].e!==1) continue; // 只从own-1出发
-      const epStart = events[i].t;
+      if (i===0 || events[i-1].e!==1) curRunStart = events[i].t;
       const nxt = events[i+1];
+      if (nxt && nxt.e===1) continue; // 串内还没到尾,交给下一个1继续判断
+      const epStart = curRunStart;
 
       // ---- 残留own23兜底的公共逻辑:给定一个已知边界(E:下一次同page重开;
       // F:Infinity),找own自己的23,找到就重新走A/B/D窗口搜索 ----
@@ -607,8 +617,9 @@ function buildPageEpisodesV7(){
         continue;
       }
       if (nxt.e===1){
-        // E_superseded:紧邻的下一条还是own-1。先试own23兜底(限定在这次
-        // own-1到下一次重开之间);兜底也找不到,才是真的E_superseded
+        // 理论上走不到这里了——串折叠之后,只有"下一条不是1"的尾1才会到这一步
+        // (第583行已经把nxt.e===1的情况continue掉了)。留着只是防御性的,真
+        // 触发了说明上面的串折叠逻辑本身有bug,不代表业务上真的还有这种情况
         if (tryOwn23Fallback(nxt.t)) continue;
         spans.push({start:epStart, end:nxt.t, a:grp.a, n:grp.n, p:grp.p,
                     open:true, cat:'E_superseded', chain:'1→E'});
