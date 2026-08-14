@@ -1,5 +1,5 @@
 <title>AppUsage事件时间轴(支持本地导入)</title>
-<meta name="description" content="table2原始事件交互时间轴:悬浮窗(19-20)/前台(1)/暂停(2)/退出(23)四行状态,叠加息屏锁屏竖线和通知圆点,可缩放拖动逐毫秒核对;支持直接导入本地AppUsage line原始txt导出,浏览器本地解析可视化" />
+<meta name="description" content="table2原始事件交互时间轴:悬浮窗(19-20)/前台(1)/暂停(2)/退出(23)四行状态,叠加息屏锁屏竖线和通知圆点,再往上叠page级推测前台使用和app级会话(700ms合并)两层聚合,可缩放拖动逐毫秒核对;支持直接导入本地AppUsage line原始txt导出,浏览器本地解析可视化" />
 <style>
   :root{
     --bg:#f6f5f2; --surface:#ffffff; --ink:#1b1a17; --ink-soft:#6b6558;
@@ -210,7 +210,7 @@
   </p>
 
   <div class="chart-shell">
-    <svg id="chart" viewBox="0 0 1320 940" preserveAspectRatio="none"></svg>
+    <svg id="chart" viewBox="0 0 1320 1027" preserveAspectRatio="none"></svg>
   </div>
   <svg id="minimap" viewBox="0 0 1320 60" preserveAspectRatio="none"></svg>
 
@@ -721,9 +721,30 @@ const lockSpans = buildSystemSpans(17,18);       // 锁屏→解锁
 const screenOffSpans = buildSystemSpans(16,15);  // 息屏→亮屏
 
 const fgSpans = buildPageEpisodesV7();   // "推测前台使用"page配对,跟build_v6.R的v9算法同步,带cat分类
-// (2026-08-11:app级会话链build_app_sessions()已删除——那是"要不要合并成
-// 一次连续使用"的问题,属于下游算page/app使用次数、平均时长这类特征时才
-// 需要的700ms阈值,不属于page配对这一步,不在这份可视化里实现)
+// (2026-08-11:app级会话链build_app_sessions()一度删除过——那是"要不要合并
+// 成一次连续使用"的问题,属于下游算page/app使用次数、平均时长这类特征时
+// 才需要的700ms阈值,不属于page配对这一步。2026-08-13重新加回来,专门
+// 用于可视化里单独一行展示app级会话——跟build_app_sessions.R的700ms合并
+// 阈值、按app_id分组逻辑保持一致,是同一份规则的JS对照实现,不是新设计)
+function buildAppSessions(pageSpans){
+  const closed = pageSpans.filter(function(s){ return !s.open; })
+    .slice().sort(function(x,y){ return x.a===y.a ? x.start-y.start : (x.a<y.a?-1:1); });
+  const sessions = [];
+  let cur = null;
+  closed.forEach(function(s){
+    if (cur && cur.a===s.a && (s.start-cur.end)<=700){
+      cur.end = Math.max(cur.end, s.end);
+      cur.n = s.n; // 同一个app,名字应该一致,保留最新一次的显示名兜底
+    } else {
+      if (cur) sessions.push(cur);
+      cur = {a:s.a, n:s.n, p:null, start:s.start, end:s.end, open:false};
+    }
+  });
+  if (cur) sessions.push(cur);
+  sessions.sort(function(x,y){ return x.start-y.start; });
+  return sessions;
+}
+const appSpans = buildAppSessions(fgSpans);
 
 const pauseExitLinks = buildPauseExitLinks(); // 2→23(中间没有再open过)的补充连线
 const flSpans = buildFloatingSpans();
@@ -761,22 +782,27 @@ const MIN_SPAN = 1000; // 最小可缩放到1秒
 
 const svg = freshEl('chart');
 const NS = 'http://www.w3.org/2000/svg';
-const CW = 1320, CH = 940;
+const CW = 1320, CH = 1027;
 const padL = 92, padR = 16, padT = 40, padB = 34;
 const chartW = CW - padL - padR;
-const NROWS = 10;
+const NROWS = 11;
 const rowH = (CH - padT - padB) / NROWS;
-const rowY = [0,1,2,3,4,5,6,7,8,9].map(function(i){ return padT+rowH*i; });
+const rowY = Array.from({length:NROWS}, function(_,i){ return padT+rowH*i; });
 const rowLabels = [
   '通知 10↑/12↓', '锁屏区间 17→18', '息屏区间 16→15', '悬浮窗 19→20',
   '前台 1(原始点)', '暂停 2(原始点)', '退出 23(原始点)',
-  '推测前台使用(1→own下一个2)', '规则判定(A/B/D/E四条固定子行)', '⚠ 规律冲突(F_无own2)'
+  '推测前台使用(1→own下一个2)', 'app级会话(page按700ms合并)',
+  '规则判定(A/B/D/E四条固定子行)', '⚠ 规律冲突(F_无own2)'
 ];
 // row索引常量,方便下面各类事件对号入座 —— 顺序就是用户要的:
 // 通知 → 锁屏区间 → 息屏区间 → 悬浮窗 → 前台1点图 → 暂停2点图 → 退出23点图 →
-// 推测前台使用(1→own2) → 规则判定(A/B/D固定子行) → 规律冲突(只剩F_无own2)
+// 推测前台使用(1→own2) → app级会话(700ms合并) → 规则判定(A/B/D固定子行) →
+// 规律冲突(只剩F_无own2)。2026-08-13新增ROW_APPSESS,放在INFER和RULE
+// 之间,不改动RULE/CONFLICT两行原有的视觉逻辑(guide线等仍然从INFER画到
+// CONFLICT,新行只是视觉上多插了一层,不影响两端锚点)
 const ROW_NOTIF=0, ROW_LOCK=1, ROW_SCREEN=2, ROW_FLOAT=3,
-      ROW_RAW1=4, ROW_RAW2=5, ROW_RAW23=6, ROW_INFER=7, ROW_RULE=8, ROW_CONFLICT=9;
+      ROW_RAW1=4, ROW_RAW2=5, ROW_RAW23=6, ROW_INFER=7, ROW_APPSESS=8,
+      ROW_RULE=9, ROW_CONFLICT=10;
 
 function xOf(t){ return padL + (t - viewStart) / (viewEnd - viewStart) * chartW; }
 function fmtTime(t, withMs, withDate){
@@ -1028,7 +1054,14 @@ function render(){
   fgSpans.forEach(function(s){ if (!selectedApps.has(s.n)) drawSpan(s, rowY[ROW_INFER], rowH, false, hasSel); });
   if (hasSel) fgSpans.forEach(function(s){ if (selectedApps.has(s.n)) drawSpan(s, rowY[ROW_INFER], rowH, false, false); });
 
-  // ---------- row8 规则判定:v9简化后每一段最多"1→单个终止token",不再有
+  // ---------- row7.5(ROW_APPSESS) app级会话:上面那行page级span,按
+  // app_id、700ms合并阈值再聚一层——跟build_app_sessions.R同一套规则。
+  // isFloating=true只是借用drawSpan现成的"更圆润/更实"视觉参数,让这行
+  // 跟上面细碎的page级span有肉眼可辨的层级差,不代表这是悬浮窗数据 ----------
+  appSpans.forEach(function(s){ if (!selectedApps.has(s.n)) drawSpan(s, rowY[ROW_APPSESS], rowH, true, hasSel); });
+  if (hasSel) appSpans.forEach(function(s){ if (selectedApps.has(s.n)) drawSpan(s, rowY[ROW_APPSESS], rowH, true, false); });
+
+  // ---------- row9(ROW_RULE) 规则判定:v9简化后每一段最多"1→单个终止token",不再有
   // 重开链,所以改成4条**固定**子行——A(息屏锁屏)/B(别的app)/D(同app别的
   // page)/E(被同一个page更晚的own-1重开取代,不是"外部东西抢先",
   // 是own2本身还没轮到就被下一次打开抢走了,原因明确,不属于⚠规律冲突)各自
@@ -1086,7 +1119,7 @@ function render(){
   drawRuleMarksPass(ruleMarks.filter(function(s){return !selectedApps.has(s.n);}), hasSel);
   if (hasSel) drawRuleMarksPass(ruleMarks.filter(function(s){return selectedApps.has(s.n);}), false);
 
-  // ---------- row9 ⚠规律冲突:压根没有own自己的2的episode(cat=F_无own2)——
+  // ---------- row10(ROW_CONFLICT) ⚠规律冲突:压根没有own自己的2的episode(cat=F_无own2)——
   // 这才是真的"我们给的page配对规则依赖不上"的情况,需要人工去查。通常出现
   // 在数据集尾部边界(见shaox规律.md"数据集边界
   // 效应"),如果出现在数据集中段,才值得深挖。
@@ -1210,6 +1243,18 @@ function clampView(){
   if (viewStart < DAY_START){ viewStart=DAY_START; viewEnd=viewStart+span; }
   if (viewEnd > DAY_END){ viewEnd=DAY_END; viewStart=viewEnd-span; }
 }
+// ---------- smooth(2026-08-13):拖动/滚轮缩放原来每个mousemove/wheel事件
+// 都同步触发一次render()(整棵SVG清空重建),浏览器一秒钟能收到的
+// mousemove远多于能画的帧数,导致画面一顿一顿——改成rAF节流,同一帧内
+// 多次请求合并成一次真正的render(),视觉上连贯,不改变render()本身的
+// 任何绘制逻辑,只改"多久真正调用一次" ----------
+let renderScheduled = false;
+function requestRender(){
+  if (renderScheduled) return;
+  renderScheduled = true;
+  requestAnimationFrame(function(){ renderScheduled = false; render(); });
+}
+
 function zoomAt(factor, clientX){
   const rect = svg.getBoundingClientRect();
   const relX = (clientX-rect.left)/rect.width*CW;
@@ -1219,7 +1264,7 @@ function zoomAt(factor, clientX){
   viewStart = t0 - frac*span;
   viewEnd = viewStart+span;
   clampView();
-  render();
+  requestRender();
 }
 svg.addEventListener('wheel', function(evt){
   evt.preventDefault();
@@ -1244,7 +1289,7 @@ _activeWinMousemove = function(evt){
   const dt = -dx/chartW*(dragStartView[1]-dragStartView[0]);
   viewStart = dragStartView[0]+dt; viewEnd = dragStartView[1]+dt;
   clampView();
-  render();
+  requestRender();
 };
 window.addEventListener('mousemove', _activeWinMousemove);
 _activeWinMouseup = function(){ dragging=false; svg.classList.remove('dragging'); };
