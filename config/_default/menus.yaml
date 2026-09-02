@@ -23,7 +23,7 @@ main:
     url: '#outreach-matrix'
     weight: 50
   - name: Tools
-    url: '/tools/appusage-timeline.html'
+    url: '/tools/index.html'
     weight: 55
   - name: Join
     url: '#training-recruitment'
