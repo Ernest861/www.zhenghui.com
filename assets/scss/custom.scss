@@ -7,18 +7,21 @@
   padding: 2rem 0 1rem;
 }
 
-/* NRLab visual system: white base, green structure, purple emphasis. */
+/* NRLab visual system: white base, jade-green structure, mauve-purple emphasis.
+   Palette chosen 2026-09: 竹青 jade #3d7a5c + 藕荷 mauve #6b4570, colour-vision
+   validated (adjacent-pair ΔE >= 15 normal vision, >= 8 CVD at OKLab, see
+   3.autoPaper session notes). Replaces the original teal/violet pair. */
 :root {
-  --nrlab-green: #2f8f83;
-  --nrlab-deep-green: #174a45;
-  --nrlab-green-soft: #e7f5f1;
-  --nrlab-purple: #6b4eff;
-  --nrlab-deep-purple: #35246b;
-  --nrlab-purple-soft: #eeeafd;
-  --nrlab-ink: #1d2e2a;
-  --nrlab-muted: #60736d;
-  --nrlab-mist: #f6faf8;
-  --nrlab-line: rgba(47, 143, 131, 0.16);
+  --nrlab-green: #3d7a5c;
+  --nrlab-deep-green: #1f4a36;
+  --nrlab-green-soft: #e6efe8;
+  --nrlab-purple: #6b4570;
+  --nrlab-deep-purple: #40293f;
+  --nrlab-purple-soft: #f0e7ee;
+  --nrlab-ink: #242320;
+  --nrlab-muted: #7a7266;
+  --nrlab-mist: #f4f4f0;
+  --nrlab-line: rgba(61, 122, 92, 0.16);
 }
 
 body {
@@ -36,7 +39,7 @@ a:hover {
 
 .navbar {
   border-bottom: 1px solid var(--nrlab-line);
-  box-shadow: 0 8px 24px rgba(23, 74, 69, 0.06);
+  box-shadow: 0 8px 24px rgba(31, 74, 54, 0.06);
 }
 
 .navbar-brand img {
@@ -71,7 +74,7 @@ a:hover {
 }
 
 #z-section .home-section-bg {
-  background-color: #1f6f65 !important;
+  background-color: #2a5c42 !important;
 }
 
 
@@ -176,7 +179,7 @@ a:hover {
 
 .nrlab-hero-stats strong {
   display: block;
-  color: #2f8f83;
+  color: #3d7a5c;
   font-size: 1.45rem;
 }
 
@@ -328,7 +331,7 @@ a:hover {
   border: 1px solid var(--nrlab-line);
   border-radius: 8px;
   background: #fff;
-  box-shadow: 0 14px 34px rgba(23, 74, 69, 0.08);
+  box-shadow: 0 14px 34px rgba(31, 74, 54, 0.08);
 }
 
 .nrlab-ra-row {
@@ -378,7 +381,7 @@ a:hover {
 
 .nrlab-ra-output-link:hover {
   color: var(--nrlab-purple);
-  border-bottom-color: rgba(107, 78, 255, 0.34);
+  border-bottom-color: rgba(107, 69, 112, 0.34);
   text-decoration: none;
 }
 
@@ -399,7 +402,7 @@ a:hover {
   border: 1px solid rgba(19, 41, 75, 0.12);
   border-radius: 8px;
   background: #fff;
-  box-shadow: 0 14px 34px rgba(23, 74, 69, 0.08);
+  box-shadow: 0 14px 34px rgba(31, 74, 54, 0.08);
 }
 
 .nrlab-visitor-map-frame {
@@ -510,7 +513,7 @@ a:hover {
 }
 
 .nrlab-card i {
-  color: #2f8f83;
+  color: #3d7a5c;
   font-size: 1.6rem;
 }
 
@@ -534,10 +537,10 @@ a:hover {
   align-items: center;
   min-height: 2.4rem;
   padding: 0.45rem 0.75rem;
-  border: 1px solid rgba(47, 143, 131, 0.35);
+  border: 1px solid rgba(61, 122, 92, 0.35);
   border-radius: 999px;
-  background: rgba(47, 143, 131, 0.08);
-  color: #174a45;
+  background: rgba(61, 122, 92, 0.08);
+  color: #1f4a36;
   font-weight: 700;
 }
 
@@ -653,16 +656,16 @@ a:hover {
 }
 
 .nrlab-button {
-  border-color: rgba(47, 143, 131, 0.28);
+  border-color: rgba(61, 122, 92, 0.28);
   background: #fff;
   color: var(--nrlab-deep-green);
-  box-shadow: 0 8px 18px rgba(23, 74, 69, 0.08);
+  box-shadow: 0 8px 18px rgba(31, 74, 54, 0.08);
 }
 
 .nrlab-button:hover {
   border-color: var(--nrlab-purple);
   color: var(--nrlab-deep-purple);
-  box-shadow: 0 10px 22px rgba(53, 36, 107, 0.12);
+  box-shadow: 0 10px 22px rgba(64, 41, 63, 0.12);
 }
 
 .nrlab-button-primary {
@@ -715,7 +718,7 @@ a:hover {
 .nrlab-card {
   border-color: var(--nrlab-line);
   border-radius: 8px;
-  box-shadow: 0 14px 34px rgba(23, 74, 69, 0.08);
+  box-shadow: 0 14px 34px rgba(31, 74, 54, 0.08);
 }
 
 .nrlab-hero-panel {
@@ -775,7 +778,7 @@ a:hover {
 
 .nrlab-link-list a {
   color: var(--nrlab-deep-purple);
-  border-bottom-color: rgba(107, 78, 255, 0.14);
+  border-bottom-color: rgba(107, 69, 112, 0.14);
 }
 
 .nrlab-institution,
@@ -801,13 +804,13 @@ a:hover {
 }
 
 .nrlab-pill-grid span {
-  border-color: rgba(107, 78, 255, 0.24);
+  border-color: rgba(107, 69, 112, 0.24);
   background: var(--nrlab-purple-soft);
   color: var(--nrlab-deep-purple);
 }
 
 .nrlab-pill-grid span:nth-child(odd) {
-  border-color: rgba(47, 143, 131, 0.26);
+  border-color: rgba(61, 122, 92, 0.26);
   background: var(--nrlab-green-soft);
   color: var(--nrlab-deep-green);
 }
@@ -827,16 +830,16 @@ a:hover {
 
 .dark body,
 body.dark {
-  background: #10231f;
+  background: #1c1a15;
 }
 
 .dark .navbar,
 .dark .home-section {
-  background: #10231f;
+  background: #1c1a15;
 }
 
 .dark .home-section:nth-of-type(even) {
-  background: #152c27;
+  background: #23201a;
 }
 
 .dark .nrlab-hero-panel,
@@ -851,9 +854,9 @@ body.dark {
 .dark .nrlab-visitor-panel,
 .dark .nrlab-chain div,
 .dark .nrlab-card {
-  background: #18342e;
-  border-color: rgba(168, 255, 241, 0.18);
-  color: #eefbf7;
+  background: #2a2620;
+  border-color: rgba(143, 207, 160, 0.18);
+  color: #f0ece4;
 }
 
 .dark .nrlab-chain strong,
@@ -875,42 +878,42 @@ body.dark {
 .dark .nrlab-visitor-updated,
 .dark .nrlab-visitor-status,
 .dark .nrlab-visitor-list li {
-  color: rgba(238, 251, 247, 0.76);
+  color: rgba(240, 236, 224, 0.76);
 }
 
 .dark .nrlab-ra-row {
-  border-bottom-color: rgba(168, 255, 241, 0.18);
+  border-bottom-color: rgba(143, 207, 160, 0.18);
 }
 
 .dark .nrlab-ra-row:nth-child(even) {
-  background: rgba(168, 255, 241, 0.06);
+  background: rgba(143, 207, 160, 0.06);
 }
 
 .dark .nrlab-ra-head,
 .dark .nrlab-ra-head:nth-child(even) {
-  background: #234840;
+  background: #2a4636;
 }
 
 .dark .nrlab-ra-head span {
-  color: #eefbf7;
+  color: #f0ece4;
 }
 
 .dark .nrlab-ra-output-link {
-  color: #b9fff1;
-  border-bottom-color: rgba(185, 255, 241, 0.34);
+  color: #9fd4b0;
+  border-bottom-color: rgba(159, 212, 176, 0.34);
 }
 
 .dark .nrlab-ra-output-link:hover {
-  color: #d7ccff;
-  border-bottom-color: rgba(215, 204, 255, 0.45);
+  color: #dba8d4;
+  border-bottom-color: rgba(219, 168, 212, 0.45);
 }
 
 .dark .nrlab-pill-grid span {
-  background: rgba(107, 78, 255, 0.18);
-  color: #d7ccff;
+  background: rgba(107, 69, 112, 0.18);
+  color: #dba8d4;
 }
 
 .dark .nrlab-visitor-stats span {
-  background: rgba(168, 255, 241, 0.08);
-  color: rgba(238, 251, 247, 0.72);
+  background: rgba(143, 207, 160, 0.08);
+  color: rgba(240, 236, 224, 0.72);
 }

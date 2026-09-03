@@ -5,18 +5,18 @@ name = "NRLab"
 light = true
 
 # Primary
-primary = "#2F8F83"
+primary = "#3D7A5C"
 
 # Menu
 menu_primary = "#FFFFFF"
-menu_text = "#253B36"
-menu_text_active = "#6B4EFF"
-menu_title = "#174A45"
+menu_text = "#28251F"
+menu_text_active = "#6B4570"
+menu_title = "#1F4A36"
 
 # Home sections
 home_section_odd = "rgb(255, 255, 255)"
-home_section_even = "rgb(246, 250, 248)"
+home_section_even = "rgb(244, 244, 240)"
 
 [dark]
-  link = "#A8FFF1"
-  link_hover = "#D7CCFF"
+  link = "#8FCFA0"
+  link_hover = "#DBA8D4"
