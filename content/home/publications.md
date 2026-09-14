@@ -19,6 +19,16 @@ design:
 <div class="nrlab-publication-list">
   <div class="nrlab-publication-item">
     <span class="nrlab-publication-year">2026</span>
+    <a href="https://doi.org/10.1016/j.jad.2026.122464" target="_blank" rel="noopener">Brief 24–item staged assessment of suicidal and non–suicidal self–injury severity in Chinese college students with positive history: Development and initial validation of the STBI24K</a>
+    <p>Journal of Affective Disorders · Faculty authorship: Ziliang Wang, Hui Zheng, and Qiang Hu (listed authors)</p>
+  </div>
+  <div class="nrlab-publication-item">
+    <span class="nrlab-publication-year">2026</span>
+    <a href="https://doi.org/10.1038/s41380-026-03747-5" target="_blank" rel="noopener">Optimizing brain functional–structural architecture with cTBS to reduce relapse in alcohol use disorder: a randomized controlled trial</a>
+    <p>Molecular Psychiatry · Faculty authorship: Ningning Zeng (co-first author); Min Wang (co-corresponding author); Hui Zheng (co-corresponding and last author)</p>
+  </div>
+  <div class="nrlab-publication-item">
+    <span class="nrlab-publication-year">2026</span>
     <a href="https://doi.org/10.1038/s41467-026-72917-4" target="_blank" rel="noopener">OFC-induced network modularity improves positive symptoms and attentional alertness in schizophrenia: a combined rTMS-fMRI study</a>
     <p>Nature Communications · Faculty authorship: Ningning Zeng, Min Wang, and Hui Zheng (co-first authors); Xiong Jiao and Ziliang Wang (listed authors); Qiang Hu (corresponding and last author)</p>
   </div>
