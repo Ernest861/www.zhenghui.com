@@ -4,6 +4,7 @@
 <meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
 <title>生命树三维结果 v3.5 · NRLab Tools</title>
+<link rel="stylesheet" href="/css/nrlab-site-chrome.css"/>
 <style>
   html, body { margin: 0; height: 100%; font-family: "PingFang SC", "Noto Sans SC", sans-serif; background: #0f1218; color: #e8e6e3; }
   #ui { position: absolute; z-index: 2; left: 12px; top: 12px; width: min(400px, calc(100% - 24px)); background: rgba(20,24,32,.9); border: 1px solid #2a3140; border-radius: 10px; padding: 12px 14px; max-height: 42vh; overflow: auto; }
@@ -14,6 +15,9 @@
   button { border: 0; border-radius: 6px; padding: .5rem .85rem; font-weight: 600; cursor: pointer; background: #7B2D8B; color: #fff; font-size: .85rem; }
   button.secondary { background: #2D8B4A; }
   button.ghost { background: #2a3140; color: #d7dde8; }
+  button.traj { min-width: 4.6rem; transition: transform .15s, box-shadow .15s, opacity .15s, background .15s; }
+  button.traj.is-on { box-shadow: 0 0 0 2px #F2C94C, 0 0 14px rgba(242,201,76,.35); transform: translateY(-1px); opacity: 1; }
+  button.traj.is-dim { opacity: .42; }
   #err { color: #e08a8a; font-size: .78rem; min-height: 1rem; margin-top: 6px; }
   #c { position: absolute; inset: 0; cursor: grab; }
   #c.picking { cursor: pointer; }
@@ -49,27 +53,77 @@
   .Lf6 { border-left-color: #2D8B4A; }
   .Lpred { border-left-color: #F2C94C; }
   .chip { display: inline-block; padding: 1px 6px; border-radius: 4px; font-size: .7rem; margin-right: 4px; background: #2a3140; }
+  details.adv { margin-top: 8px; border-top: 1px solid #2a3140; padding-top: 6px; }
+  details.adv summary { cursor: pointer; color: #9aa3b2; font-size: .75rem; user-select: none; }
+  details.adv[open] summary { margin-bottom: 6px; color: #c9d0dc; }
+  #anno .oneliner { margin: 0 0 8px; padding: 6px 8px; border-radius: 6px; background: #1a2030; color: #F2C94C; font-size: .8rem; }
+  @media (max-width: 720px) {
+    #ui {
+      left: 8px; right: 8px; top: auto; bottom: 0; width: auto;
+      max-height: 38vh; border-radius: 12px 12px 0 0;
+      padding: 10px 12px 14px;
+    }
+    #ui h1 { font-size: .95rem; }
+    #ui .hint { display: none; }
+    #ui details.adv { display: none; }
+    #anno {
+      top: 8px; left: 8px; right: 8px; width: auto;
+      max-height: 42vh;
+    }
+    #axisbar { display: none; }
+    button { padding: .45rem .7rem; font-size: .8rem; }
+    button.traj { min-width: 3.8rem; }
+  }
+</style>
+<style>
+  /* offset 3D chrome under unified site nav + tools crumb */
+  body.nrlab-viz { padding-top: 0; }
+  body.nrlab-viz .nrlab-site-nav { background: rgba(255,255,255,.96); }
+  body.nrlab-viz .nrlab-tools-crumb { background: rgba(15,18,24,.96); border-bottom: 1px solid #2a3140; }
+  body.nrlab-viz .nrlab-tools-crumb a { background: #1a2030; color: #c9d0dc; }
+  body.nrlab-viz .nrlab-tools-crumb a.is-on { background: #2a3140; color: #F2C94C; }
+  body.nrlab-viz .nrlab-tools-crumb .sep { color: #5a6578; }
+  body.nrlab-viz #c { top: 102px; }
+  body.nrlab-viz #ui { top: 114px; }
+  body.nrlab-viz #anno { top: 114px; }
+  @media (max-width: 720px) {
+    body.nrlab-viz #c { top: 102px; }
+    body.nrlab-viz #ui { top: auto; }
+    body.nrlab-viz #anno { top: 114px; }
+  }
 </style>
 </head>
-<body>
+<body class="nrlab-viz">
+<div id="nrlab-site-nav" data-active="tools" data-tools-crumb="life-tree-viz"></div>
+<script src="/js/nrlab-site-nav.js" defer></script>
 <div id="ui">
-  <h1>生命树 · 三维结果 <span style="font-size:.75rem;color:#9aa3b2;font-weight:500">v3.5</span></h1>
-  <p class="hint">纯前端本地解析，不上传服务器。可贴 JSON，或导入问卷星导出的 <code>life_tree_payload_json</code> / <code>{"events":[...]}</code>。默认示例：预试实采 4 + 合成 6。点轨迹看注释。</p>
+  <h1>生命树 · 结果查看 <span style="font-size:.75rem;color:#9aa3b2;font-weight:500">v3.5</span></h1>
+  <p class="hint">默认立体·自 θ=0° 看（<strong>左不好 / 右好事</strong>），地面有 2D 投影。点「轨迹 1–4」看注释。数据仅本机。</p>
   <p class="hint" style="margin-top:-4px">
     <a href="/tools/life-tree" style="color:#9aa3b2">← 测量说明</a>
     · <a href="/tools/" style="color:#9aa3b2">Tools</a>
   </p>
-  <textarea id="json" placeholder='{"events":[...], "age_now":16}'></textarea>
-  <input type="file" id="fileInput" accept=".json,.txt,.csv,application/json,text/plain,text/csv" style="display:none"/>
+  <div class="row" id="event-chips" style="margin-top:6px"></div>
   <div class="row">
-    <button type="button" id="btn-render">渲染</button>
-    <button type="button" class="secondary" id="btn-file">导入本地文件</button>
-    <button type="button" class="ghost" id="btn-sample">预试示例</button>
-    <button type="button" class="ghost" id="btn-sample-old">旧示例</button>
-    <button type="button" class="ghost" id="btn-clear">清空</button>
+    <button type="button" class="secondary" id="btn-four">四条典型</button>
+    <button type="button" class="ghost" id="btn-view-2d">地面 2D</button>
+    <button type="button" class="secondary" id="btn-view-3d">立体</button>
+    <button type="button" class="ghost" id="btn-reset-cam" title="回到左负右正">复位 θ=0°</button>
+    <button type="button" class="ghost" id="btn-floor-toggle">投影开</button>
   </div>
-  <p class="legend"><span style="background:#7B2D8B"></span>好事　<span style="background:#2D8B4A"></span>不好的事　<span style="background:#F2C94C"></span>合成/+1年预测　· 点选开注释</p>
+  <p class="legend"><span style="background:#7B2D8B"></span>好事　<span style="background:#2D8B4A"></span>不好的事　· 点选开注释</p>
   <div id="err"></div>
+  <details class="adv">
+    <summary>导入 / 高级</summary>
+    <textarea id="json" placeholder='{"events":[...], "age_now":25}' style="height:48px;margin-top:4px"></textarea>
+    <input type="file" id="fileInput" accept=".json,.txt,.csv,application/json,text/plain,text/csv" style="display:none"/>
+    <div class="row">
+      <button type="button" id="btn-render">渲染</button>
+      <button type="button" class="secondary" id="btn-file">导入文件</button>
+      <button type="button" class="ghost" id="btn-sample">预试10条</button>
+      <button type="button" class="ghost" id="btn-clear">清空</button>
+    </div>
+  </details>
 </div>
 <div id="anno">
   <button type="button" class="close" id="anno-close">关闭</button>
@@ -78,18 +132,14 @@
 </div>
 <div id="c"></div>
 <div id="axisbar">
-  <strong>底板罗盘</strong>：极坐标 —
-  <code>r</code>=影响（远+粗=大；∝r²）·
-  <code>θ</code>=中心性（故事核心度，高=±180°侧，低=近 θ=0；<em>不是</em>影响高低）·
-  径向线粗细渐变 + 箭头指向 now。
-  <strong>竖向</strong>=年龄（下边＝早年，上边＝现在）。
-  <strong>黄箭杆</strong>=合成向量（r² 加权）：空中三维 then→now，再线性外推 <strong>+1 年</strong>；地面投影同步。点黄箭 → 预测注释；点轨迹 → Q + F。
+  <strong>立体</strong>（默认·θ=0°）：左不好 / 右好事 · 竖=年龄 · 空中=轨迹曲线。
+  <strong>底板</strong>：二维「起点圆 + 箭头」（then→now），不是立体管。
 </div>
 <script type="importmap">
 {
   "imports": {
-    "three": "https://unpkg.com/three@0.160.0/build/three.module.js",
-    "three/addons/": "https://unpkg.com/three@0.160.0/examples/jsm/"
+    "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js",
+    "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"
   }
 }
 </script>
@@ -106,12 +156,18 @@ const annoTitle = document.getElementById("anno-title");
 
 const scene = new THREE.Scene();
 scene.background = new THREE.Color(0x0f1218);
+/** floor2d = 地面俯视二维；stereo = 立体树（默认） */
+let viewMode = "stereo";
+let lastPayload = null;
 const camera = new THREE.PerspectiveCamera(45, 1, 0.1, 200);
-camera.position.set(8, 6, 10);
+/** 默认站在 θ=0°（低中心性）一侧：左负右正 */
+camera.position.set(12, 5.2, 0);
 const renderer = new THREE.WebGLRenderer({ antialias: true });
 host.appendChild(renderer.domElement);
 const controls = new OrbitControls(camera, renderer.domElement);
-controls.target.set(0, 4, 0);
+controls.target.set(0, 4.2, 0);
+controls.enableRotate = true;
+controls.enablePan = true;
 controls.update();
 
 scene.add(new THREE.AmbientLight(0xffffff, 0.55));
@@ -121,11 +177,23 @@ scene.add(dir);
 
 let treeGroup = new THREE.Group();
 scene.add(treeGroup);
+const highlightGroup = new THREE.Group();
+scene.add(highlightGroup);
+/** 底板二维投影层（可开关） */
+let floorProjGroup = null;
+let showFloorProj = true;
+let lastTrunkH = 8;
 /** @type {Map<number|string, object>} */
 const eventById = new Map();
+/** @type {Map<number|string, {p0:THREE.Vector3,p1:THREE.Vector3,mid:THREE.Vector3,theta:number,color:number}>} */
+const trajMeta = new Map();
+/** @type {THREE.Sprite[]} */
+let ageLabSprites = [];
 /** @type {THREE.Object3D[]} */
 let pickables = [];
 let selectedId = null;
+/** 镜头缓动：选中轨迹时巡航到该扇区 */
+let camAnim = null;
 /** 合成向量 +1 年外推注释数据 */
 let compositeForecast = null;
 const PREDICT_YEARS = 1;
@@ -143,22 +211,48 @@ function resize() {
 window.addEventListener("resize", resize);
 resize();
 
+function disposeObject(o) {
+  o.traverse((c) => {
+    if (c.geometry) c.geometry.dispose();
+    if (c.material) {
+      if (Array.isArray(c.material)) c.material.forEach((m) => m.dispose());
+      else c.material.dispose();
+    }
+  });
+}
+
+function clearHighlightExtras() {
+  while (highlightGroup.children.length) {
+    const o = highlightGroup.children.pop();
+    disposeObject(o);
+  }
+}
+
 function clearTree() {
   while (treeGroup.children.length) {
     const o = treeGroup.children.pop();
-    o.traverse((c) => {
-      if (c.geometry) c.geometry.dispose();
-      if (c.material) {
-        if (Array.isArray(c.material)) c.material.forEach((m) => m.dispose());
-        else c.material.dispose();
-      }
-    });
+    disposeObject(o);
   }
+  clearHighlightExtras();
+  floorProjGroup = null;
+  trajMeta.clear();
+  ageLabSprites = [];
   pickables = [];
   eventById.clear();
   selectedId = null;
+  camAnim = null;
   compositeForecast = null;
   annoEl.classList.remove("open");
+}
+
+function ensureFloorProjGroup() {
+  if (!floorProjGroup || !floorProjGroup.parent) {
+    floorProjGroup = new THREE.Group();
+    floorProjGroup.name = "floorProj";
+    treeGroup.add(floorProjGroup);
+  }
+  floorProjGroup.visible = showFloorProj;
+  return floorProjGroup;
 }
 
 const R_SCALE = 4.8;
@@ -169,6 +263,17 @@ function radiusFromR(r) {
 function tubeRadFromR(r) {
   const rr = Math.max(0.05, Math.min(1, Number(r) || 0.5));
   return 0.025 + 0.14 * (rr * rr);
+}
+
+/**
+ * 极坐标 → 地面 xz。
+ * z = −R·sin(θ)：站在 θ=0°（+X）看向树时，左=负θ（不好）、右=正θ（好事）。
+ */
+function polarXZ(R, theta) {
+  return {
+    x: R * Math.cos(theta),
+    z: -R * Math.sin(theta),
+  };
 }
 
 function ageToY(age, ageLo, ageHi, trunkH, clamp = true) {
@@ -186,7 +291,7 @@ function rFromRadius(R) {
 function threeToPolar(p, ageLo, ageHi, trunkH) {
   const R = Math.hypot(p.x, p.z);
   const r = rFromRadius(R);
-  const theta = Math.atan2(p.z, p.x);
+  const theta = Math.atan2(-p.z, p.x); // 与 polarXZ 互逆
   const age = ageLo + (p.y / Math.max(1e-6, trunkH)) * (ageHi - ageLo);
   return {
     r: Math.round(r * 1000) / 1000,
@@ -249,15 +354,47 @@ function buildTrunk(ageLo, ageHi) {
   return h;
 }
 
-/** 底板：距离环 + 角度标注（r / θ，不是心理 X/Y） */
+/** 底板：负/正半区色 + 距离环 + θ 标注（默认视角：左负右正） */
 function addPolarFloorGuides() {
+  const floorR = R_SCALE + 0.35;
+  // 半盘：θ∈[0,+π]→右好事，θ∈[−π,0]→左不好（与 polarXZ / 默认相机一致）
+  function addValenceHalf(signPos) {
+    const n = 36;
+    const positions = [0, 0.021, 0];
+    for (let i = 0; i <= n; i++) {
+      const a = signPos ? (i / n) * Math.PI : -(i / n) * Math.PI;
+      const xz = polarXZ(floorR, a);
+      positions.push(xz.x, 0.021, xz.z);
+    }
+    const idx = [];
+    for (let i = 1; i <= n; i++) idx.push(0, i, i + 1);
+    const geo = new THREE.BufferGeometry();
+    geo.setAttribute("position", new THREE.Float32BufferAttribute(positions, 3));
+    geo.setIndex(idx);
+    geo.computeVertexNormals();
+    const mesh = new THREE.Mesh(
+      geo,
+      new THREE.MeshBasicMaterial({
+        color: signPos ? POS : NEG,
+        transparent: true,
+        opacity: 0.18,
+        side: THREE.DoubleSide,
+        depthWrite: false,
+      })
+    );
+    treeGroup.add(mesh);
+  }
+  addValenceHalf(false); // 左 · 不好
+  addValenceHalf(true);  // 右 · 好事
+
   const rTicks = [0.25, 0.5, 0.75, 1.0];
   rTicks.forEach((rv) => {
     const R = radiusFromR(rv);
     const pts = [];
     for (let i = 0; i <= 64; i++) {
       const a = (i / 64) * Math.PI * 2 - Math.PI;
-      pts.push(new THREE.Vector3(R * Math.cos(a), 0.025, R * Math.sin(a)));
+      const xz = polarXZ(R, a);
+      pts.push(new THREE.Vector3(xz.x, 0.028, xz.z));
     }
     treeGroup.add(new THREE.Line(
       new THREE.BufferGeometry().setFromPoints(pts),
@@ -268,41 +405,40 @@ function addPolarFloorGuides() {
     lab.scale.set(0.85, 0.26, 1);
     treeGroup.add(lab);
   });
-  const title = makeTextSprite("距离 = 影响 r（∝r²）", "#F2C94C");
-  title.position.set(0, 0.2, R_SCALE + 0.85);
-  title.scale.set(2.0, 0.4, 1);
-  treeGroup.add(title);
+
+  // 分界线：θ=0（前）与 θ=±π（后）
+  const midLine = new THREE.Line(
+    new THREE.BufferGeometry().setFromPoints([
+      new THREE.Vector3(-floorR, 0.035, 0),
+      new THREE.Vector3(floorR, 0.035, 0),
+    ]),
+    new THREE.LineBasicMaterial({ color: 0xF2C94C })
+  );
+  treeGroup.add(midLine);
 
   const spokes = [
-    [0, "θ=0°"],
-    [Math.PI / 2, "+90° 好事向"],
-    [Math.PI, "±180°"],
-    [-Math.PI / 2, "−90° 坏事向"],
+    [0, "θ=0° 低中心性"],
+    [Math.PI / 2, "右 · 好事"],
+    [Math.PI, "±180° 高中心性"],
+    [-Math.PI / 2, "左 · 不好"],
   ];
   spokes.forEach(([a, lab]) => {
-    const p1 = new THREE.Vector3(R_SCALE * Math.cos(a), 0.03, R_SCALE * Math.sin(a));
+    const xz = polarXZ(R_SCALE, a);
+    const p1 = new THREE.Vector3(xz.x, 0.03, xz.z);
+    const col = a > 0.01 ? POS : (a < -0.01 ? NEG : 0xF2C94C);
     treeGroup.add(new THREE.Line(
       new THREE.BufferGeometry().setFromPoints([new THREE.Vector3(0, 0.03, 0), p1]),
-      new THREE.LineBasicMaterial({ color: 0x4a5568 })
+      new THREE.LineBasicMaterial({ color: col })
     ));
-    const spr = makeTextSprite(lab, "#c9d0dc");
-    spr.position.copy(p1).multiplyScalar(1.12);
-    spr.position.y = 0.18;
-    spr.scale.set(1.35, 0.32, 1);
+    const spr = makeTextSprite(lab, a > 0.01 ? "#C8A8D0" : (a < -0.01 ? "#8FCB9B" : "#F2C94C"));
+    spr.position.set(xz.x * 1.18, 0.2, xz.z * 1.18);
+    spr.scale.set(1.45, 0.34, 1);
     treeGroup.add(spr);
   });
-  const angTitle = makeTextSprite("θ=中心性(故事核心≠影响大小)", "#9aa3b2");
-  angTitle.position.set(0, 0.2, -(R_SCALE + 0.7));
-  angTitle.scale.set(2.4, 0.38, 1);
-  treeGroup.add(angTitle);
-  const cenHi = makeTextSprite("高中心性 → |θ|大", "#C8A8D0");
-  cenHi.position.set(-(R_SCALE + 0.2), 0.15, R_SCALE * 0.55);
-  cenHi.scale.set(1.6, 0.3, 1);
-  treeGroup.add(cenHi);
-  const cenLo = makeTextSprite("低中心性 → |θ|小", "#7B9E87");
-  cenLo.position.set(R_SCALE * 0.35, 0.15, 0.4);
-  cenLo.scale.set(1.6, 0.3, 1);
-  treeGroup.add(cenLo);
+  const title = makeTextSprite("距离=影响 r · 半区=效价", "#F2C94C");
+  title.position.set(0, 0.22, -(R_SCALE + 0.9));
+  title.scale.set(2.2, 0.4, 1);
+  treeGroup.add(title);
 }
 
 function eventTheta(ev) {
@@ -317,7 +453,14 @@ function eventTheta(ev) {
 
 function polarToThree(r, theta, age, ageLo, ageHi, trunkH) {
   const R = radiusFromR(r);
-  return new THREE.Vector3(R * Math.cos(theta), ageToY(age, ageLo, ageHi, trunkH), R * Math.sin(theta));
+  const xz = polarXZ(R, theta);
+  let y = ageToY(age, ageLo, ageHi, trunkH);
+  if (viewMode === "floor2d") {
+    // 压到地面：年龄只做极小分层，读成 r–θ 二维箭头
+    const t = (Number(age) - ageLo) / Math.max(0.5, ageHi - ageLo);
+    y = 0.06 + 0.05 * Math.max(0, Math.min(1, t));
+  }
+  return new THREE.Vector3(xz.x, y, xz.z);
 }
 
 function trajPoints(ev, ageLo, ageHi, trunkH, ageNow) {
@@ -332,11 +475,54 @@ function trajPoints(ev, ageLo, ageHi, trunkH, ageNow) {
   ];
 }
 
-/** path_ar: [[age,r],…] → 三维折线点（θ 取事件中心性角，固定） */
+/**
+ * 无 path_ar 时，用 then→(mid)→now 合成曲线（非直线）。
+ * 锚点间用 smoothstep 插值；有 mid 则分段。
+ */
+function synthPathAR(ev, ageNow) {
+  const a0 = ev.age_start != null ? Number(ev.age_start) : 10;
+  let a1 = ev.age_end != null ? Number(ev.age_end) : (ageNow != null ? Number(ageNow) : a0 + 8);
+  if (a1 <= a0) a1 = a0 + 1;
+  const r0 = Math.max(0, Math.min(1, Number(ev.r_then != null ? ev.r_then : 0.5)));
+  const r1 = Math.max(0, Math.min(1, Number(ev.r_now != null ? ev.r_now : 0.5)));
+  const hasMid = ev.age_mid != null && ev.r_mid != null
+    && Number(ev.age_mid) > a0 && Number(ev.age_mid) < a1;
+  const anchors = hasMid
+    ? [[a0, r0], [Number(ev.age_mid), Math.max(0, Math.min(1, Number(ev.r_mid)))], [a1, r1]]
+    : [[a0, r0], [a1, r1]];
+  // 无 mid 时加一处缓弯，避免 then–now 直线
+  if (!hasMid) {
+    const am = a0 + (a1 - a0) * 0.45;
+    const rm = r0 + (r1 - r0) * 0.45 + (r1 >= r0 ? 0.08 : -0.08) * Math.min(1, Math.abs(r1 - r0) + 0.35);
+    anchors.splice(1, 0, [am, Math.max(0, Math.min(1, rm))]);
+  }
+  const n = 28;
+  const out = [];
+  for (let i = 0; i <= n; i++) {
+    const t = i / n;
+    const age = a0 + (a1 - a0) * t;
+    // 在锚点段内插值
+    let r = r0;
+    for (let k = 0; k < anchors.length - 1; k++) {
+      const [aa, ra] = anchors[k];
+      const [ab, rb] = anchors[k + 1];
+      if (age <= ab || k === anchors.length - 2) {
+        const u = (age - aa) / Math.max(1e-6, ab - aa);
+        const s = u * u * (3 - 2 * u); // smoothstep
+        r = ra + (rb - ra) * Math.max(0, Math.min(1, s));
+        break;
+      }
+    }
+    out.push([Math.round(age * 100) / 100, Math.round(r * 1000) / 1000]);
+  }
+  return out;
+}
+
+/** path_ar: [[age,r],…] → 三维轨迹点（θ 固定）；缺省则合成曲线 */
 function pathARPoints(ev, ageLo, ageHi, trunkH, ageNow) {
   const th = eventTheta(ev);
-  const raw = Array.isArray(ev.path_ar) ? ev.path_ar : null;
-  if (!raw || raw.length < 2) return null;
+  let raw = Array.isArray(ev.path_ar) ? ev.path_ar : null;
+  if (!raw || raw.length < 2) raw = synthPathAR(ev, ageNow);
   const pts = [];
   const rs = [];
   for (let i = 0; i < raw.length; i++) {
@@ -346,8 +532,9 @@ function pathARPoints(ev, ageLo, ageHi, trunkH, ageNow) {
     let r = Number(pair[1]);
     if (!Number.isFinite(age) || !Number.isFinite(r)) continue;
     if (ageNow != null && age > ageNow) age = ageNow;
+    r = Math.max(0, Math.min(1, Math.abs(r))); // 可视化用 |r|
     pts.push(polarToThree(r, th, age, ageLo, ageHi, trunkH));
-    rs.push(Math.max(0, Math.min(1, r)));
+    rs.push(r);
   }
   if (pts.length < 2) return null;
   return { pts, rs, th };
@@ -432,9 +619,14 @@ function showAnno(ev) {
   }
   const F = deriveF(ev);
   const side = ev.valence >= 0 ? "好事" : "不好的事";
+  const dirWord = F.F20_delta_dir === "down" ? "衰减"
+    : F.F20_delta_dir === "up" ? "加重" : "平稳";
+  const a0 = F.F15_age_start != null ? F.F15_age_start : "—";
+  const a1 = F.F16_age_end != null ? F.F16_age_end : "今";
   annoTitle.textContent = `${side} · ${ev.item_key || "(未命名)"}`;
   const deg = Math.round(F.F18_theta * 180 / Math.PI);
   annoBody.innerHTML =
+    `<p class="oneliner">${side} · ${dirWord} · ${a0}→${a1}岁</p>` +
     layerBlock("Lq", "测量 Q1–Q8（原答）", [
       ["域 / 效价", `${ev.domain || "—"} / ${ev.valence}`],
       ["Q1 where", ev.where],
@@ -484,8 +676,25 @@ function showAnno(ev) {
   annoEl.classList.add("open");
 }
 
+function addDashedDrop(from, to, color) {
+  const geo = new THREE.BufferGeometry().setFromPoints([from, to]);
+  const line = new THREE.Line(
+    geo,
+    new THREE.LineDashedMaterial({
+      color: color != null ? color : 0xF2C94C,
+      dashSize: 0.14,
+      gapSize: 0.1,
+      transparent: true,
+      opacity: 0.9,
+    })
+  );
+  line.computeLineDistances();
+  highlightGroup.add(line);
+}
+
 function setHighlight(eventId) {
   selectedId = eventId;
+  clearHighlightExtras();
   pickables.forEach((m) => {
     if (!m.material || !m.material.emissive) return;
     const on = m.userData.eventId === eventId;
@@ -500,6 +709,19 @@ function setHighlight(eventId) {
       m.material.opacity = 0.3;
     }
   });
+  // 选中：空中点 → 底板垂足虚线 + 镜头巡航 + 年龄浮标聚焦
+  if (eventId != null && trajMeta.has(eventId)) {
+    const meta = trajMeta.get(eventId);
+    const col = meta.color != null ? meta.color : 0xF2C94C;
+    [meta.p0, meta.mid, meta.p1].forEach((p) => {
+      if (!p) return;
+      const floor = new THREE.Vector3(p.x, 0.09, p.z);
+      if (Math.abs(p.y - floor.y) > 0.15) addDashedDrop(p.clone(), floor, col);
+    });
+    cruiseToEvent(eventId);
+  }
+  syncAgeLabs(eventId);
+  syncTrajButtons(eventId);
 }
 
 function addTrajectory(ev, ageLo, ageHi, trunkH, ageNow) {
@@ -511,22 +733,11 @@ function addTrajectory(ev, ageLo, ageHi, trunkH, ageNow) {
   const r0 = ev.r_then != null ? Number(ev.r_then) : 0.5;
   const r1 = ev.r_now != null ? Number(ev.r_now) : 0.5;
 
-  // 优先 path_ar 折线；无则 then→now 直线（合成补点常用）
+  // 一律轨迹：path_ar 或 then→mid→now 合成曲线（不再 then→now 直线）
   const path = pathARPoints(ev, ageLo, ageHi, trunkH, ageNow);
-  let pts, rs;
-  if (path) {
-    pts = path.pts;
-    rs = path.rs;
-  } else {
-    pts = [];
-    rs = [];
-    const nSeg = 28;
-    for (let i = 0; i <= nSeg; i++) {
-      const t = i / nSeg;
-      pts.push(pEnd0.clone().lerp(pEnd1, t));
-      rs.push(r0 + (r1 - r0) * t);
-    }
-  }
+  const pts = path ? path.pts : [pEnd0, pEnd1];
+  const rs = path ? path.rs : [r0, r1];
+  const thPath = path ? path.th : th;
 
   for (let i = 0; i < pts.length - 1; i++) {
     addCylinderSeg(
@@ -553,53 +764,134 @@ function addTrajectory(ev, ageLo, ageHi, trunkH, ageNow) {
   s1.position.copy(p1);
   tagPickable(s1, id);
   treeGroup.add(s1);
-  // 箭头只标终点切向（最后一段方向），不再用整段直线
+  const midI = Math.max(1, Math.floor((pts.length - 1) * 0.5));
+  const midPt = pts[midI];
+  // 中段方向箭头：圆柱箭杆+锥头，粗细跟轨迹管一致（不用 ArrowHelper 细线）
   if (pts.length >= 2) {
-    const dirV = new THREE.Vector3().subVectors(p1, pts[pts.length - 2]);
+    const a = pts[Math.max(0, midI - 1)];
+    const b = pts[Math.min(pts.length - 1, midI + 1)] || pts[midI];
+    const dirV = new THREE.Vector3().subVectors(b, a);
     if (dirV.lengthSq() > 1e-6) {
       dirV.normalize();
-      const headLen = 0.28 + 0.25 * (rr1 * rr1);
-      const arrow = new THREE.ArrowHelper(
-        dirV, p1.clone().addScaledVector(dirV, -headLen * 0.85),
-        headLen, color, headLen * 0.55, 0.12 + 0.16 * (rr1 * rr1)
+      const rMid = rs[midI] != null ? rs[midI] : rr1;
+      const shaftRad = Math.max(tubeRadFromR(rMid) * 1.25, 0.055);
+      const headLen = 0.36 + 0.2 * (rMid * rMid);
+      const shaftLen = headLen * 0.9;
+      const sA = midPt.clone().addScaledVector(dirV, -shaftLen * 0.5);
+      const sB = midPt.clone().addScaledVector(dirV, shaftLen * 0.5);
+      addCylinderSeg(sA, sB, shaftRad, shaftRad, color, id);
+      const cone = new THREE.Mesh(
+        new THREE.ConeGeometry(shaftRad * 2.4, headLen * 0.72, 14),
+        new THREE.MeshStandardMaterial({ color, emissive: color, emissiveIntensity: 0.22 })
       );
-      arrow.cone.userData.eventId = id;
-      arrow.cone.userData.pickable = true;
-      arrow.line.userData.eventId = id;
-      arrow.line.userData.pickable = true;
-      pickables.push(arrow.cone, arrow.line);
-      treeGroup.add(arrow);
+      cone.position.copy(sB).addScaledVector(dirV, headLen * 0.28);
+      cone.quaternion.setFromUnitVectors(new THREE.Vector3(0, 1, 0), dirV);
+      tagPickable(cone, id);
+      treeGroup.add(cone);
     }
   }
-  // 底板：沿 path 的 r 在同 θ 射线上走（可外扩再收回），非 then→now 一条直线
-  const floorPts = rs.map((r) => {
-    const R = radiusFromR(r);
-    return new THREE.Vector3(R * Math.cos(th), 0.06, R * Math.sin(th));
+  // 年龄浮标：起 / 中 / 止
+  const aStart = ev.age_start != null ? Number(ev.age_start) : null;
+  const aEnd = ev.age_end != null ? Number(ev.age_end) : (ageNow != null ? Number(ageNow) : null);
+  const aMid = ev.age_mid != null ? Number(ev.age_mid)
+    : (aStart != null && aEnd != null ? (aStart + aEnd) * 0.5 : null);
+  const labCol = ev.valence >= 0 ? "#C8A8D0" : "#8FCB9B";
+  function placeAgeLab(pt, age, scale) {
+    if (!pt || age == null || !Number.isFinite(age)) return;
+    const spr = makeTextSprite(Math.round(age * 10) / 10 + "岁", labCol);
+    const outward = new THREE.Vector3(pt.x, 0, pt.z);
+    if (outward.lengthSq() > 1e-6) outward.normalize();
+    else outward.set(1, 0, 0);
+    spr.position.copy(pt).addScaledVector(outward, 0.28).add(new THREE.Vector3(0, 0.22, 0));
+    spr.scale.set(scale || 0.95, 0.28, 1);
+    spr.userData.eventId = id;
+    spr.material.transparent = true;
+    ageLabSprites.push(spr);
+    treeGroup.add(spr);
+  }
+  placeAgeLab(p0, aStart, 1.0);
+  placeAgeLab(midPt, aMid, 0.85);
+  placeAgeLab(p1, aEnd, 1.0);
+
+  trajMeta.set(id, {
+    p0: p0.clone(),
+    p1: p1.clone(),
+    mid: midPt.clone(),
+    theta: thPath,
+    color: color,
   });
-  for (let i = 0; i < floorPts.length - 1; i++) {
-    const radA = 0.02 + 0.09 * (rs[i] * rs[i]);
-    const radB = 0.02 + 0.09 * (rs[i + 1] * rs[i + 1]);
-    addCylinderSeg(floorPts[i], floorPts[i + 1], radA, radB, color, id);
-  }
-  if (floorPts.length >= 2) {
-    const f1 = floorPts[floorPts.length - 1];
-    const f0 = floorPts[floorPts.length - 2];
-    const fDir = new THREE.Vector3().subVectors(f1, f0);
-    if (fDir.lengthSq() > 1e-6) {
-      fDir.normalize();
-      const headLen = 0.22 + 0.2 * (rr1 * rr1);
-      const floorArrow = new THREE.ArrowHelper(
-        fDir, f1.clone().addScaledVector(fDir, -headLen * 0.8),
-        headLen, color, headLen * 0.55, 0.1 + 0.14 * (rr1 * rr1)
-      );
-      floorArrow.cone.userData.eventId = id;
-      floorArrow.cone.userData.pickable = true;
-      floorArrow.line.userData.eventId = id;
-      floorArrow.line.userData.pickable = true;
-      pickables.push(floorArrow.cone, floorArrow.line);
-      treeGroup.add(floorArrow);
-    }
-  }
+
+  // 地面二维投影：起点圆 + then→now 箭头（贴地，非立体管）
+  addFloor2DArrow(thPath, rr0, rr1, color, id);
+}
+
+/**
+ * 底板二维符号：起点实心圆 + 径向箭头（同 θ 上 r_then→r_now）。
+ * 一律贴地 y≈0.08，看起来是平面图，不是 3D 管子。
+ */
+function addFloor2DArrow(th, rThen, rNow, color, eventId) {
+  const g = ensureFloorProjGroup();
+  const y = 0.08;
+  const xz0 = polarXZ(radiusFromR(rThen), th);
+  const xz1 = polarXZ(radiusFromR(rNow), th);
+  const p0 = new THREE.Vector3(xz0.x, y, xz0.z);
+  const p1 = new THREE.Vector3(xz1.x, y, xz1.z);
+  const dir = new THREE.Vector3().subVectors(p1, p0);
+  const len = dir.length();
+
+  // 起点圆（贴地圆片）
+  const diskR = 0.11 + 0.1 * (rThen * rThen);
+  const disk = new THREE.Mesh(
+    new THREE.CircleGeometry(diskR, 28),
+    new THREE.MeshBasicMaterial({ color, side: THREE.DoubleSide, depthWrite: false })
+  );
+  disk.rotation.x = -Math.PI / 2;
+  disk.position.copy(p0);
+  tagPickable(disk, eventId);
+  g.add(disk);
+  const ring = new THREE.Mesh(
+    new THREE.RingGeometry(diskR * 0.92, diskR * 1.08, 28),
+    new THREE.MeshBasicMaterial({ color: 0xffffff, transparent: true, opacity: 0.35, side: THREE.DoubleSide, depthWrite: false })
+  );
+  ring.rotation.x = -Math.PI / 2;
+  ring.position.set(p0.x, y + 0.002, p0.z);
+  tagPickable(ring, eventId);
+  g.add(ring);
+
+  if (len < 1e-4) return;
+
+  dir.normalize();
+  const shaftStart = diskR * 0.55;
+  const shaftLen = Math.max(0.05, len - shaftStart);
+  const shaftW = 0.045 + 0.04 * Math.max(rThen, rNow);
+  const shaft = new THREE.Mesh(
+    new THREE.BoxGeometry(shaftW, 0.012, shaftLen),
+    new THREE.MeshBasicMaterial({ color })
+  );
+  const mid = p0.clone().addScaledVector(dir, shaftStart + shaftLen * 0.5);
+  shaft.position.copy(mid);
+  shaft.quaternion.setFromUnitVectors(new THREE.Vector3(0, 0, 1), dir);
+  tagPickable(shaft, eventId);
+  g.add(shaft);
+
+  const headLen = 0.2 + 0.16 * (rNow * rNow);
+  const headW = 0.14 + 0.1 * (rNow * rNow);
+  const tip = p0.clone().addScaledVector(dir, shaftStart + shaftLen * 0.55);
+  const base = tip.clone().addScaledVector(dir, -headLen);
+  const side = new THREE.Vector3(-dir.z, 0, dir.x).normalize().multiplyScalar(headW * 0.5);
+  const tri = new THREE.BufferGeometry();
+  tri.setAttribute("position", new THREE.Float32BufferAttribute([
+    tip.x, y + 0.004, tip.z,
+    base.x + side.x, y + 0.004, base.z + side.z,
+    base.x - side.x, y + 0.004, base.z - side.z,
+  ], 3));
+  tri.computeVertexNormals();
+  const head = new THREE.Mesh(
+    tri,
+    new THREE.MeshBasicMaterial({ color, side: THREE.DoubleSide, depthWrite: false })
+  );
+  tagPickable(head, eventId);
+  g.add(head);
 }
 
 const YELLOW = 0xF2C94C;
@@ -801,21 +1093,130 @@ function ageSpan(events, ageNow) {
   return { ageLo: Math.max(0, lo - 1), ageHi: hi };
 }
 
+function applyCameraForView(trunkH) {
+  camAnim = null;
+  lastTrunkH = trunkH || lastTrunkH;
+  if (viewMode === "floor2d") {
+    controls.enableRotate = false;
+    camera.position.set(0.35, Math.max(14, lastTrunkH * 1.6), 0);
+    controls.target.set(0, 0, 0);
+  } else {
+    controls.enableRotate = true;
+    const dist = R_SCALE + 7.5;
+    camera.position.set(dist, lastTrunkH * 0.52, 0);
+    controls.target.set(0, lastTrunkH * 0.42, 0);
+  }
+  controls.update();
+}
+
+function easeInOut(t) {
+  return t < 0.5 ? 2 * t * t : 1 - Math.pow(-2 * t + 2, 2) / 2;
+}
+
+/** 立体模式：镜头巡航到事件 θ 扇区外侧（仍俯视树干） */
+function cruiseToEvent(eventId) {
+  if (viewMode !== "stereo" || eventId == null || !trajMeta.has(eventId)) return;
+  const meta = trajMeta.get(eventId);
+  const th = meta.theta != null ? meta.theta : 0;
+  const dist = R_SCALE + 7.5;
+  const xz = polarXZ(dist, th);
+  const toPos = new THREE.Vector3(xz.x, lastTrunkH * 0.55, xz.z);
+  const toTarget = meta.mid
+    ? new THREE.Vector3(meta.mid.x * 0.35, meta.mid.y, meta.mid.z * 0.35)
+    : new THREE.Vector3(0, lastTrunkH * 0.42, 0);
+  camAnim = {
+    t0: performance.now(),
+    dur: 700,
+    fromPos: camera.position.clone(),
+    toPos: toPos,
+    fromTarget: controls.target.clone(),
+    toTarget: toTarget,
+  };
+}
+
+function syncAgeLabs(eventId) {
+  ageLabSprites.forEach((spr) => {
+    const on = eventId == null || spr.userData.eventId === eventId;
+    spr.material.opacity = on ? 1 : 0.22;
+    spr.material.transparent = true;
+    spr.visible = true;
+  });
+}
+
+function syncFloorToggleBtn() {
+  const b = document.getElementById("btn-floor-toggle");
+  if (!b) return;
+  b.textContent = showFloorProj ? "投影开" : "投影关";
+  b.className = showFloorProj ? "secondary" : "ghost";
+}
+
+function syncTrajButtons(eventId) {
+  const box = document.getElementById("event-chips");
+  if (!box) return;
+  const btns = box.querySelectorAll("button.traj");
+  btns.forEach((b) => {
+    const on = eventId != null && String(b.dataset.eid) === String(eventId);
+    b.classList.toggle("is-on", on);
+    b.classList.toggle("is-dim", eventId != null && !on);
+  });
+}
+
+function refreshEventChips(events) {
+  const box = document.getElementById("event-chips");
+  if (!box) return;
+  box.innerHTML = "";
+  (events || []).forEach((ev, i) => {
+    const neg = Number(ev.valence) < 0;
+    const b = document.createElement("button");
+    b.type = "button";
+    b.className = "traj ghost";
+    b.dataset.eid = String(ev.event_id);
+    b.style.borderLeft = "3px solid " + (neg ? "#2D8B4A" : "#7B2D8B");
+    b.textContent = "轨迹 " + (i + 1);
+    b.title = (neg ? "负 · " : "正 · ") + String(ev.item_key || "");
+    b.addEventListener("click", () => {
+      if (selectedId === ev.event_id) {
+        setHighlight(null);
+        annoEl.classList.remove("open");
+        return;
+      }
+      setHighlight(ev.event_id);
+      showAnno(ev);
+    });
+    box.appendChild(b);
+  });
+  syncTrajButtons(selectedId);
+}
+
+function syncViewButtons() {
+  const b2 = document.getElementById("btn-view-2d");
+  const b3 = document.getElementById("btn-view-3d");
+  if (b2) b2.className = viewMode === "floor2d" ? "secondary" : "ghost";
+  if (b3) b3.className = viewMode === "stereo" ? "secondary" : "ghost";
+}
+
 function renderPayload(payload) {
   clearTree();
+  lastPayload = payload;
   const events = payload.events || [];
   const ageNow = payload.age_now || Math.max(18, ...events.map((e) => e.age_start || 0), 16);
   const { ageLo } = ageSpan(events, ageNow);
-  const trunkAgeHi = ageNow + PREDICT_YEARS; // 轴顶留给 +1 年预测
+  const trunkAgeHi = viewMode === "floor2d" ? ageNow : (ageNow + PREDICT_YEARS);
   const trunkH = buildTrunk(ageLo, trunkAgeHi);
   addPolarFloorGuides();
   events.forEach((ev) => addTrajectory(ev, ageLo, trunkAgeHi, trunkH, ageNow));
-  addCrownComposite(events, ageLo, ageNow, trunkAgeHi, trunkH);
-  controls.target.set(0, trunkH * 0.45, 0);
-  camera.position.set(10, trunkH * 0.55, 12);
-  controls.update();
+  if (viewMode === "stereo") {
+    addCrownComposite(events, ageLo, ageNow, trunkAgeHi, trunkH);
+  }
+  applyCameraForView(trunkH);
+  refreshEventChips(events);
+  syncViewButtons();
+  syncFloorToggleBtn();
+  if (floorProjGroup) floorProjGroup.visible = showFloorProj;
   errEl.textContent = events.length
-    ? `已渲染 ${events.length} 条 · 点黄箭看 +${PREDICT_YEARS} 年预测 · 点轨迹看 Q/F`
+    ? (viewMode === "floor2d"
+      ? `地面 2D · ${events.length} 条 · 点按钮或轨迹看注释`
+      : `立体 · ${events.length} 条 · 点轨迹看注释 · 复位θ=0°`)
     : "";
 }
 
@@ -1785,49 +2186,212 @@ function normalizePayload(obj) {
     return { events: obj };
   }
   if (typeof obj !== "object") throw new Error("无法识别的数据类型");
-  if (obj.life_tree_payload_json != null) {
-    const inner = obj.life_tree_payload_json;
+  // 问卷星整包字段（优先）
+  for (const k of ["life_tree_payload_json", "life_tree_payload"]) {
+    if (obj[k] == null || obj[k] === "") continue;
+    const inner = obj[k];
     return normalizePayload(typeof inner === "string" ? JSON.parse(inner) : inner);
   }
   if (Array.isArray(obj.events)) return obj;
+  if (typeof obj.events_json === "string" && obj.events_json.trim()) {
+    return normalizePayload({ events: JSON.parse(obj.events_json), age_now: obj.age_now });
+  }
   if (obj.item_key != null && (obj.r_then != null || obj.path_ar != null)) {
     return { events: [obj], age_now: obj.age_now };
   }
-  throw new Error("需含 events 数组，或 life_tree_payload_json");
+  throw new Error("需含 events 数组，或 life_tree_payload / life_tree_payload_json");
 }
 
-/** 从 CSV/杂文本里捞第一段可 parse 的 JSON（含 events） */
+/** RFC4180 简易 CSV 解析（支持引号内逗号与 "" 转义） */
+function parseCSV(text) {
+  const rows = [];
+  let row = [];
+  let cell = "";
+  let i = 0;
+  let inQ = false;
+  const s = String(text).replace(/^\uFEFF/, "");
+  while (i < s.length) {
+    const ch = s[i];
+    if (inQ) {
+      if (ch === '"') {
+        if (s[i + 1] === '"') { cell += '"'; i += 2; continue; }
+        inQ = false; i++; continue;
+      }
+      cell += ch; i++; continue;
+    }
+    if (ch === '"') { inQ = true; i++; continue; }
+    if (ch === ",") { row.push(cell); cell = ""; i++; continue; }
+    if (ch === "\n" || ch === "\r") {
+      if (ch === "\r" && s[i + 1] === "\n") i++;
+      row.push(cell); cell = "";
+      if (row.length > 1 || row[0] !== "") rows.push(row);
+      row = []; i++; continue;
+    }
+    cell += ch; i++;
+  }
+  row.push(cell);
+  if (row.length > 1 || row[0] !== "") rows.push(row);
+  return rows;
+}
+
+function tryParseJSONCell(raw) {
+  if (raw == null) return null;
+  let t = String(raw).trim();
+  if (!t || (t[0] !== "{" && t[0] !== "[")) return null;
+  try { return JSON.parse(t); } catch (e0) { /* continue */ }
+  // 偶发整格再包一层引号
+  if (t[0] === '"' && t[t.length - 1] === '"') {
+    try { return JSON.parse(JSON.parse(t)); } catch (e1) { /* ignore */ }
+  }
+  return null;
+}
+
+function scorePayloadObj(obj, ageHint, phase) {
+  if (!obj) return -1;
+  let events = null;
+  let age_now = ageHint;
+  if (Array.isArray(obj)) events = obj;
+  else if (Array.isArray(obj.events)) {
+    events = obj.events;
+    if (obj.age_now != null) age_now = obj.age_now;
+  } else return -1;
+  if (!events.length) return -1;
+  let pathN = 0;
+  events.forEach((ev) => {
+    if (Array.isArray(ev.path_ar) && ev.path_ar.length) pathN += ev.path_ar.length;
+  });
+  let phaseBonus = 0;
+  const ph = String(phase || "");
+  if (ph === "end" || ph.indexOf("act4") >= 0) phaseBonus = 40;
+  else if (ph.indexOf("act3") >= 0) phaseBonus = 30;
+  else if (ph.indexOf("act2") >= 0) phaseBonus = 20;
+  return events.length * 100 + pathN + phaseBonus + (age_now != null ? 1 : 0);
+}
+
+/**
+ * 从问卷星「单人」生命树 CSV / JSON 文本提取 payload。
+ * CSV 多为 jsPsych 多行（instr→act→end），优先取 life_tree_payload 最完整的一格。
+ */
 function extractPayloadFromText(text) {
   const t = String(text || "").trim();
   if (!t) throw new Error("空文件");
   try { return normalizePayload(JSON.parse(t)); } catch (e0) { /* fall through */ }
-  // 问卷星 CSV：单元格里可能是 escaped JSON
-  const candidates = [];
-  const re = /\{[\s\S]*?"events"\s*:\s*\[[\s\S]*?\][\s\S]*?\}/g;
-  let m;
-  while ((m = re.exec(t)) && candidates.length < 8) candidates.push(m[0]);
-  // 也试 life_tree_payload_json 字段值
-  const re2 = /"life_tree_payload_json"\s*:\s*"((?:\\.|[^"\\])*)"/;
-  const m2 = t.match(re2);
-  if (m2) {
+
+  let best = null;
+  let bestScore = -1;
+
+  function consider(raw, ageHint, phase) {
+    const obj = tryParseJSONCell(raw);
+    if (!obj) return;
+    const sc = scorePayloadObj(obj, ageHint, phase);
+    if (sc <= bestScore) return;
     try {
-      const unescaped = JSON.parse('"' + m2[1] + '"');
-      return normalizePayload(JSON.parse(unescaped));
-    } catch (e1) { /* ignore */ }
+      let norm;
+      if (Array.isArray(obj)) {
+        norm = { events: obj };
+        if (ageHint != null && ageHint !== "") norm.age_now = Number(ageHint);
+      } else {
+        norm = normalizePayload(obj);
+        if (norm.age_now == null && ageHint != null && ageHint !== "") {
+          norm.age_now = Number(ageHint);
+        }
+      }
+      if (!norm.events || !norm.events.length) return;
+      best = norm;
+      bestScore = sc;
+    } catch (e) { /* skip */ }
   }
-  for (let i = 0; i < candidates.length; i++) {
-    try { return normalizePayload(JSON.parse(candidates[i])); } catch (e2) { /* next */ }
+
+  // 1) 正规 CSV：按表头找 life_tree_payload / events_json
+  try {
+    const table = parseCSV(t);
+    if (table.length >= 2) {
+      const header = table[0].map((h) => String(h || "").trim());
+      const idx = {};
+      header.forEach((h, j) => { idx[h] = j; });
+      const colPayload = [
+        "life_tree_payload_json", "life_tree_payload",
+        "events_json", "events",
+      ].filter((k) => idx[k] != null);
+      const iAge = idx.age_now;
+      const iPhase = idx.phase != null ? idx.phase : idx.trial_type;
+      for (let r = 1; r < table.length; r++) {
+        const row = table[r];
+        const ageHint = iAge != null ? row[iAge] : null;
+        const phase = iPhase != null ? row[iPhase] : "";
+        colPayload.forEach((k) => consider(row[idx[k]], ageHint, phase));
+      }
+    }
+  } catch (eCsv) { /* fall through */ }
+
+  if (best) return best;
+
+  // 2) 退化：按引号块 / 长 JSON 片段再试
+  const quoted = [];
+  const reQ = /"((?:[^"]|"")*)"/g;
+  let mq;
+  while ((mq = reQ.exec(t)) && quoted.length < 80) {
+    const cell = mq[1].replace(/""/g, '"');
+    if (cell.length > 40) quoted.push(cell);
   }
-  // CSV 逐单元格：找最长的像 JSON 的字段
-  const cells = t.split(/[\n,]/).map((c) => c.replace(/^"|"$/g, "").replace(/""/g, '"'));
-  cells.sort((a, b) => b.length - a.length);
-  for (let i = 0; i < Math.min(cells.length, 40); i++) {
-    const c = cells[i];
-    if (c.length < 20 || c.indexOf("events") < 0) continue;
-    try { return normalizePayload(JSON.parse(c)); } catch (e3) { /* next */ }
+  quoted.sort((a, b) => b.length - a.length);
+  for (let i = 0; i < Math.min(quoted.length, 30); i++) {
+    consider(quoted[i], null, "");
   }
-  throw new Error("未找到可用的 events / life_tree_payload_json");
+  if (best) return best;
+
+  throw new Error("未找到可用的 events / life_tree_payload（请导入单人生命树 CSV，含 life_tree_payload 列）");
 }
+
+/** 0–25 岁四条典型：负 → 正 → 正 → 负；path_ar 由 then/mid/now 合成曲线 */
+function withSynthPath(ev, ageNow) {
+  const path_ar = synthPathAR(ev, ageNow);
+  return Object.assign({}, ev, { path_ar: path_ar, path_ar_n: path_ar.length });
+}
+const SAMPLE_FOUR = {
+  age_now: 25,
+  tool_version: "life-tree-3.5.0",
+  source_note: "典型演示（立体默认）：轨迹1负衰减 / 2正增长 / 3正淡出 / 4负加重",
+  n_trajectories: 4,
+  events: [
+    withSynthPath({
+      event_id: 1, item_key: "父母分居或离异", domain: "家庭状况", valence: -1,
+      age_start: 7, age_end: null, r_then: 0.88, r_now: 0.42, centrality: 0.85,
+      theta: -0.85 * Math.PI, obj_raw: 160, obj_w: 160 / 180,
+      where: "家里", who: "家人", why: "家里状况", how: "有人帮了我",
+      where_eco: 0.95, who_tie: 0.95, closeness: 0.8, control_w: 0.3, turn_w: 0.5,
+      ongoing: false, now_salience: 0.4, mid_kind: "有一次变弱", age_mid: 14, r_mid: 0.55,
+      is_focal_now: false, select_order: 1,
+    }, 25),
+    withSynthPath({
+      event_id: 2, item_key: "交到了很好的朋友", domain: "友谊 / 被接纳", valence: 1,
+      age_start: 12, age_end: null, r_then: 0.35, r_now: 0.82, centrality: 0.78,
+      theta: 0.78 * Math.PI, obj_raw: 125, obj_w: 125 / 180,
+      where: "学校", who: "朋友", why: "别人帮助", how: "一直保持到现在",
+      where_eco: 0.82, who_tie: 0.82, closeness: 0.88, control_w: 0.4, turn_w: 0.55,
+      ongoing: true, now_salience: 0.8, mid_kind: "没有", age_mid: null, r_mid: null,
+      is_focal_now: true, select_order: 2,
+    }, 25),
+    withSynthPath({
+      event_id: 3, item_key: "通过了一次重要的选拔或考试", domain: "学习 / 成就", valence: 1,
+      age_start: 18, age_end: 22, r_then: 0.8, r_now: 0.28, centrality: 0.4,
+      theta: 0.4 * Math.PI, obj_raw: 115, obj_w: 115 / 180,
+      where: "学校", who: "自己", why: "自己努力", how: "慢慢淡下去了",
+      where_eco: 0.82, who_tie: 0.2, closeness: null, control_w: 0.9, turn_w: 0.25,
+      ongoing: false, now_salience: 0.25, mid_kind: "没有", age_mid: null, r_mid: null,
+      is_focal_now: false, select_order: 3,
+    }, 25),
+    withSynthPath({
+      event_id: 4, item_key: "恋爱不顺利或失恋", domain: "恋爱 / 亲密关系", valence: -1,
+      age_start: 20, age_end: null, r_then: 0.52, r_now: 0.78, centrality: 0.72,
+      theta: -0.72 * Math.PI, obj_raw: 90, obj_w: 0.5,
+      where: "学校", who: "恋人", why: "别人行为", how: "后来变得更糟",
+      where_eco: 0.82, who_tie: 0.9, closeness: 0.7, control_w: 0.2, turn_w: 0.9,
+      ongoing: true, now_salience: 0.75, mid_kind: "有一次变强", age_mid: 22, r_mid: 0.7,
+      is_focal_now: true, select_order: 4,
+    }, 25),
+  ],
+};
 
 function applyPayload(payload) {
   const norm = normalizePayload(payload);
@@ -1835,13 +2399,37 @@ function applyPayload(payload) {
   renderPayload(norm);
 }
 
+document.getElementById("btn-four").onclick = () => { applyPayload(SAMPLE_FOUR); };
+document.getElementById("btn-view-2d").onclick = () => {
+  if (viewMode === "floor2d") return;
+  viewMode = "floor2d";
+  if (lastPayload) renderPayload(lastPayload);
+  else applyPayload(SAMPLE_FOUR);
+};
+document.getElementById("btn-view-3d").onclick = () => {
+  if (viewMode === "stereo") return;
+  viewMode = "stereo";
+  if (lastPayload) renderPayload(lastPayload);
+  else applyPayload(SAMPLE_FOUR);
+};
+document.getElementById("btn-reset-cam").onclick = () => {
+  applyCameraForView(lastTrunkH);
+};
+document.getElementById("btn-floor-toggle").onclick = () => {
+  showFloorProj = !showFloorProj;
+  if (floorProjGroup) floorProjGroup.visible = showFloorProj;
+  syncFloorToggleBtn();
+};
 document.getElementById("btn-sample").onclick = () => {
   applyPayload(SAMPLE);
 };
-document.getElementById("btn-sample-old").onclick = () => {
-  applyPayload(SAMPLE_OLD);
+document.getElementById("btn-clear").onclick = () => {
+  clearTree();
+  lastPayload = null;
+  const box = document.getElementById("event-chips");
+  if (box) box.innerHTML = "";
+  errEl.textContent = "";
 };
-document.getElementById("btn-clear").onclick = () => { clearTree(); errEl.textContent = ""; };
 document.getElementById("btn-render").onclick = () => {
   errEl.textContent = "";
   try {
@@ -1902,11 +2490,25 @@ host.addEventListener("pointerup", (e) => {
 
 function loop() {
   requestAnimationFrame(loop);
-  controls.update();
+  if (camAnim) {
+    const u = Math.min(1, (performance.now() - camAnim.t0) / camAnim.dur);
+    const e = easeInOut(u);
+    camera.position.lerpVectors(camAnim.fromPos, camAnim.toPos, e);
+    controls.target.lerpVectors(camAnim.fromTarget, camAnim.toTarget, e);
+    controls.update();
+    if (u >= 1) camAnim = null;
+  } else {
+    controls.update();
+  }
   renderer.render(scene, camera);
 }
 loop();
-document.getElementById("btn-sample").click();
+
+// CDN 挂了时给可见提示（模块 import 失败不会跑到这；作二次保险）
+if (!renderer || !renderer.domElement) {
+  errEl.textContent = "三维库加载失败，请检查网络后刷新（cdn.jsdelivr.net）";
+}
+document.getElementById("btn-four").click();
 </script>
 </body>
 </html>

@@ -23,7 +23,7 @@ main:
     url: '#outreach-matrix'
     weight: 50
   - name: Tools
-    url: '/tools/index.html'
+    url: '/tools/'
     weight: 55
   - name: Join
     url: '#training-recruitment'
@@ -37,6 +37,7 @@ main:
   - name: Apply
     url: 'https://hlab2023.wjx.cn/vm/rnTipUj.aspx'
     weight: 80
-  - name: Visitors
-    url: '#visitor-countries'
-    weight: 999
+  # Visitors map kept on homepage; omit from primary nav to reduce clutter
+  # - name: Visitors
+  #   url: '#visitor-countries'
+  #   weight: 999

@@ -1,0 +1,163 @@
+/* NRLab site chrome — shared by Hugo pages (via custom.scss mirror) and /tools/ */
+:root{
+  --nrlab-green:#3d7a5c;
+  --nrlab-deep-green:#1f4a36;
+  --nrlab-green-soft:#e6efe8;
+  --nrlab-purple:#6b4570;
+  --nrlab-deep-purple:#40293f;
+  --nrlab-purple-soft:#f0e7ee;
+  --nrlab-ink:#242320;
+  --nrlab-muted:#7a7266;
+  --nrlab-mist:#f4f4f0;
+  --nrlab-line:rgba(61,122,92,.16);
+  --nrlab-surface:#fff;
+  --nrlab-nav-h:58px;
+  --nrlab-font-sans:-apple-system,BlinkMacSystemFont,"Segoe UI","Noto Sans SC",sans-serif;
+  --nrlab-font-serif:ui-serif,Georgia,"Source Serif 4","Noto Serif SC",serif;
+}
+
+/* —— Top nav (Tools pages inject .nrlab-site-nav) —— */
+.nrlab-site-nav{
+  position:sticky; top:0; z-index:1040;
+  height:var(--nrlab-nav-h);
+  background:rgba(255,255,255,.94);
+  border-bottom:1px solid var(--nrlab-line);
+  box-shadow:0 8px 24px rgba(31,74,54,.06);
+  backdrop-filter:saturate(1.1) blur(10px);
+  font-family:var(--nrlab-font-sans);
+}
+.nrlab-site-nav-inner{
+  max-width:1140px; height:100%; margin:0 auto; padding:0 18px;
+  display:flex; align-items:center; justify-content:space-between; gap:12px;
+}
+.nrlab-site-brand{
+  display:inline-flex; align-items:center; gap:10px;
+  text-decoration:none; color:var(--nrlab-deep-green); font-weight:750; font-size:15px;
+  white-space:nowrap;
+}
+.nrlab-site-brand:hover{color:var(--nrlab-purple); text-decoration:none;}
+.nrlab-site-brand img{height:36px; width:auto; display:block;}
+.nrlab-site-brand .mark{
+  width:28px; height:28px; border-radius:7px; flex-shrink:0;
+  background:linear-gradient(135deg,var(--nrlab-green),var(--nrlab-purple));
+}
+.nrlab-site-links{
+  display:flex; align-items:center; gap:2px; flex-wrap:nowrap;
+  overflow-x:auto; -webkit-overflow-scrolling:touch; scrollbar-width:none;
+  margin:0; padding:0; list-style:none;
+}
+.nrlab-site-links::-webkit-scrollbar{display:none;}
+.nrlab-site-links a{
+  display:inline-block; padding:8px 11px; border-radius:6px;
+  color:var(--nrlab-deep-green); font-weight:650; font-size:13.5px;
+  text-decoration:none; white-space:nowrap;
+}
+.nrlab-site-links a:hover{
+  color:var(--nrlab-purple); background:var(--nrlab-purple-soft); text-decoration:none;
+}
+.nrlab-site-links a.is-active,
+.nrlab-site-links a[aria-current="page"]{
+  color:var(--nrlab-purple);
+  box-shadow:inset 0 -2px 0 var(--nrlab-purple);
+  border-radius:6px 6px 0 0;
+  background:transparent;
+}
+.nrlab-site-links a.is-cta{
+  margin-left:6px; background:var(--nrlab-green); color:#fff !important;
+  box-shadow:none; border-radius:6px;
+}
+.nrlab-site-links a.is-cta:hover{background:var(--nrlab-deep-green); color:#fff !important;}
+.nrlab-site-toggle{
+  display:none; border:1px solid var(--nrlab-line); background:var(--nrlab-mist);
+  border-radius:6px; padding:6px 10px; font-weight:700; color:var(--nrlab-deep-green); cursor:pointer;
+}
+@media (max-width:900px){
+  .nrlab-site-toggle{display:inline-flex;}
+  .nrlab-site-links{
+    display:none; position:absolute; left:0; right:0; top:var(--nrlab-nav-h);
+    flex-direction:column; align-items:stretch; background:#fff;
+    border-bottom:1px solid var(--nrlab-line); padding:8px 12px 12px;
+    box-shadow:0 12px 28px rgba(31,74,54,.1); max-height:70vh; overflow:auto;
+  }
+  .nrlab-site-nav.is-open .nrlab-site-links{display:flex;}
+  .nrlab-site-links a{padding:10px 12px;}
+  .nrlab-site-links a.is-active{box-shadow:inset 3px 0 0 var(--nrlab-purple); border-radius:6px;}
+  .nrlab-site-links a.is-cta{margin:8px 0 0;}
+}
+
+/* —— Page shell (Tools content) —— */
+.nrlab-page{
+  background:var(--nrlab-mist); color:var(--nrlab-ink);
+  font-family:var(--nrlab-font-sans); line-height:1.65; min-height:100vh;
+}
+.nrlab-page-main{
+  max-width:920px; margin:0 auto; padding:36px 20px 72px;
+}
+.nrlab-page-main.wide{max-width:1040px;}
+.nrlab-page-main.full{max-width:none; padding:0;}
+.nrlab-page h1{
+  font-family:var(--nrlab-font-serif); font-weight:650;
+  color:var(--nrlab-deep-green); font-size:clamp(1.6rem,3.2vw,2.1rem);
+  line-height:1.2; margin:0 0 10px;
+}
+.nrlab-page .eyebrow{
+  margin:0 0 8px; color:var(--nrlab-purple); font-size:.78rem; font-weight:700;
+  letter-spacing:.06em; text-transform:uppercase;
+  font-family:ui-monospace,"IBM Plex Mono",Menlo,monospace;
+}
+.nrlab-page-foot{
+  max-width:1140px; margin:0 auto; padding:0 18px 36px;
+  display:flex; justify-content:space-between; gap:12px; flex-wrap:wrap;
+  font-size:12.5px; color:var(--nrlab-muted);
+}
+.nrlab-page-foot a{color:var(--nrlab-muted);}
+
+/* —— Pagination (Hugo + Tools) —— */
+.pagination, nav[aria-label="pagination"] ul, .nrlab-pagination{
+  display:flex; flex-wrap:wrap; gap:6px; justify-content:center;
+  list-style:none; margin:2rem 0 0; padding:0;
+}
+.pagination .page-item .page-link,
+.nrlab-pagination a,
+.nrlab-pagination span{
+  display:inline-flex; align-items:center; justify-content:center;
+  min-width:2.4rem; min-height:2.4rem; padding:.35rem .7rem;
+  border:1px solid var(--nrlab-line); border-radius:6px;
+  background:#fff; color:var(--nrlab-deep-green); font-weight:650; font-size:13.5px;
+  text-decoration:none;
+}
+.pagination .page-item .page-link:hover,
+.nrlab-pagination a:hover{
+  border-color:var(--nrlab-purple); color:var(--nrlab-purple);
+  background:var(--nrlab-purple-soft); text-decoration:none;
+}
+.pagination .page-item.active .page-link,
+.nrlab-pagination [aria-current="page"],
+.nrlab-pagination .is-active{
+  background:var(--nrlab-green); border-color:var(--nrlab-green); color:#fff;
+}
+.pagination .page-item.disabled .page-link,
+.nrlab-pagination .is-disabled{
+  opacity:.45; pointer-events:none;
+}
+
+/* Tools sub-crumbs under main nav (sticky strip matching Hugo page chrome) */
+.nrlab-tools-crumb{
+  position:sticky; top:var(--nrlab-nav-h); z-index:1030;
+  margin:0; padding:0;
+  font-size:12.5px; color:var(--nrlab-muted);
+  background:rgba(244,244,240,.94);
+  border-bottom:1px solid var(--nrlab-line);
+  backdrop-filter:saturate(1.05) blur(8px);
+}
+.nrlab-tools-crumb-inner{
+  max-width:1140px; margin:0 auto; padding:8px 18px;
+  display:flex; gap:8px; flex-wrap:wrap; align-items:center;
+}
+.nrlab-tools-crumb a{
+  color:var(--nrlab-deep-green); font-weight:650; text-decoration:none;
+  padding:4px 10px; border-radius:999px; background:rgba(61,122,92,.08);
+}
+.nrlab-tools-crumb a:hover{color:var(--nrlab-purple); background:var(--nrlab-purple-soft);}
+.nrlab-tools-crumb a.is-on{background:var(--nrlab-purple-soft); color:var(--nrlab-purple);}
+.nrlab-tools-crumb .sep{opacity:.45;}

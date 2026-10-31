@@ -3,125 +3,124 @@
 <head>
 <meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>生命树 v3.5 · NRLab Tools</title>
-<meta name="description" content="生命树影响轨迹测量工具 v3.5：结构说明与三维结果查看器入口"/>
-<style>
-  :root{
-    --bg:#f6f5f2; --surface:#ffffff; --ink:#1b1a17; --ink-soft:#6b6558;
-    --line:#e2ddd2; --line-strong:#c9c2b3;
-    --accent:#6b4570; --accent-bg:#f0e7ee;
-    --neg:#2D8B4A; --pos:#7B2D8B;
-  }
-  @media (prefers-color-scheme: dark){
-    :root{
-      --bg:#15161a; --surface:#1c1e23; --ink:#eae7de; --ink-soft:#9b9686;
-      --line:#33353c; --line-strong:#484b54;
-      --accent:#dba8d4; --accent-bg:#3a2a38;
-    }
-  }
-  *{box-sizing:border-box;}
-  html,body{margin:0;padding:0;}
-  body{
-    background:var(--bg); color:var(--ink);
-    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
-    line-height:1.55;
-  }
-  .wrap{max-width:820px;margin:0 auto;padding:40px 20px 80px;}
-  .eyebrow{
-    font-family:ui-monospace,"SF Mono",Menlo,Consolas,monospace;
-    font-size:11.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-soft);
-    margin:0 0 8px;
-  }
-  h1{
-    font-family:ui-serif,Georgia,serif;font-weight:600;font-size:clamp(24px,4vw,32px);
-    margin:0 0 8px;text-wrap:balance;
-  }
-  .ver{
-    display:inline-block;font-family:ui-monospace,Menlo,Consolas,monospace;
-    font-size:11px;font-weight:700;letter-spacing:.04em;
-    color:var(--accent);background:var(--accent-bg);padding:2px 9px;border-radius:20px;
-    margin:0 0 14px;
-  }
-  .thesis{font-size:14.5px;color:var(--ink-soft);max-width:68ch;margin:0 0 28px;}
-  h2{font-size:16px;margin:28px 0 10px;}
-  p,li{font-size:14px;color:var(--ink);}
-  .muted{color:var(--ink-soft);font-size:13px;}
-  table{
-    width:100%;border-collapse:collapse;font-size:13px;margin:10px 0 18px;
-    background:var(--surface);border:1px solid var(--line);border-radius:10px;overflow:hidden;
-  }
-  th,td{border-bottom:1px solid var(--line);padding:8px 10px;text-align:left;vertical-align:top;}
-  th{background:var(--accent-bg);color:var(--ink);font-weight:600;}
-  tr:last-child td{border-bottom:0;}
-  code{font-family:ui-monospace,Menlo,Consolas,monospace;font-size:12px;}
-  .swatch{display:inline-block;width:10px;height:10px;border-radius:50%;margin-right:4px;vertical-align:-1px;}
-  .swatch.neg{background:var(--neg);}
-  .swatch.pos{background:var(--pos);}
-  .cta{
-    display:block;margin:28px 0 8px;padding:18px 20px;border-radius:12px;
-    background:var(--surface);border:1px solid var(--line);text-decoration:none;color:var(--ink);
-  }
-  .cta:hover{border-color:var(--accent);}
-  .cta strong{display:block;font-size:15px;margin-bottom:4px;}
-  .cta span{font-size:13px;color:var(--ink-soft);}
-  .back{font-size:13px;color:var(--ink-soft);text-decoration:none;}
-  .back:hover{color:var(--accent);}
-  ul{padding-left:1.2em;margin:8px 0 16px;}
-  li{margin:4px 0;}
-</style>
+<title>生命树 · 3D 结果查看与测量说明 · NRLab Tools</title>
+<meta name="description" content="生命树影响轨迹：三维结果查看器优先入口 + v3.5 测量结构说明。NRLab 公开工具。"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap"/>
+<link rel="stylesheet" href="/css/nrlab-site-chrome.css"/>
+<link rel="stylesheet" href="/tools/_shared.css"/>
 </head>
-<body>
-<div class="wrap">
-  <p><a class="back" href="/tools/">← Tools</a></p>
+<body class="nrlab-page">
+<div id="nrlab-site-nav" data-active="tools" data-tools-crumb="life-tree"></div>
+<script src="/js/nrlab-site-nav.js" defer></script>
+
+<div class="wrap nrlab-page-main">
   <p class="eyebrow">NRLab · Life Tree</p>
   <h1>生命树影响轨迹</h1>
-  <div class="ver">v3.5.0 · tool_version life-tree-3.5.0</div>
+  <div class="badge badge-3d">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 3v18M5 8l7-4 7 4M5 16l7 4 7-4M5 8l7 4 7-4"/></svg>
+    3D Visual Tool · v3.5
+  </div>
   <p class="thesis">
-    可嵌问卷星的手机端测量：勾选正/负人生事件 → 在树上画出「当时→现在」的影响轨迹 → 短标签补情境与结局。
-    测的是影响如何随时间变化，不只「有没有发生过」。
+    可嵌问卷星的手机端测量：勾选正/负人生事件 → 画出「当时→现在」影响轨迹 → 短标签补情境。
+    下方三维查看器用于导入单人 CSV / payload，本地渲染轨迹（数据不上传）。
   </p>
 
-  <h2>作答流程</h2>
-  <table>
-    <thead><tr><th>步</th><th>做什么</th><th>得到什么</th></tr></thead>
-    <tbody>
-      <tr><td>1</td><td>勾选不好的事 / 好事（可自填；尽量按早→晚）</td><td><code>item_key</code>、<code>valence</code>、<code>select_order</code>、预设 <code>obj_raw</code></td></tr>
-      <tr><td>2</td><td>按勾选顺序在树上画线（左绿不好 / 右紫好事）</td><td><code>age_*</code>、<code>r_then</code>→<code>r_now</code>、<code>path_ar</code>（有符号 r，≤32 点）</td></tr>
-      <tr><td>3</td><td>逐条答 Q1–Q6（人际再加 Q7）；拐点条件展开</td><td><code>where/who/why/how</code> 与映射码；<code>now_salience</code>、<code>centrality</code>…</td></tr>
-    </tbody>
-  </table>
-  <p class="muted">顺序契约：勾选顺序 = 画树顺序 = 填详情顺序（<code>select_order</code>）。绿 = 不好的事，紫 = 好事。</p>
+  <!-- 主角：三维工具入口放最前 -->
+  <section class="viz-hero" aria-labelledby="viz-hero-title">
+    <div class="viz-preview">
+      <span class="float-badge">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3v18M5 8l7-4 7 4M5 16l7 4 7-4M5 8l7 4 7-4"/></svg>
+        Interactive 3D
+      </span>
+      <!-- 示意：左负右正 · 竖年龄 · 底板投影 -->
+      <svg class="scene" viewBox="0 0 420 260" role="img" aria-label="生命树三维示意图：左侧不好的事、右侧好事、竖轴为年龄">
+        <defs>
+          <linearGradient id="gNeg" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stop-color="#2D8B4A"/><stop offset="100%" stop-color="#2D8B4A" stop-opacity=".2"/></linearGradient>
+          <linearGradient id="gPos" x1="1" y1="0" x2="0" y2="0"><stop offset="0%" stop-color="#7B2D8B"/><stop offset="100%" stop-color="#7B2D8B" stop-opacity=".2"/></linearGradient>
+        </defs>
+        <ellipse cx="210" cy="210" rx="150" ry="36" fill="#1a2030" stroke="#3a4558"/>
+        <path d="M210 210 L60 210 A150 36 0 0 1 210 174 Z" fill="url(#gNeg)" opacity=".55"/>
+        <path d="M210 210 L360 210 A150 36 0 0 0 210 174 Z" fill="url(#gPos)" opacity=".55"/>
+        <line x1="210" y1="40" x2="210" y2="210" stroke="#8a6d4b" stroke-width="8" stroke-linecap="round"/>
+        <path d="M210 170 C150 150 120 110 95 75" fill="none" stroke="#2D8B4A" stroke-width="5" stroke-linecap="round"/>
+        <circle cx="95" cy="75" r="6" fill="#2D8B4A"/>
+        <path d="M210 150 C260 140 300 100 330 70" fill="none" stroke="#7B2D8B" stroke-width="5" stroke-linecap="round"/>
+        <circle cx="330" cy="70" r="6" fill="#7B2D8B"/>
+        <path d="M210 190 C170 185 140 175 115 195" fill="none" stroke="#2D8B4A" stroke-width="3.5" opacity=".85"/>
+        <circle cx="115" cy="195" r="4" fill="#2D8B4A"/>
+        <path d="M210 185 C250 180 290 170 320 188" fill="none" stroke="#7B2D8B" stroke-width="3.5" opacity=".85"/>
+        <polygon points="318,186 328,188 320,196" fill="#7B2D8B"/>
+        <text x="70" y="248" fill="#8FCB9B" font-size="12" font-family="ui-monospace,monospace">左 · 不好</text>
+        <text x="300" y="248" fill="#C8A8D0" font-size="12" font-family="ui-monospace,monospace">右 · 好事</text>
+        <text x="218" y="52" fill="#F2C94C" font-size="11" font-family="ui-monospace,monospace">年龄 ↑</text>
+      </svg>
+    </div>
+    <div class="viz-copy">
+      <p class="badge badge-3d" style="align-self:flex-start">结果查看器</p>
+      <h2 id="viz-hero-title">三维轨迹可视化</h2>
+      <p>
+        默认立体 · θ=0°（左负右正）· 空中曲线 + 底板二维「圆+箭头」。
+        支持导入问卷星单人 CSV（含 <code>life_tree_payload</code>）。
+      </p>
+      <div class="viz-actions">
+        <a class="btn btn-primary" href="/tools/life-tree-viz">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M12 3v18M5 8l7-4 7 4M5 16l7 4 7-4M5 8l7 4 7-4"/></svg>
+          打开 3D 查看器
+        </a>
+        <a class="btn btn-ghost" href="#method">阅读测量说明</a>
+      </div>
+    </div>
+  </section>
 
-  <h2>客观 vs 主观</h2>
-  <table>
-    <thead><tr><th>层</th><th>来源</th><th>测什么</th><th>不测什么</th></tr></thead>
-    <tbody>
-      <tr><td>客观常模</td><td>清单 <code>obj_raw</code>（不可见）</td><td>研究侧严重度锚</td><td>被试感受</td></tr>
-      <tr><td>客观情境结局</td><td>Q1–Q4</td><td>情境 / 角色 / 归因 / 后来如何</td><td>影响大小、故事核心度</td></tr>
-      <tr><td>主观几何轨迹</td><td>画树</td><td>当时→现在影响与形状</td><td>解没解决（那是 Q4）</td></tr>
-      <tr><td>主观印象</td><td>Q5–Q7</td><td>现负荷、中心性、亲疏</td><td>中心性 ≠ 影响高低</td></tr>
-    </tbody>
-  </table>
+  <section id="method">
+    <h2>作答流程</h2>
+    <table>
+      <thead><tr><th>步</th><th>做什么</th><th>得到什么</th></tr></thead>
+      <tbody>
+        <tr><td>1</td><td>勾选不好的事 / 好事（可自填；尽量按早→晚）</td><td><code>item_key</code>、<code>valence</code>、<code>select_order</code></td></tr>
+        <tr><td>2</td><td>按勾选顺序在树上画线（左绿不好 / 右紫好事）</td><td><code>age_*</code>、<code>r_then</code>→<code>r_now</code>、<code>path_ar</code></td></tr>
+        <tr><td>3</td><td>逐条答 Q1–Q6（人际再加 Q7）；拐点条件展开</td><td>情境标签与映射码；<code>centrality</code>…</td></tr>
+      </tbody>
+    </table>
+    <p class="muted">顺序契约：勾选 = 画树 = 填详情（<code>select_order</code>）。绿 = 不好的事，紫 = 好事。</p>
 
-  <h2>v3.5 画线与 Q4</h2>
-  <ul>
-    <li><strong>起点锁归属侧</strong>：坏事只能从左边起笔，好事只能从右边起笔（标签是真归属）。</li>
-    <li><strong>可过中线</strong>：之后轨迹可跨树干（坏→好 / 好→坏）；<code>path_ar</code> 存有符号 r。</li>
-    <li><strong>过中线 → 硬写 Q4</strong>：负→正「后来变好了」；正→负「后来失去了」；并预填拐点岁。未过中线不默认「自己解决了」。</li>
-    <li><strong>禁打圈</strong>：年龄轴不可先高再往低折回（程序钳制）。</li>
-  </ul>
+    <h2>客观 vs 主观</h2>
+    <table>
+      <thead><tr><th>层</th><th>来源</th><th>测什么</th><th>不测什么</th></tr></thead>
+      <tbody>
+        <tr><td>客观常模</td><td>清单 <code>obj_raw</code></td><td>研究侧严重度锚</td><td>被试感受</td></tr>
+        <tr><td>客观情境结局</td><td>Q1–Q4</td><td>情境 / 角色 / 归因 / 后来如何</td><td>影响大小</td></tr>
+        <tr><td>主观几何轨迹</td><td>画树</td><td>当时→现在影响与形状</td><td>解没解决（Q4）</td></tr>
+        <tr><td>主观印象</td><td>Q5–Q7</td><td>现负荷、中心性、亲疏</td><td>中心性 ≠ 影响高低</td></tr>
+      </tbody>
+    </table>
 
-  <h2>三维查看器读什么</h2>
-  <p>
-    底板极坐标：<code>r</code> = 影响（远+粗=大），<code>θ</code> = 中心性（故事核心度，不是影响高低）；竖向 = 年龄。
-    点轨迹可读 Q 与转换字段（F0–F20）。数据在浏览器本地解析，不上传服务器。
-  </p>
+    <h2>v3.5 画线与 Q4</h2>
+    <ul>
+      <li><strong>起点锁归属侧</strong>：坏事只能从左边起笔，好事只能从右边起笔。</li>
+      <li><strong>可过中线</strong>：轨迹可跨树干；<code>path_ar</code> 存有符号 r。</li>
+      <li><strong>过中线 → 硬写 Q4</strong>：负→正「后来变好了」；正→负「后来失去了」。未过中线不默认「自己解决了」。</li>
+      <li><strong>禁打圈</strong>：年龄轴不可先高再往低折回。</li>
+    </ul>
 
-  <a class="cta" href="/tools/life-tree-viz">
-    <strong>打开三维结果查看器 →</strong>
-    <span>粘贴 / 导入 <code>life_tree_payload_json</code> 或 <code>{"events":[…]}</code>；含预试示例</span>
-  </a>
-  <p class="muted">交付包：<code>LT_wjx_embed_v3.5.zip</code> · 问卷星嵌入预试可另链课题组问卷。</p>
+    <h2>三维里怎么读</h2>
+    <p>
+      底板：<code>r</code>=影响（远=大），半区=效价；竖向=年龄；角度=<code>θ</code>中心性。
+      点轨迹开注释（Q 与 F0–F20）。浏览器本地解析。
+    </p>
+
+    <div class="viz-actions" style="margin-top:20px">
+      <a class="btn btn-primary" href="/tools/life-tree-viz">再次打开 3D 查看器</a>
+      <a class="btn btn-ghost" href="/tools/">← 全部 Tools</a>
+    </div>
+    <p class="muted" style="margin-top:14px">交付包：<code>LT_wjx_embed_v3.5.zip</code> · 问卷星嵌入预试另链课题组问卷。</p>
+  </section>
 </div>
+
+<footer class="nrlab-page-foot site-foot">
+  <span>© NRLab · Neuromodulation Research Lab</span>
+  <span><a href="/">zhenghui.fun</a> · <a href="/tools/">Tools</a></span>
+</footer>
 </body>
 </html>
