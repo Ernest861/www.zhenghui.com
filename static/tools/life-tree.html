@@ -33,35 +33,69 @@
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3v18M5 8l7-4 7 4M5 16l7 4 7-4M5 8l7 4 7-4"/></svg>
         Interactive 3D
       </span>
-      <!-- 示意：左负右正 · 竖年龄 · 底板投影 -->
-      <svg class="scene" viewBox="0 0 420 260" role="img" aria-label="生命树三维示意图：左侧不好的事、右侧好事、竖轴为年龄">
+      <!-- 示意：福祸穿轴 · 近大远小 · 年龄段不同内容 -->
+      <svg class="scene" viewBox="0 0 440 300" role="img" aria-label="生命树示意图：近端拉长、可穿树干福祸转换、不同年龄段事件不同">
         <defs>
-          <linearGradient id="gNeg" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stop-color="#2D8B4A"/><stop offset="100%" stop-color="#2D8B4A" stop-opacity=".2"/></linearGradient>
-          <linearGradient id="gPos" x1="1" y1="0" x2="0" y2="0"><stop offset="0%" stop-color="#7B2D8B"/><stop offset="100%" stop-color="#7B2D8B" stop-opacity=".2"/></linearGradient>
+          <linearGradient id="gNeg" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stop-color="#2D8B4A"/><stop offset="100%" stop-color="#2D8B4A" stop-opacity=".18"/></linearGradient>
+          <linearGradient id="gPos" x1="1" y1="0" x2="0" y2="0"><stop offset="0%" stop-color="#7B2D8B"/><stop offset="100%" stop-color="#7B2D8B" stop-opacity=".18"/></linearGradient>
+          <linearGradient id="gCross" x1="0" y1="0" x2="1" y2="0">
+            <stop offset="0%" stop-color="#2D8B4A"/><stop offset="48%" stop-color="#2D8B4A"/><stop offset="52%" stop-color="#7B2D8B"/><stop offset="100%" stop-color="#7B2D8B"/>
+          </linearGradient>
+          <pattern id="nearHatch" width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(28)">
+            <line x1="0" y1="0" x2="0" y2="6" stroke="#F2C94C" stroke-width="1.2" opacity=".35"/>
+          </pattern>
         </defs>
-        <ellipse cx="210" cy="210" rx="150" ry="36" fill="#1a2030" stroke="#3a4558"/>
-        <path d="M210 210 L60 210 A150 36 0 0 1 210 174 Z" fill="url(#gNeg)" opacity=".55"/>
-        <path d="M210 210 L360 210 A150 36 0 0 0 210 174 Z" fill="url(#gPos)" opacity=".55"/>
-        <line x1="210" y1="40" x2="210" y2="210" stroke="#8a6d4b" stroke-width="8" stroke-linecap="round"/>
-        <path d="M210 170 C150 150 120 110 95 75" fill="none" stroke="#2D8B4A" stroke-width="5" stroke-linecap="round"/>
-        <circle cx="95" cy="75" r="6" fill="#2D8B4A"/>
-        <path d="M210 150 C260 140 300 100 330 70" fill="none" stroke="#7B2D8B" stroke-width="5" stroke-linecap="round"/>
-        <circle cx="330" cy="70" r="6" fill="#7B2D8B"/>
-        <path d="M210 190 C170 185 140 175 115 195" fill="none" stroke="#2D8B4A" stroke-width="3.5" opacity=".85"/>
-        <circle cx="115" cy="195" r="4" fill="#2D8B4A"/>
-        <path d="M210 185 C250 180 290 170 320 188" fill="none" stroke="#7B2D8B" stroke-width="3.5" opacity=".85"/>
-        <polygon points="318,186 328,188 320,196" fill="#7B2D8B"/>
-        <text x="70" y="248" fill="#8FCB9B" font-size="12" font-family="ui-monospace,monospace">左 · 不好</text>
-        <text x="300" y="248" fill="#C8A8D0" font-size="12" font-family="ui-monospace,monospace">右 · 好事</text>
-        <text x="218" y="52" fill="#F2C94C" font-size="11" font-family="ui-monospace,monospace">年龄 ↑</text>
+        <!-- 底板 -->
+        <ellipse cx="210" cy="262" rx="158" ry="30" fill="#12161e" stroke="#3a4558"/>
+        <path d="M210 262 L55 262 A158 30 0 0 1 210 232 Z" fill="url(#gNeg)" opacity=".55"/>
+        <path d="M210 262 L365 262 A158 30 0 0 0 210 232 Z" fill="url(#gPos)" opacity=".55"/>
+        <!-- 年龄轴：近端（上）拉长 -->
+        <line x1="210" y1="28" x2="210" y2="248" stroke="#8a6d4b" stroke-width="7" stroke-linecap="round"/>
+        <rect x="168" y="28" width="84" height="52" rx="6" fill="url(#nearHatch)" opacity=".9"/>
+        <line x1="168" y1="80" x2="252" y2="80" stroke="#F2C94C" stroke-width="1" stroke-dasharray="3 3" opacity=".7"/>
+        <text x="258" y="48" fill="#F2C94C" font-size="10" font-family="ui-monospace,monospace" font-weight="700">近3月 · 拉长</text>
+        <text x="258" y="62" fill="#9aa3b2" font-size="9" font-family="ui-monospace,monospace">近大</text>
+        <!-- 年龄段标签（内容随阶段变） -->
+        <text x="18" y="58" fill="#c8d0dc" font-size="10" font-family="ui-monospace,monospace">现在</text>
+        <text x="18" y="118" fill="#9aa3b2" font-size="10" font-family="ui-monospace,monospace">求学</text>
+        <text x="18" y="168" fill="#9aa3b2" font-size="10" font-family="ui-monospace,monospace">工作·养育</text>
+        <text x="18" y="218" fill="#9aa3b2" font-size="10" font-family="ui-monospace,monospace">照护·老年</text>
+        <text x="18" y="246" fill="#6b7380" font-size="9" font-family="ui-monospace,monospace">更早 · 远小</text>
+        <!-- ① 福祸转换：坏事中→穿干→好事小（近端粗） -->
+        <path d="M152 118 C140 100 128 78 118 58 C150 52 248 46 268 54 C278 62 272 72 258 78"
+              fill="none" stroke="url(#gCross)" stroke-width="6.5" stroke-linecap="round" stroke-linejoin="round"/>
+        <circle cx="152" cy="118" r="5.5" fill="#2D8B4A" stroke="#e8e6e3" stroke-width="1"/>
+        <circle cx="210" cy="72" r="3.5" fill="#8a6d4b" stroke="#F2C94C" stroke-width="1.2"/>
+        <circle cx="258" cy="78" r="7" fill="#7B2D8B" stroke="#e8e6e3" stroke-width="1"/>
+        <text x="98" y="132" fill="#8FCB9B" font-size="9" font-family="ui-monospace,monospace">失恋·中</text>
+        <text x="272" y="82" fill="#C8A8D0" font-size="9" font-family="ui-monospace,monospace">被陪着·小</text>
+        <text x="300" y="108" fill="#F2C94C" font-size="10" font-family="ui-monospace,monospace" font-weight="700">福祸转换</text>
+        <path d="M295 100 L220 78" fill="none" stroke="#F2C94C" stroke-width="1" opacity=".65"/>
+        <!-- ② 求学段：考试失败（远一些、细一些） -->
+        <path d="M210 155 C170 148 145 138 128 128" fill="none" stroke="#2D8B4A" stroke-width="3.2" stroke-linecap="round" opacity=".9"/>
+        <circle cx="128" cy="128" r="4" fill="#2D8B4A"/>
+        <text x="88" y="126" fill="#8FCB9B" font-size="9" font-family="ui-monospace,monospace">考试</text>
+        <!-- ③ 工作段：找到工作（中等粗） -->
+        <path d="M210 175 C250 168 285 158 312 148" fill="none" stroke="#7B2D8B" stroke-width="4" stroke-linecap="round"/>
+        <circle cx="312" cy="148" r="5" fill="#7B2D8B"/>
+        <text x="318" y="146" fill="#C8A8D0" font-size="9" font-family="ui-monospace,monospace">求职</text>
+        <!-- ④ 照护段：父母失能（更远、更细） -->
+        <path d="M210 215 C168 210 140 205 118 210" fill="none" stroke="#2D8B4A" stroke-width="2.2" stroke-linecap="round" opacity=".85"/>
+        <circle cx="118" cy="210" r="3.2" fill="#2D8B4A"/>
+        <text x="72" y="224" fill="#8FCB9B" font-size="9" font-family="ui-monospace,monospace">照护父母</text>
+        <!-- 图例 -->
+        <text x="55" y="288" fill="#8FCB9B" font-size="11" font-family="ui-monospace,monospace">左 · 不好</text>
+        <text x="300" y="288" fill="#C8A8D0" font-size="11" font-family="ui-monospace,monospace">右 · 好事</text>
+        <text x="178" y="24" fill="#F2C94C" font-size="10" font-family="ui-monospace,monospace">现在 ↑</text>
       </svg>
     </div>
     <div class="viz-copy">
       <p class="badge badge-3d" style="align-self:flex-start">结果查看器</p>
       <h2 id="viz-hero-title">三维轨迹可视化</h2>
       <p>
-        默认立体 · θ=0°（左负右正）· 空中曲线 + 底板二维「圆+箭头」。
-        支持导入问卷星单人 CSV（含 <code>life_tree_payload</code>）。
+        示意三点：轨迹可<strong>穿树干做福祸转换</strong>；时间轴<strong>近端拉长、远端压缩</strong>（近大远小）；
+        <strong>不同年龄段</strong>出现的事件不同（求学 / 工作·养育 / 照护·老年）。
+        导入问卷星单人 CSV（含 <code>life_tree_payload</code>）可本地回看。
       </p>
       <div class="viz-actions">
         <a class="btn btn-primary" href="/tools/life-tree-viz">
