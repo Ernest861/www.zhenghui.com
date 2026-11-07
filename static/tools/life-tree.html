@@ -4,7 +4,7 @@
 <meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
 <title>生命树 · 3D 结果查看与测量说明 · NRLab Tools</title>
-<meta name="description" content="生命树影响轨迹：三维结果查看器优先入口 + v3.5 测量结构说明。NRLab 公开工具。"/>
+<meta name="description" content="生命树影响轨迹：三维结果查看器 + v3.9.13 测量结构说明。NRLab 公开工具。"/>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap"/>
 <link rel="stylesheet" href="/css/nrlab-site-chrome.css"/>
@@ -19,11 +19,11 @@
   <h1>生命树影响轨迹</h1>
   <div class="badge badge-3d">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 3v18M5 8l7-4 7 4M5 16l7 4 7-4M5 8l7 4 7-4"/></svg>
-    3D Visual Tool · v3.5
+    Measurement · v3.9.13
   </div>
   <p class="thesis">
-    可嵌问卷星的手机端测量：勾选正/负人生事件 → 画出「当时→现在」影响轨迹 → 短标签补情境。
-    下方三维查看器用于导入单人 CSV / payload，本地渲染轨迹（数据不上传）。
+    可嵌问卷星的手机端测量：拖年龄 → 练习 → 勾选正/负人生事件 → 画出「当时→现在」影响轨迹 → 短标签补情境。
+    当前交付 <code>life-tree-3.9.13</code>。下方三维查看器用于导入单人 CSV / payload，本地渲染轨迹（数据不上传）。
   </p>
 
   <!-- 主角：三维工具入口放最前 -->
@@ -74,16 +74,17 @@
   </section>
 
   <section id="method">
-    <h2>作答流程</h2>
+    <h2>作答流程（v3.9.13）</h2>
     <table>
       <thead><tr><th>步</th><th>做什么</th><th>得到什么</th></tr></thead>
       <tbody>
-        <tr><td>1</td><td>勾选不好的事 / 好事（可自填；尽量按早→晚）</td><td><code>item_key</code>、<code>valence</code>、<code>select_order</code></td></tr>
-        <tr><td>2</td><td>按勾选顺序在树上画线（左绿不好 / 右紫好事）</td><td><code>age_*</code>、<code>r_then</code>→<code>r_now</code>、<code>path_ar</code></td></tr>
+        <tr><td>0</td><td>拖年龄滑竿（12.0–90.0；须拖过才能开始）→ 失恋例子练习（一条弧）</td><td><code>age_now</code>；练习通过</td></tr>
+        <tr><td>1</td><td>勾选不好的事 / 好事（按年龄显隐；可自填；尽量按早→晚）</td><td><code>item_key</code>、<code>valence</code>、<code>select_order</code></td></tr>
+        <tr><td>2</td><td>按勾选顺序在树上画线（左绿不好 / 右紫好事）</td><td><code>age_*</code>、<code>r_then</code>→<code>r_now</code>（幅度 0–5）、有符号 <code>path_ar</code></td></tr>
         <tr><td>3</td><td>逐条答 Q1–Q6（人际再加 Q7）；拐点条件展开</td><td>情境标签与映射码；<code>centrality</code>…</td></tr>
       </tbody>
     </table>
-    <p class="muted">顺序契约：勾选 = 画树 = 填详情（<code>select_order</code>）。绿 = 不好的事，紫 = 好事。</p>
+    <p class="muted">顺序契约：勾选 = 画树 = 填详情（<code>select_order</code>）。绿 = 不好的事，紫 = 好事。清单共坏事 49 + 好事 36；未到的年龄段不出现，23 岁起「学习」折进「学生时期」。</p>
 
     <h2>客观 vs 主观</h2>
     <table>
@@ -96,25 +97,27 @@
       </tbody>
     </table>
 
-    <h2>v3.5 画线与 Q4</h2>
+    <h2>v3.9.13 画线与规则</h2>
     <ul>
-      <li><strong>起点锁归属侧</strong>：坏事只能从左边起笔，好事只能从右边起笔。</li>
-      <li><strong>可过中线</strong>：轨迹可跨树干；<code>path_ar</code> 存有符号 r。</li>
-      <li><strong>过中线 → 硬写 Q4</strong>：负→正「后来变好了」；正→负「后来失去了」。未过中线不默认「自己解决了」。</li>
-      <li><strong>禁打圈</strong>：年龄轴不可先高再往低折回。</li>
+      <li><strong>影响量</strong>：树干 0 · 小 1 · 中 2 · 大 4 · 外缘可至 5。<code>r_then</code>/<code>r_now</code> 存无符号幅度；<code>path_ar</code> 的 r 带符号（左负右正）。</li>
+      <li><strong>起点锁归属侧</strong>：坏事只能从左边起笔，好事只能从右边起笔；树干 0 可作起/终点。</li>
+      <li><strong>可过中线</strong>：轨迹可跨树干；松手后确认「性质是否变了」——是才硬写 Q4；否＝本笔重画。未过中线不默认「自己解决了」。</li>
+      <li><strong>禁打圈</strong>：年龄轴不可先高再往低折回（年龄非降，精度 0.01 岁）。</li>
+      <li><strong>电脑手势</strong>：滚轮只移动画面；按住只画线，画面不动。练习与正式第二幕共用同一根轴。</li>
     </ul>
 
     <h2>三维里怎么读</h2>
     <p>
       底板：<code>r</code>=影响（远=大），半区=效价；竖向=年龄；角度=<code>θ</code>中心性。
       点轨迹开注释（Q 与 F0–F20）。浏览器本地解析。
+      注意：3.9 起作答幅度为 0–5；旧共创导出（3.6–3.7）的 <code>r_now</code> 多为 0–1，导入时勿混用标尺。
     </p>
 
     <div class="viz-actions" style="margin-top:20px">
       <a class="btn btn-primary" href="/tools/life-tree-viz">再次打开 3D 查看器</a>
       <a class="btn btn-ghost" href="/tools/">← 全部 Tools</a>
     </div>
-    <p class="muted" style="margin-top:14px">交付包：<code>LT_wjx_embed_v3.5.zip</code> · 问卷星嵌入预试另链课题组问卷。</p>
+    <p class="muted" style="margin-top:14px">当前交付包：<code>LT_wjx_embed_v3.9.13.zip</code>（<code>tool_version: life-tree-3.9.13</code>）· 问卷星嵌入另链课题组问卷。</p>
   </section>
 </div>
 
