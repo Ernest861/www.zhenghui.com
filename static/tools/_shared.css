@@ -15,7 +15,7 @@
 }
 @media (prefers-color-scheme: dark){
   :root{
-    --bg:#161914; --bg-warm:#1a1814; --surface:#242019; --ink:#f0ece4; --ink-soft:#c2b7a4;
+    --bg:#161914; --bg-warm:#1a1814; --surface:#242019; --ink:#f3efe7; --ink-soft:#d8d0c2;
     --line:rgba(143,207,160,.18); --line-strong:#484b54;
     --green:#8fcfa0; --deep-green:#b7e0c4; --green-soft:#233024;
     --purple:#dba8d4; --deep-purple:#e8c5e2; --purple-soft:#2f2430;
@@ -87,7 +87,7 @@ h1{
   font-size:clamp(1.65rem,3.5vw,2.15rem); line-height:1.2;
   margin:0 0 10px; color:var(--deep-green); text-wrap:balance;
 }
-.thesis{font-size:15px; color:var(--ink-soft); max-width:62ch; margin:0 0 28px;}
+.thesis{font-size:15px; color:var(--ink); max-width:62ch; margin:0 0 28px; opacity:.92;}
 .badge{
   display:inline-flex; align-items:center; gap:6px;
   font-family:var(--font-mono); font-size:11px; font-weight:700;
