@@ -8,22 +8,54 @@
   --nrlab-purple-soft:#f0e7ee;
   --nrlab-ink:#242320;
   --nrlab-muted:#7a7266;
-  --nrlab-mist:#f4f4f0;
+  --nrlab-mist:#f3f5f2;
+  --nrlab-mist-warm:#f8f6f3;
+  --nrlab-orb-neg:rgba(45,139,74,.13);
+  --nrlab-orb-pos:rgba(123,45,139,.11);
   --nrlab-line:rgba(61,122,92,.16);
   --nrlab-surface:#fff;
   --nrlab-nav-h:58px;
   --nrlab-font-sans:-apple-system,BlinkMacSystemFont,"Segoe UI","Noto Sans SC",sans-serif;
   --nrlab-font-serif:ui-serif,Georgia,"Source Serif 4","Noto Serif SC",serif;
+  --nrlab-nav-bg:rgba(255,255,255,.78);
+  --nrlab-panel:#fff;
+  --nrlab-mist-end:#eef1ee;
+  --nrlab-veil:rgba(255,255,255,.48);
+  --nrlab-crumb-bg:rgba(243,245,242,.78);
+}
+@media (prefers-color-scheme: dark){
+  :root{
+    --nrlab-green:#8fcfa0;
+    --nrlab-deep-green:#b7e0c4;
+    --nrlab-green-soft:#233024;
+    --nrlab-purple:#dba8d4;
+    --nrlab-deep-purple:#e8c5e2;
+    --nrlab-purple-soft:#2f2430;
+    --nrlab-ink:#f0ece4;
+    --nrlab-muted:#b9ae9a;
+    --nrlab-mist:#161914;
+    --nrlab-mist-warm:#1a1814;
+    --nrlab-orb-neg:rgba(45,139,74,.18);
+    --nrlab-orb-pos:rgba(123,45,139,.16);
+    --nrlab-line:rgba(143,207,160,.18);
+    --nrlab-surface:#242019;
+    --nrlab-nav-bg:rgba(22,25,20,.88);
+    --nrlab-panel:#242019;
+    --nrlab-mist-end:#121510;
+    --nrlab-veil:rgba(255,255,255,.06);
+    --nrlab-crumb-bg:rgba(22,25,20,.88);
+  }
 }
 
 /* —— Top nav (Tools pages inject .nrlab-site-nav) —— */
 .nrlab-site-nav{
   position:sticky; top:0; z-index:1040;
   height:var(--nrlab-nav-h);
-  background:rgba(255,255,255,.94);
+  background:var(--nrlab-nav-bg);
   border-bottom:1px solid var(--nrlab-line);
   box-shadow:0 8px 24px rgba(31,74,54,.06);
-  backdrop-filter:saturate(1.1) blur(10px);
+  backdrop-filter:saturate(1.2) blur(14px);
+  -webkit-backdrop-filter:saturate(1.2) blur(14px);
   font-family:var(--nrlab-font-sans);
 }
 .nrlab-site-nav-inner{
@@ -75,7 +107,7 @@
   .nrlab-site-toggle{display:inline-flex;}
   .nrlab-site-links{
     display:none; position:absolute; left:0; right:0; top:var(--nrlab-nav-h);
-    flex-direction:column; align-items:stretch; background:#fff;
+    flex-direction:column; align-items:stretch; background:var(--nrlab-panel);
     border-bottom:1px solid var(--nrlab-line); padding:8px 12px 12px;
     box-shadow:0 12px 28px rgba(31,74,54,.1); max-height:70vh; overflow:auto;
   }
@@ -85,12 +117,38 @@
   .nrlab-site-links a.is-cta{margin:8px 0 0;}
 }
 
-/* —— Page shell (Tools content) —— */
+/* —— Page shell (Tools content · 宣纸北光) —— */
 .nrlab-page{
-  background:var(--nrlab-mist); color:var(--nrlab-ink);
+  color:var(--nrlab-ink);
   font-family:var(--nrlab-font-sans); line-height:1.65; min-height:100vh;
+  position:relative;
+  background-color:var(--nrlab-mist);
+  background-image:
+    radial-gradient(110% 70% at 8% 92%, var(--nrlab-orb-neg), transparent 55%),
+    radial-gradient(90% 60% at 94% 6%, var(--nrlab-orb-pos), transparent 50%),
+    radial-gradient(60% 40% at 50% 40%, var(--nrlab-veil), transparent 70%),
+    linear-gradient(168deg, var(--nrlab-mist-warm) 0%, var(--nrlab-mist) 45%, var(--nrlab-mist-end) 100%);
+  background-attachment:fixed;
+}
+.nrlab-page::before{
+  content:""; position:fixed; inset:0; pointer-events:none; z-index:0;
+  opacity:.48;
+  background-image:radial-gradient(circle at 1px 1px, rgba(18,24,22,.03) 1px, transparent 0);
+  background-size:3px 3px; mix-blend-mode:multiply;
+}
+@media (prefers-color-scheme: dark){
+  .nrlab-page::before{
+    mix-blend-mode:soft-light; opacity:.32;
+    background-image:radial-gradient(circle at 1px 1px, rgba(240,236,228,.05) 1px, transparent 0);
+  }
+  .nrlab-site-links a.is-cta{color:#161914 !important;}
+  .nrlab-site-links a.is-cta:hover{color:#161914 !important;}
+  .pagination .page-item.active .page-link,
+  .nrlab-pagination [aria-current="page"],
+  .nrlab-pagination .is-active{color:#161914;}
 }
 .nrlab-page-main{
+  position:relative; z-index:1;
   max-width:920px; margin:0 auto; padding:36px 20px 72px;
 }
 .nrlab-page-main.wide{max-width:1040px;}
@@ -123,7 +181,7 @@
   display:inline-flex; align-items:center; justify-content:center;
   min-width:2.4rem; min-height:2.4rem; padding:.35rem .7rem;
   border:1px solid var(--nrlab-line); border-radius:6px;
-  background:#fff; color:var(--nrlab-deep-green); font-weight:650; font-size:13.5px;
+  background:var(--nrlab-panel); color:var(--nrlab-deep-green); font-weight:650; font-size:13.5px;
   text-decoration:none;
 }
 .pagination .page-item .page-link:hover,
@@ -146,9 +204,10 @@
   position:sticky; top:var(--nrlab-nav-h); z-index:1030;
   margin:0; padding:0;
   font-size:12.5px; color:var(--nrlab-muted);
-  background:rgba(244,244,240,.94);
+  background:var(--nrlab-crumb-bg);
   border-bottom:1px solid var(--nrlab-line);
-  backdrop-filter:saturate(1.05) blur(8px);
+  backdrop-filter:saturate(1.15) blur(12px);
+  -webkit-backdrop-filter:saturate(1.15) blur(12px);
 }
 .nrlab-tools-crumb-inner{
   max-width:1140px; margin:0 auto; padding:8px 18px;
